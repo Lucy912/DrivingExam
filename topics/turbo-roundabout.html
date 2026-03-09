@@ -1,0 +1,378 @@
+<div class="topic-detail">
+    <h1>🌀 涡轮环岛（Turborotonde）</h1>
+
+    <div class="intro">
+        <p><strong>什么是涡轮环岛：</strong>涡轮环岛是荷兰特有的一种高效环岛设计。车道之间有物理隔离带，进入后<strong>无法变道</strong>。必须在进入前选择正确车道！</p>
+    </div>
+
+    <!-- 与标准环岛对比 -->
+    <div class="comparison">
+        <h2>涡轮环岛 vs 标准环岛</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>特点</th>
+                    <th>标准环岛</th>
+                    <th>涡轮环岛</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>车道变换</td>
+                    <td class="neutral">可以在环岛内变道</td>
+                    <td class="highlight">有物理隔离，无法变道</td>
+                </tr>
+                <tr>
+                    <td>车道选择时机</td>
+                    <td class="neutral">可在进入后调整</td>
+                    <td class="highlight">必须进入前选好</td>
+                </tr>
+                <tr>
+                    <td>交通效率</td>
+                    <td class="neutral">中等</td>
+                    <td class="recommended">更高效</td>
+                </tr>
+                <tr>
+                    <td>事故风险</td>
+                    <td class="neutral">侧面碰撞风险</td>
+                    <td class="recommended">大幅降低</td>
+                </tr>
+                <tr>
+                    <td>需要技能</td>
+                    <td class="neutral">基本观察能力</td>
+                    <td class="highlight">提前规划能力</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 涡轮环岛结构图 -->
+    <div class="diagram-section">
+        <h2>涡轮环岛结构</h2>
+        <div class="diagram-container">
+            <svg viewBox="0 0 450 450" class="turbo-roundabout-diagram">
+                <!-- 外圆 -->
+                <circle cx="225" cy="225" r="180" fill="#e8e8e8" stroke="#666" stroke-width="2"/>
+                <!-- 中心岛 -->
+                <circle cx="225" cy="225" r="50" fill="#90EE90" stroke="#228B22" stroke-width="3"/>
+
+                <!-- 螺旋形车道分隔线 - 简化表示 -->
+                <!-- 外圈 -->
+                <circle cx="225" cy="225" r="140" fill="none" stroke="#FFD700" stroke-width="6" stroke-dasharray="none"/>
+                <!-- 内圈 -->
+                <circle cx="225" cy="225" r="95" fill="none" stroke="#FFD700" stroke-width="6"/>
+
+                <!-- 进入道路标记 -->
+                <!-- 下方入口 -->
+                <rect x="195" y="405" width="25" height="50" fill="#a8d5a8" stroke="#666"/>
+                <rect x="230" y="405" width="25" height="50" fill="#a8d5a8" stroke="#666"/>
+                <text x="207" y="440" font-size="10" fill="#333">内</text>
+                <text x="242" y="440" font-size="10" fill="#333">外</text>
+
+                <!-- 右侧出口 -->
+                <rect x="405" y="195" width="50" height="25" fill="#ffcccb"/>
+                <rect x="405" y="230" width="50" height="25" fill="#ffcccb"/>
+
+                <!-- 上方出口 -->
+                <rect x="195" y="-5" width="25" height="50" fill="#ffcccb"/>
+                <rect x="230" y="-5" width="25" height="50" fill="#ffcccb"/>
+
+                <!-- 左侧出口 -->
+                <rect x="-5" y="195" width="50" height="25" fill="#ffcccb"/>
+                <rect x="-5" y="230" width="50" height="25" fill="#ffcccb"/>
+
+                <!-- 车道标记箭头 -->
+                <!-- 外侧车道 - 右转 -->
+                <path d="M 243 380 Q 300 300 350 225" fill="none" stroke="#2196F3" stroke-width="3" marker-end="url(#turboArrow)"/>
+
+                <!-- 内侧车道 - 直行/左转 -->
+                <path d="M 207 380 Q 180 300 160 225 Q 160 150 225 100" fill="none" stroke="#4CAF50" stroke-width="3" marker-end="url(#turboArrow)"/>
+
+                <defs>
+                    <marker id="turboArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+                    </marker>
+                </defs>
+
+                <!-- 物理隔离带标记 -->
+                <text x="120" y="320" font-size="10" fill="#e74c3c" font-weight="bold">物理隔离</text>
+                <line x1="145" y1="325" x2="165" y2="290" stroke="#e74c3c" stroke-width="2"/>
+
+                <!-- 标签 -->
+                <text x="225" y="230" text-anchor="middle" fill="#228B22" font-weight="bold" font-size="11">中心岛</text>
+            </svg>
+        </div>
+        <div class="diagram-explanation">
+            <p><strong>关键特征：</strong></p>
+            <ul>
+                <li><strong>黄色线条：</strong>物理隔离带（凸起的路缘石）</li>
+                <li><strong>蓝色路线：</strong>外侧车道 → 第一出口（右转）</li>
+                <li><strong>绿色路线：</strong>内侧车道 → 直行或左转</li>
+                <li>一旦进入，车道固定，无法变换！</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 车道选择规则 -->
+    <div class="method-section highlight-section">
+        <h2>车道选择规则（最重要！）</h2>
+
+        <div class="comparison">
+            <h3>右转（第一出口）→ 外侧车道</h3>
+            <div class="lane-guide">
+                <div class="lane-box outer">
+                    <span class="lane-label">外侧车道</span>
+                    <span class="direction">→ 右转</span>
+                </div>
+            </div>
+            <ul>
+                <li>选择<strong>右侧/外侧</strong>车道</li>
+                <li>进入前打<strong>右转向灯</strong></li>
+                <li>沿外圈直接驶出</li>
+            </ul>
+        </div>
+
+        <div class="comparison">
+            <h3>直行（第二出口）→ 看标志</h3>
+            <div class="lane-guide">
+                <div class="lane-box inner">
+                    <span class="lane-label">通常内侧</span>
+                    <span class="direction">↑ 直行</span>
+                </div>
+                <div class="lane-box outer">
+                    <span class="lane-label">有时外侧</span>
+                    <span class="direction">↑ 直行</span>
+                </div>
+            </div>
+            <ul>
+                <li><strong>看地面标线！</strong>不同涡轮环岛设计不同</li>
+                <li>有些允许两个车道直行</li>
+                <li>进入时无转向灯，出口前打右灯</li>
+            </ul>
+        </div>
+
+        <div class="comparison">
+            <h3>左转/掉头（第三出口或更远）→ 内侧车道</h3>
+            <div class="lane-guide">
+                <div class="lane-box inner selected">
+                    <span class="lane-label">内侧车道</span>
+                    <span class="direction">← 左转</span>
+                </div>
+            </div>
+            <ul>
+                <li>必须选择<strong>左侧/内侧</strong>车道</li>
+                <li>进入前打<strong>左转向灯</strong></li>
+                <li>出口前换成<strong>右转向灯</strong></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 地面标线识别 -->
+    <div class="method-section">
+        <h2>识别地面标线</h2>
+        <div class="diagram-container">
+            <svg viewBox="0 0 400 200" class="lane-marking-diagram">
+                <!-- 道路背景 -->
+                <rect x="50" y="50" width="300" height="120" fill="#555" rx="5"/>
+
+                <!-- 车道分隔线 -->
+                <line x1="200" y1="50" x2="200" y2="170" stroke="white" stroke-width="3" stroke-dasharray="15,10"/>
+
+                <!-- 左车道箭头 - 直行+左转 -->
+                <g transform="translate(125, 110)">
+                    <path d="M 0 30 L 0 -20 M -10 -10 L 0 -20 L 10 -10" stroke="white" stroke-width="4" fill="none"/>
+                    <path d="M 0 30 Q -30 0 -30 -20 M -20 -15 L -30 -20 L -25 -10" stroke="white" stroke-width="4" fill="none"/>
+                </g>
+
+                <!-- 右车道箭头 - 直行+右转 -->
+                <g transform="translate(275, 110)">
+                    <path d="M 0 30 L 0 -20 M -10 -10 L 0 -20 L 10 -10" stroke="white" stroke-width="4" fill="none"/>
+                    <path d="M 0 30 Q 30 0 30 -20 M 20 -15 L 30 -20 L 25 -10" stroke="white" stroke-width="4" fill="none"/>
+                </g>
+
+                <!-- 标签 -->
+                <text x="125" y="30" text-anchor="middle" fill="#333" font-size="12" font-weight="bold">内侧车道</text>
+                <text x="125" y="190" text-anchor="middle" fill="#333" font-size="11">直行/左转</text>
+
+                <text x="275" y="30" text-anchor="middle" fill="#333" font-size="12" font-weight="bold">外侧车道</text>
+                <text x="275" y="190" text-anchor="middle" fill="#333" font-size="11">直行/右转</text>
+            </svg>
+        </div>
+        <div class="warning-box">
+            <h3>重要提示</h3>
+            <p>每个涡轮环岛的车道配置可能不同！<strong>务必看清地面箭头标线</strong>来决定正确车道。</p>
+        </div>
+    </div>
+
+    <!-- 进入涡轮环岛步骤 -->
+    <div class="method-section">
+        <h2>通过涡轮环岛的步骤</h2>
+        <div class="steering-demo">
+            <div class="step">
+                <h3>步骤1：提前观察标志</h3>
+                <p><strong>距离50-100米：</strong>寻找涡轮环岛预告标志</p>
+                <p><strong>确认出口：</strong>明确您要去的方向</p>
+                <p><strong>读取车道指示：</strong>观察地面箭头标线</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤2：选择正确车道</h3>
+                <p><strong>提前变道：</strong>在到达环岛前进入正确车道</p>
+                <p><strong>不要犹豫：</strong>选错了也要继续，绕一圈重来</p>
+                <p style="color: #e74c3c;"><strong>警告：进入后无法变道！</strong></p>
+            </div>
+
+            <div class="step">
+                <h3>步骤3：让行并进入</h3>
+                <p><strong>让行：</strong>与标准环岛相同，让行环岛内车辆</p>
+                <p><strong>打转向灯：</strong>根据方向打相应转向灯</p>
+                <p><strong>平稳进入：</strong>跟随车道线行驶</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤4：跟随车道驶出</h3>
+                <p><strong>顺着走：</strong>车道线会自动引导您到出口</p>
+                <p><strong>出口前：</strong>打右转向灯</p>
+                <p><strong>检查盲区：</strong>注意自行车道</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 错误选道怎么办 -->
+    <div class="method-section warning-section">
+        <h2>选错车道怎么办？</h2>
+        <div class="warning-box">
+            <h3>绝对不要：</h3>
+            <ul>
+                <li>❌ 试图跨越物理隔离带</li>
+                <li>❌ 在环岛内紧急变道</li>
+                <li>❌ 倒车回去</li>
+                <li>❌ 停在环岛内</li>
+            </ul>
+        </div>
+        <div class="success-box">
+            <h3>正确做法：</h3>
+            <ul>
+                <li>✅ 继续跟随当前车道行驶</li>
+                <li>✅ 从错误的出口驶出</li>
+                <li>✅ 在安全地点掉头或重新导航</li>
+                <li>✅ 保持冷静，安全第一</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 常见错误 -->
+    <div class="mistakes">
+        <h2>常见错误</h2>
+        <div class="mistake-grid">
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>未提前选道</h4>
+                <p>到了入口才发现走错车道，导致紧急变道或错过出口。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>忽视地面标线</h4>
+                <p>不看箭头指示，仅凭感觉选择车道，往往选错。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>试图跨越隔离带</h4>
+                <p>发现选错后强行变道，极其危险，可能损坏车辆。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>在入口犹豫不决</h4>
+                <p>不确定走哪条道时停在入口，阻碍后方交通。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>忘记检查自行车</h4>
+                <p>驶出时忽略自行车道，与骑车人发生冲突。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>转向灯使用错误</h4>
+                <p>直行时打左灯，或出口前忘记打右灯。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 考试要点 -->
+    <div class="exam-section">
+        <h2>考试要点</h2>
+        <div class="exam-points">
+            <div class="exam-point critical">
+                <span class="point-icon">⚠️</span>
+                <div class="point-content">
+                    <h4>车道选择（最关键！）</h4>
+                    <p>必须在进入前选择正确车道。选错车道是严重错误！</p>
+                </div>
+            </div>
+
+            <div class="exam-point">
+                <span class="point-icon">📋</span>
+                <div class="point-content">
+                    <h4>观察地面标线</h4>
+                    <p>考官会观察您是否查看并遵循车道指示箭头</p>
+                </div>
+            </div>
+
+            <div class="exam-point">
+                <span class="point-icon">📋</span>
+                <div class="point-content">
+                    <h4>让行规则</h4>
+                    <p>与标准环岛相同：让行环岛内车辆和驶出时的自行车</p>
+                </div>
+            </div>
+
+            <div class="exam-point">
+                <span class="point-icon">📋</span>
+                <div class="point-content">
+                    <h4>转向灯</h4>
+                    <p>右转：右灯 | 直行：出口前右灯 | 左转：先左灯后右灯</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 实用技巧 -->
+    <div class="tips">
+        <h2>实用技巧</h2>
+        <ul class="tip-list">
+            <li><strong>使用导航：</strong>导航软件会提前告诉您选择哪条车道</li>
+            <li><strong>跟着大车：</strong>如果不确定，可以跟随同方向的车辆选道</li>
+            <li><strong>看路牌：</strong>涡轮环岛前通常有车道预告牌</li>
+            <li><strong>宁可绕圈：</strong>选错了就绕一圈，比冒险变道安全</li>
+            <li><strong>多练习：</strong>初学者应该在陪练陪同下多走几次涡轮环岛</li>
+        </ul>
+    </div>
+
+    <!-- 总结 -->
+    <div class="summary">
+        <h2>总结</h2>
+        <div class="summary-grid">
+            <div class="summary-item">
+                <h4>最大特点</h4>
+                <p>有物理隔离，进入后无法变道</p>
+            </div>
+            <div class="summary-item">
+                <h4>关键技能</h4>
+                <p>提前看标线，选对车道</p>
+            </div>
+            <div class="summary-item">
+                <h4>选错怎么办</h4>
+                <p>继续走，绕一圈重来</p>
+            </div>
+            <div class="summary-item">
+                <h4>优点</h4>
+                <p>更安全、更高效</p>
+            </div>
+        </div>
+    </div>
+</div>

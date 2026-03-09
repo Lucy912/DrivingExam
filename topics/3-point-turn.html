@@ -1,0 +1,233 @@
+<div class="topic-detail">
+    <h1>🔃 三点掉头技巧</h1>
+
+    <div class="intro">
+        <p><strong>什么是三点掉头：</strong>在狭窄道路上通过前进-倒车-前进三个动作完成180度掉头的操作。这是驾驶考试中的重要技能。</p>
+    </div>
+
+    <!-- 步骤图示 -->
+    <div class="diagram-section">
+        <h2>三步掉头过程</h2>
+        <div class="svg-container">
+            <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                <!-- 道路 -->
+                <rect x="200" y="0" width="400" height="600" fill="#A0AEC0"/>
+                <line x1="200" y1="0" x2="200" y2="600" stroke="#FFFFFF" stroke-width="3"/>
+                <line x1="600" y1="0" x2="600" y2="600" stroke="#FFFFFF" stroke-width="3"/>
+                <line x1="400" y1="0" x2="400" y2="600" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="20,15"/>
+
+                <!-- 左侧人行道 -->
+                <rect x="0" y="0" width="200" height="600" fill="#48BB78" opacity="0.3"/>
+                <rect x="180" y="0" width="20" height="600" fill="#718096"/>
+
+                <!-- 右侧人行道 -->
+                <rect x="600" y="0" width="200" height="600" fill="#48BB78" opacity="0.3"/>
+                <rect x="600" y="0" width="20" height="600" fill="#718096"/>
+
+                <!-- 步骤1：初始位置 - 向右靠边 -->
+                <g id="step1">
+                    <rect x="230" y="450" width="60" height="100" rx="5" fill="#4299E1"/>
+                    <rect x="240" y="460" width="40" height="30" fill="#E2E8F0"/>
+                    <circle cx="245" cy="460" r="8" fill="#2D3748"/>
+                    <circle cx="275" cy="460" r="8" fill="#2D3748"/>
+                    <circle cx="245" cy="540" r="8" fill="#2D3748"/>
+                    <circle cx="275" cy="540" r="8" fill="#2D3748"/>
+                    <!-- 转向箭头 -->
+                    <path d="M 260 420 Q 150 380, 100 300" stroke="#4299E1" stroke-width="4" fill="none" marker-end="url(#arrowblue)"/>
+                    <text x="240" y="570" font-size="20" fill="#FFFFFF" font-weight="bold">步骤1</text>
+                </g>
+
+                <!-- 步骤2：倒车向左 -->
+                <g id="step2">
+                    <rect x="150" y="250" width="60" height="100" rx="5" fill="#4299E1" transform="rotate(-30 180 300)"/>
+                    <rect x="160" y="260" width="40" height="30" fill="#E2E8F0" transform="rotate(-30 180 300)"/>
+                    <circle cx="165" cy="260" r="8" fill="#2D3748" transform="rotate(-30 180 300)"/>
+                    <circle cx="195" cy="260" r="8" fill="#2D3748" transform="rotate(-30 180 300)"/>
+                    <circle cx="165" cy="340" r="8" fill="#2D3748" transform="rotate(-30 180 300)"/>
+                    <circle cx="195" cy="340" r="8" fill="#2D3748" transform="rotate(-30 180 300)"/>
+                    <!-- 倒车箭头 -->
+                    <path d="M 150 220 Q 280 180, 400 180" stroke="#ED8936" stroke-width="4" fill="none" marker-end="url(#arroworange)"/>
+                    <text x="120" y="370" font-size="20" fill="#FFFFFF" font-weight="bold">步骤2</text>
+                </g>
+
+                <!-- 步骤3：前进完成掉头 -->
+                <g id="step3">
+                    <rect x="510" y="100" width="60" height="100" rx="5" fill="#4299E1"/>
+                    <rect x="520" y="110" width="40" height="30" fill="#E2E8F0"/>
+                    <circle cx="525" cy="110" r="8" fill="#2D3748"/>
+                    <circle cx="555" cy="110" r="8" fill="#2D3748"/>
+                    <circle cx="525" cy="190" r="8" fill="#2D3748"/>
+                    <circle cx="555" cy="190" r="8" fill="#2D3748"/>
+                    <!-- 前进箭头 -->
+                    <path d="M 540 70 L 540 20" stroke="#48BB78" stroke-width="4" marker-end="url(#arrowgreen)"/>
+                    <text x="520" y="220" font-size="20" fill="#FFFFFF" font-weight="bold">步骤3</text>
+                </g>
+
+                <!-- 距离标注 -->
+                <line x1="200" y1="500" x2="230" y2="500" stroke="#F56565" stroke-width="2" stroke-dasharray="5,5"/>
+                <text x="205" y="520" font-size="14" fill="#F56565" font-weight="bold">≈0.5m</text>
+
+                <line x1="180" y1="300" x2="210" y2="320" stroke="#F56565" stroke-width="2" stroke-dasharray="5,5"/>
+                <text x="190" y="340" font-size="14" fill="#F56565" font-weight="bold">≈0.5m</text>
+
+                <!-- 箭头标记定义 -->
+                <defs>
+                    <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#4299E1"/>
+                    </marker>
+                    <marker id="arroworange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#ED8936"/>
+                    </marker>
+                    <marker id="arrowgreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#48BB78"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+        <div class="explanation">
+            <strong>图解说明：</strong>蓝色箭头=前进，橙色箭头=倒车，绿色箭头=完成。红色虚线表示与人行道保持约0.5米距离。
+        </div>
+    </div>
+
+    <!-- 详细步骤 -->
+    <div class="method-section">
+        <h2>详细操作步骤</h2>
+        <div class="steering-demo">
+            <div class="step">
+                <h3>步骤1：我可以在这里掉头吗？</h3>
+                <p><strong>检查：</strong></p>
+                <ul class="tip-list">
+                    <li>确认无禁止掉头标志</li>
+                    <li>确认道路足够宽</li>
+                    <li>确认视线良好，无盲区</li>
+                    <li>选择树木或路灯杆作为参照点</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>步骤2：停车并向右前进</h3>
+                <p><strong>操作：</strong>停车，观察四周，向前开并向左打方向盘，靠近右侧人行道边缘（保持约0.5米距离）</p>
+                <p><strong>要点：</strong>以步行速度行驶，灵活转向</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤3：倒车并向左后退</h3>
+                <p><strong>操作：</strong>观察，挂倒挡，向右转头观察，倒车至距离左侧人行道边缘约0.5米</p>
+                <p><strong>要点：</strong>持续观察后方和两侧交通</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤4：前进完成掉头</h3>
+                <p><strong>操作：</strong>挂前进挡，向前看左侧，加速驶离</p>
+                <p><strong>调整：</strong>如有必要，重复步骤3和4直到车辆完全转过来</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤5：调整速度</h3>
+                <p><strong>操作：</strong>观察交通情况，调整速度融入车流</p>
+                <p><strong>要点：</strong>确保不妨碍其他车辆</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 关键标识 -->
+    <div class="comparison">
+        <h2>相关交通标志</h2>
+        <div style="display: flex; gap: 2rem; align-items: center; margin-top: 1rem;">
+            <div style="text-align: center;">
+                <svg width="80" height="80" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="#2B6CB0" stroke="#FFFFFF" stroke-width="3"/>
+                    <rect x="25" y="35" width="50" height="8" fill="#FFFFFF" rx="2"/>
+                    <polygon points="50,55 35,70 65,70" fill="#FFFFFF"/>
+                </svg>
+                <p style="margin-top: 0.5rem;"><strong>直行标志</strong></p>
+            </div>
+            <div style="text-align: center;">
+                <svg width="80" height="80" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="#2B6CB0" stroke="#FFFFFF" stroke-width="3"/>
+                    <path d="M 30 30 L 30 50 Q 30 70, 50 70 L 70 70" fill="none" stroke="#FFFFFF" stroke-width="8"/>
+                    <polygon points="70,70 60,75 60,65" fill="#FFFFFF"/>
+                </svg>
+                <p style="margin-top: 0.5rem;"><strong>允许左转/掉头</strong></p>
+            </div>
+            <div style="text-align: center;">
+                <svg width="80" height="80" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="#FFFFFF" stroke="#E53E3E" stroke-width="4"/>
+                    <circle cx="50" cy="50" r="38" fill="none" stroke="#E53E3E" stroke-width="4"/>
+                    <line x1="20" y1="80" x2="80" y2="20" stroke="#E53E3E" stroke-width="4"/>
+                </svg>
+                <p style="margin-top: 0.5rem;"><strong>禁止停车</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 常见错误 -->
+    <div class="mistakes">
+        <h2>常见错误</h2>
+        <div class="mistake-grid">
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>车轮压上人行道</h4>
+                <p>车轮绝对不能开上人行道！这是自动失败的错误。始终保持至少0.5米的安全距离。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>速度过快</h4>
+                <p>应该以步行速度（5-10公里/小时）操作。速度过快会导致无法精确控制车辆位置。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>观察不充分</h4>
+                <p>每次换挡前必须观察周围交通。忽略观察会导致事故，也会在考试中失败。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>阻塞交通</h4>
+                <p>选择交通较少的时机操作。如果操作时间过长，要注意不要长时间阻挡其他车辆。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>转向不够迅速</h4>
+                <p>在低速下要快速转动方向盘（灵活转向）。转向太慢会导致需要更多次数的前进-倒车。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>选择不当的位置</h4>
+                <p>在弯道、路口附近、坡道上或视线受阻的地方掉头是危险且非法的。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 专业建议 -->
+    <div class="tips">
+        <h2>专业建议</h2>
+        <ul class="tip-list">
+            <li><strong>选择参照物：</strong>在树木或路灯杆处停车可以帮助你判断距离</li>
+            <li><strong>步行速度行驶：</strong>慢速操作才能保持精确控制</li>
+            <li><strong>灵活转向：</strong>在低速时快速转动方向盘</li>
+            <li><strong>不要妨碍交通：</strong>选择交通较少的时候操作</li>
+            <li><strong>多次观察：</strong>每次换方向前都要全方位观察</li>
+            <li><strong>车轮远离人行道：</strong>时刻注意保持0.5米的安全距离</li>
+            <li><strong>练习判断：</strong>熟悉你的车辆转弯半径，知道需要多大空间</li>
+            <li><strong>保持冷静：</strong>即使需要4-5次前进-倒车也没关系，安全第一</li>
+        </ul>
+    </div>
+
+    <!-- 练习建议 -->
+    <div class="method-section" style="background: #EBF8FF; border-left: 4px solid #2B6CB0;">
+        <h2>练习建议</h2>
+        <ol style="padding-left: 1.5rem;">
+            <li><strong>找到合适的练习场地：</strong>选择宽度适中（6-8米）的安静街道</li>
+            <li><strong>先用路锥练习：</strong>设置参照点，练习判断0.5米的距离感</li>
+            <li><strong>练习观察顺序：</strong>养成标准的观察习惯（左-右-后-左）</li>
+            <li><strong>记录所需空间：</strong>了解你的车辆需要多宽的道路才能完成三点掉头</li>
+            <li><strong>不同路宽练习：</strong>在不同宽度的道路上练习适应能力</li>
+            <li><strong>模拟考试：</strong>让朋友或教练观察并指出错误</li>
+        </ol>
+    </div>
+</div>

@@ -1,0 +1,368 @@
+<div class="topic-detail">
+    <h1>🚲 环岛自行车优先权</h1>
+
+    <div class="intro">
+        <p><strong>荷兰特色：</strong>荷兰是自行车王国，许多环岛都有独立的自行车道。驶出环岛时必须让行骑车人，这是考试中最容易失分的项目之一！</p>
+    </div>
+
+    <!-- 两种环岛自行车道类型 -->
+    <div class="comparison">
+        <h2>两种环岛自行车道设计</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>类型</th>
+                    <th>自行车优先权</th>
+                    <th>识别方法</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>自行车有优先权</strong><br>（最常见）</td>
+                    <td class="highlight" style="color: #e74c3c; font-weight: bold;">必须让行自行车</td>
+                    <td>自行车道上有白色方块标记<br>或自行车优先标志</td>
+                </tr>
+                <tr>
+                    <td><strong>自行车无优先权</strong><br>（较少见）</td>
+                    <td class="neutral">自行车让行汽车</td>
+                    <td>自行车道上有让行三角或<br>鲨鱼牙标记</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 有优先权的环岛示意图 -->
+    <div class="diagram-section">
+        <h2>自行车有优先权的环岛（常见类型）</h2>
+        <div class="diagram-container">
+            <svg viewBox="0 0 450 450" class="bike-priority-diagram">
+                <!-- 外圈 - 自行车道 -->
+                <circle cx="225" cy="225" r="180" fill="#FFCDD2" stroke="#E57373" stroke-width="25"/>
+                <!-- 过渡区 -->
+                <circle cx="225" cy="225" r="155" fill="#fff" stroke="#666" stroke-width="2"/>
+                <!-- 汽车环岛 -->
+                <circle cx="225" cy="225" r="130" fill="#e8e8e8" stroke="#666" stroke-width="2"/>
+                <!-- 中心岛 -->
+                <circle cx="225" cy="225" r="50" fill="#90EE90" stroke="#228B22" stroke-width="3"/>
+
+                <!-- 自行车道标记 - 白色方块表示优先权 -->
+                <rect x="220" y="35" width="10" height="10" fill="white" stroke="#333"/>
+                <rect x="380" y="220" width="10" height="10" fill="white" stroke="#333"/>
+                <rect x="220" y="400" width="10" height="10" fill="white" stroke="#333"/>
+                <rect x="55" y="220" width="10" height="10" fill="white" stroke="#333"/>
+
+                <!-- 入口/出口道路 -->
+                <rect x="205" y="0" width="40" height="45" fill="#e8e8e8"/>
+                <rect x="205" y="405" width="40" height="50" fill="#e8e8e8"/>
+                <rect x="0" y="205" width="45" height="40" fill="#e8e8e8"/>
+                <rect x="405" y="205" width="50" height="40" fill="#e8e8e8"/>
+
+                <!-- 汽车 - 正要驶出 -->
+                <rect x="350" y="210" width="30" height="20" fill="#2196F3" rx="3"/>
+                <text x="365" y="223" text-anchor="middle" fill="white" font-size="10">车</text>
+
+                <!-- 自行车图标 - 正在通过 -->
+                <text x="390" y="195" font-size="28">🚴</text>
+
+                <!-- 让行箭头 -->
+                <path d="M 370 208 L 370 195" stroke="#e74c3c" stroke-width="3" marker-end="url(#stopArrow)"/>
+
+                <defs>
+                    <marker id="stopArrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                        <polygon points="0 0, 8 3, 0 6" fill="#e74c3c"/>
+                    </marker>
+                </defs>
+
+                <!-- 标注 -->
+                <text x="225" y="185" text-anchor="middle" fill="#E57373" font-weight="bold" font-size="11">自行车道</text>
+                <text x="225" y="200" text-anchor="middle" fill="#E57373" font-size="10">（粉色区域）</text>
+                <text x="225" y="230" text-anchor="middle" fill="#228B22" font-weight="bold" font-size="10">中心岛</text>
+
+                <!-- 白色方块说明 -->
+                <line x1="230" y1="45" x2="270" y2="70" stroke="#333" stroke-width="1"/>
+                <text x="275" y="75" font-size="9" fill="#333">白色方块 =</text>
+                <text x="275" y="87" font-size="9" fill="#333">自行车优先</text>
+            </svg>
+        </div>
+        <div class="diagram-explanation">
+            <p><strong>识别要点：</strong></p>
+            <ul>
+                <li><strong>红色/粉色自行车道：</strong>环绕汽车环岛外围</li>
+                <li><strong>白色方块标记：</strong>出现在汽车穿越自行车道的位置</li>
+                <li><strong>方块 = 汽车必须停车让行</strong></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 无优先权的环岛示意图 -->
+    <div class="diagram-section">
+        <h2>自行车无优先权的环岛（较少见）</h2>
+        <div class="diagram-container">
+            <svg viewBox="0 0 450 450" class="bike-no-priority-diagram">
+                <!-- 外圈 - 自行车道 -->
+                <circle cx="225" cy="225" r="180" fill="#FFCDD2" stroke="#E57373" stroke-width="25"/>
+                <!-- 过渡区 -->
+                <circle cx="225" cy="225" r="155" fill="#fff" stroke="#666" stroke-width="2"/>
+                <!-- 汽车环岛 -->
+                <circle cx="225" cy="225" r="130" fill="#e8e8e8" stroke="#666" stroke-width="2"/>
+                <!-- 中心岛 -->
+                <circle cx="225" cy="225" r="50" fill="#90EE90" stroke="#228B22" stroke-width="3"/>
+
+                <!-- 鲨鱼牙让行标记 - 自行车让汽车 -->
+                <g transform="translate(220, 38)">
+                    <polygon points="0,0 5,10 10,0" fill="white" stroke="#333" stroke-width="1"/>
+                    <polygon points="12,0 17,10 22,0" fill="white" stroke="#333" stroke-width="1"/>
+                </g>
+
+                <!-- 右侧鲨鱼牙 -->
+                <g transform="translate(385, 215) rotate(90)">
+                    <polygon points="0,0 5,10 10,0" fill="white" stroke="#333" stroke-width="1"/>
+                    <polygon points="12,0 17,10 22,0" fill="white" stroke="#333" stroke-width="1"/>
+                </g>
+
+                <!-- 入口/出口道路 -->
+                <rect x="205" y="0" width="40" height="45" fill="#e8e8e8"/>
+                <rect x="205" y="405" width="40" height="50" fill="#e8e8e8"/>
+                <rect x="0" y="205" width="45" height="40" fill="#e8e8e8"/>
+                <rect x="405" y="205" width="50" height="40" fill="#e8e8e8"/>
+
+                <!-- 汽车 - 可以通过 -->
+                <rect x="350" y="210" width="30" height="20" fill="#4CAF50" rx="3"/>
+                <text x="365" y="223" text-anchor="middle" fill="white" font-size="10">车</text>
+
+                <!-- 自行车 - 等待 -->
+                <text x="390" y="195" font-size="28">🚴</text>
+                <text x="400" y="175" font-size="16" fill="#e74c3c">⏸️</text>
+
+                <!-- 通行箭头 -->
+                <path d="M 380 220 L 410 220" stroke="#4CAF50" stroke-width="3" marker-end="url(#goArrow)"/>
+
+                <defs>
+                    <marker id="goArrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                        <polygon points="0 0, 8 3, 0 6" fill="#4CAF50"/>
+                    </marker>
+                </defs>
+
+                <!-- 标注 -->
+                <line x1="230" y1="48" x2="270" y2="70" stroke="#333" stroke-width="1"/>
+                <text x="275" y="75" font-size="9" fill="#333">鲨鱼牙 =</text>
+                <text x="275" y="87" font-size="9" fill="#333">自行车让行</text>
+            </svg>
+        </div>
+        <div class="diagram-explanation">
+            <p><strong>识别要点：</strong></p>
+            <ul>
+                <li><strong>鲨鱼牙（倒三角）标记：</strong>指向自行车道</li>
+                <li><strong>三角 = 自行车必须让行汽车</strong></li>
+                <li>这种设计较少见，但仍需识别</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 驶出环岛让行自行车的步骤 -->
+    <div class="method-section highlight-section">
+        <h2>驶出环岛让行自行车（关键步骤）</h2>
+        <div class="steering-demo">
+            <div class="step">
+                <h3>步骤1：提前观察</h3>
+                <p><strong>在接近出口前：</strong>就开始扫视自行车道</p>
+                <p><strong>注意范围：</strong>观察从您右侧驶来的骑车人</p>
+                <p><strong>也看左侧：</strong>可能有逆向骑行的自行车</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤2：打转向灯</h3>
+                <p><strong>提前打灯：</strong>出口前打右转向灯</p>
+                <p><strong>目的：</strong>告知骑车人您要驶出</p>
+                <p><strong>但不代表您有优先权！</strong></p>
+            </div>
+
+            <div class="step">
+                <h3>步骤3：检查盲区</h3>
+                <p><strong>回头看：</strong>转头检查右后方盲区</p>
+                <p><strong>原因：</strong>骑车人可能在您的盲区内</p>
+                <p style="color: #e74c3c;"><strong>这是考试必查项目！</strong></p>
+            </div>
+
+            <div class="step">
+                <h3>步骤4：让行或通过</h3>
+                <p><strong>有骑车人：</strong>停车等待，让其先行</p>
+                <p><strong>眼神接触：</strong>确认骑车人看到您并理解您的意图</p>
+                <p><strong>无骑车人：</strong>确认安全后平稳驶出</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 容易出错的情况 -->
+    <div class="method-section warning-section">
+        <h2>容易出错的情况</h2>
+
+        <div class="scenario-box">
+            <h3>情况1：骑车人速度快</h3>
+            <p><strong>问题：</strong>骑车人可能比您预想的更快到达</p>
+            <p><strong>解决：</strong>如有疑问，停车等待。宁可多等也不要冒险。</p>
+        </div>
+
+        <div class="scenario-box">
+            <h3>情况2：多个骑车人</h3>
+            <p><strong>问题：</strong>可能有成群结队的骑车人</p>
+            <p><strong>解决：</strong>等待所有人通过，不要试图插入车流。</p>
+        </div>
+
+        <div class="scenario-box">
+            <h3>情况3：电动自行车</h3>
+            <p><strong>问题：</strong>电动自行车速度可达25-45公里/小时</p>
+            <p><strong>解决：</strong>不要低估电动自行车的速度，留更大安全余量。</p>
+        </div>
+
+        <div class="scenario-box">
+            <h3>情况4：雨天或夜间</h3>
+            <p><strong>问题：</strong>能见度差，骑车人难以看清</p>
+            <p><strong>解决：</strong>更加小心，放慢速度，确保看清后再行动。</p>
+        </div>
+    </div>
+
+    <!-- 如何判断是否有优先权 -->
+    <div class="method-section">
+        <h2>快速判断：自行车是否有优先权？</h2>
+        <div class="decision-flow">
+            <div class="decision-step">
+                <div class="decision-question">看自行车道与汽车道交叉处的地面标记</div>
+            </div>
+            <div class="decision-arrow">⬇️</div>
+            <div class="decision-branches">
+                <div class="branch yes">
+                    <h4>白色方块 / 无标记</h4>
+                    <p class="result">✅ 自行车有优先权</p>
+                    <p class="action">您必须让行</p>
+                </div>
+                <div class="branch no">
+                    <h4>鲨鱼牙 / 让行三角</h4>
+                    <p class="result">❌ 自行车无优先权</p>
+                    <p class="action">自行车让您先行</p>
+                </div>
+            </div>
+        </div>
+        <div class="warning-box" style="margin-top: 20px;">
+            <p><strong>记住：</strong>如果不确定，假设自行车有优先权！安全第一。</p>
+        </div>
+    </div>
+
+    <!-- 常见错误 -->
+    <div class="mistakes">
+        <h2>常见错误</h2>
+        <div class="mistake-grid">
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>不检查盲区</h4>
+                <p>只看后视镜不回头。骑车人可能正好在您的盲区内。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>抢在骑车人前面</h4>
+                <p>以为能赶在骑车人前面通过，结果差点撞上。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>混淆优先权规则</h4>
+                <p>不看地面标记，误以为所有环岛都是汽车优先。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>低估电动自行车速度</h4>
+                <p>以为骑车人还远，结果电动自行车飞速接近。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>停在自行车道上</h4>
+                <p>让行时停车位置不当，挡住了自行车道。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>等待时不看两侧</h4>
+                <p>只看一个方向，忽略了从另一方向来的骑车人。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 考试要点 -->
+    <div class="exam-section">
+        <h2>考试要点（重要！）</h2>
+        <div class="exam-points">
+            <div class="exam-point critical">
+                <span class="point-icon">⚠️</span>
+                <div class="point-content">
+                    <h4>必须回头检查</h4>
+                    <p>驶出前必须转头检查右后方盲区，这是考官重点观察项目</p>
+                </div>
+            </div>
+
+            <div class="exam-point critical">
+                <span class="point-icon">⚠️</span>
+                <div class="exam-point critical">
+                <span class="point-icon">⚠️</span>
+                <div class="point-content">
+                    <h4>正确让行</h4>
+                    <p>有骑车人时必须完全停车让行，不能试图抢行</p>
+                </div>
+            </div>
+
+            <div class="exam-point">
+                <span class="point-icon">📋</span>
+                <div class="point-content">
+                    <h4>识别地面标记</h4>
+                    <p>能够正确识别白色方块（让行）和鲨鱼牙（骑车人让行）</p>
+                </div>
+            </div>
+
+            <div class="exam-point">
+                <span class="point-icon">📋</span>
+                <div class="point-content">
+                    <h4>提前打转向灯</h4>
+                    <p>驶出前打右转向灯，给骑车人足够的反应时间</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 实用技巧 -->
+    <div class="tips">
+        <h2>实用技巧</h2>
+        <ul class="tip-list">
+            <li><strong>养成习惯：</strong>每次驶出环岛前都回头检查，形成肌肉记忆</li>
+            <li><strong>提前减速：</strong>接近出口时降低速度，留出反应时间</li>
+            <li><strong>眼神交流：</strong>与骑车人眼神接触，确认双方意图</li>
+            <li><strong>不确定就等：</strong>无法判断时，停车等待最安全</li>
+            <li><strong>注意天气：</strong>雨天骑车人刹车距离更长，给更多让行时间</li>
+            <li><strong>夜间更小心：</strong>部分骑车人可能没有车灯</li>
+        </ul>
+    </div>
+
+    <!-- 总结 -->
+    <div class="summary">
+        <h2>总结</h2>
+        <div class="summary-grid">
+            <div class="summary-item">
+                <h4>白色方块</h4>
+                <p>= 汽车让行自行车</p>
+            </div>
+            <div class="summary-item">
+                <h4>鲨鱼牙</h4>
+                <p>= 自行车让行汽车</p>
+            </div>
+            <div class="summary-item">
+                <h4>关键动作</h4>
+                <p>回头检查盲区</p>
+            </div>
+            <div class="summary-item">
+                <h4>黄金法则</h4>
+                <p>不确定时就让行</p>
+            </div>
+        </div>
+    </div>
+</div>

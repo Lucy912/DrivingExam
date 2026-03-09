@@ -1,0 +1,424 @@
+<div class="topic-detail">
+    <h1>🔀 路口类型与优先权</h1>
+
+    <div class="intro">
+        <p><strong>为什么重要：</strong>不同类型的路口有不同的通行规则。正确识别路口类型并遵守相应的优先权规则是安全驾驶的基础。在荷兰，"让右先行"规则是默认规则，但各种标志和标线可能改变优先权。</p>
+    </div>
+
+    <!-- 路口类型图示 -->
+    <div class="diagram-section">
+        <h2>常见路口类型</h2>
+        <div class="svg-container">
+            <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+                <!-- 十字路口 -->
+                <g transform="translate(50, 50)">
+                    <rect x="60" y="0" width="80" height="150" fill="#A0AEC0"/>
+                    <rect x="0" y="50" width="200" height="50" fill="#A0AEC0"/>
+                    <line x1="100" y1="0" x2="100" y2="50" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="8,6"/>
+                    <line x1="100" y1="100" x2="100" y2="150" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="8,6"/>
+                    <line x1="0" y1="75" x2="60" y2="75" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="8,6"/>
+                    <line x1="140" y1="75" x2="200" y2="75" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="8,6"/>
+                    <text x="40" y="180" font-size="14" fill="#2D3748" font-weight="bold">十字路口</text>
+                </g>
+
+                <!-- T字路口 -->
+                <g transform="translate(300, 50)">
+                    <rect x="60" y="50" width="80" height="100" fill="#A0AEC0"/>
+                    <rect x="0" y="50" width="200" height="50" fill="#A0AEC0"/>
+                    <line x1="100" y1="100" x2="100" y2="150" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="8,6"/>
+                    <line x1="0" y1="75" x2="60" y2="75" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="8,6"/>
+                    <line x1="140" y1="75" x2="200" y2="75" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="8,6"/>
+                    <text x="55" y="180" font-size="14" fill="#2D3748" font-weight="bold">T字路口</text>
+                </g>
+
+                <!-- Y字路口 -->
+                <g transform="translate(550, 50)">
+                    <rect x="80" y="80" width="40" height="70" fill="#A0AEC0"/>
+                    <polygon points="100,80 40,20 60,20 100,60 140,20 160,20" fill="#A0AEC0"/>
+                    <text x="55" y="180" font-size="14" fill="#2D3748" font-weight="bold">Y字路口</text>
+                </g>
+
+                <!-- 环形交叉 -->
+                <g transform="translate(50, 250)">
+                    <circle cx="100" cy="50" r="40" fill="none" stroke="#A0AEC0" stroke-width="30"/>
+                    <circle cx="100" cy="50" r="25" fill="#E2E8F0"/>
+                    <rect x="85" y="-10" width="30" height="30" fill="#A0AEC0"/>
+                    <rect x="85" y="80" width="30" height="30" fill="#A0AEC0"/>
+                    <rect x="-10" y="35" width="30" height="30" fill="#A0AEC0"/>
+                    <rect x="180" y="35" width="30" height="30" fill="#A0AEC0"/>
+                    <text x="60" y="130" font-size="14" fill="#2D3748" font-weight="bold">环岛</text>
+                </g>
+
+                <!-- 错位十字路口 -->
+                <g transform="translate(300, 250)">
+                    <rect x="60" y="0" width="80" height="100" fill="#A0AEC0"/>
+                    <rect x="0" y="30" width="100" height="40" fill="#A0AEC0"/>
+                    <rect x="100" y="60" width="100" height="40" fill="#A0AEC0"/>
+                    <text x="30" y="130" font-size="14" fill="#2D3748" font-weight="bold">错位十字路口</text>
+                </g>
+
+                <!-- 多路交叉 -->
+                <g transform="translate(550, 250)">
+                    <circle cx="100" cy="50" r="30" fill="#A0AEC0"/>
+                    <rect x="85" y="-20" width="30" height="40" fill="#A0AEC0"/>
+                    <rect x="85" y="80" width="30" height="40" fill="#A0AEC0"/>
+                    <rect x="-20" y="35" width="40" height="30" fill="#A0AEC0"/>
+                    <rect x="180" y="35" width="40" height="30" fill="#A0AEC0"/>
+                    <polygon points="100,50 30,0 50,-10 100,30 150,-10 170,0" fill="#A0AEC0" transform="translate(0,0) rotate(45 100 50)"/>
+                    <text x="45" y="130" font-size="14" fill="#2D3748" font-weight="bold">多路交叉</text>
+                </g>
+            </svg>
+        </div>
+    </div>
+
+    <!-- 优先权规则 -->
+    <div class="method-section">
+        <h2>优先权规则（从高到低）</h2>
+        <div class="steering-demo">
+            <div class="step">
+                <h3>1. 交通警察指挥 👮</h3>
+                <p><strong>最高优先权：</strong>交警指挥优先于所有信号灯和标志</p>
+                <ul class="tip-list">
+                    <li>必须服从交警手势指挥</li>
+                    <li>即使与信号灯冲突，也要听交警的</li>
+                    <li>常见于故障路口或特殊活动</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>2. 交通信号灯 🚦</h3>
+                <p><strong>优先于标志和标线：</strong></p>
+                <ul class="tip-list">
+                    <li><strong>红灯：</strong>必须停车</li>
+                    <li><strong>黄灯：</strong>能停则停</li>
+                    <li><strong>绿灯：</strong>可以通行（仍需让行人和自行车）</li>
+                    <li>信号灯优先于让行标志</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>3. 交通标志 🛑</h3>
+                <p><strong>优先权标志和让行标志：</strong></p>
+                <ul class="tip-list">
+                    <li><strong>STOP标志（八角形）：</strong>必须完全停车</li>
+                    <li><strong>让行标志（倒三角）：</strong>必须让其他道路来车</li>
+                    <li><strong>优先权标志（黄色菱形）：</strong>你有优先权</li>
+                    <li><strong>优先权结束标志：</strong>优先权结束</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>4. 道路等级</h3>
+                <p><strong>主路vs支路：</strong></p>
+                <ul class="tip-list">
+                    <li>主路有优先权</li>
+                    <li>支路必须让主路</li>
+                    <li>通过道路宽度、路面材料等识别</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>5. 让右先行规则</h3>
+                <p><strong>默认规则（同等道路，无标志）：</strong></p>
+                <ul class="tip-list">
+                    <li>让右边来的车辆先行</li>
+                    <li>你的右边没车，你可以先行</li>
+                    <li>这是荷兰的基本交通规则！</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 让右先行规则详解 -->
+    <div class="method-section" style="background: #FFF7ED; border-left: 4px solid #F59E0B;">
+        <h2>🚗 让右先行规则详解</h2>
+
+        <div style="margin-top: 1rem;">
+            <h3 style="color: #C05621;">什么时候适用？</h3>
+            <ul class="tip-list">
+                <li>同等道路的无信号灯路口</li>
+                <li>没有优先权标志或让行标志</li>
+                <li>信号灯故障时</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C05621;">如何执行？</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>情况</th>
+                        <th>你的行动</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>右边有车接近</td>
+                        <td class="recommended" style="color: #E53E3E;">停车让行</td>
+                    </tr>
+                    <tr>
+                        <td>左边有车接近</td>
+                        <td class="recommended" style="color: #16A34A;">你有优先权，但仍要观察</td>
+                    </tr>
+                    <tr>
+                        <td>右边和左边都有车</td>
+                        <td class="recommended" style="color: #E53E3E;">让右边先行，然后你通过</td>
+                    </tr>
+                    <tr>
+                        <td>四个方向都有车</td>
+                        <td>需要眼神交流或等待最右边的车先行</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C05621;">不适用的情况</h3>
+            <ul class="tip-list">
+                <li><strong>有信号灯：</strong>按信号灯通行</li>
+                <li><strong>有优先权标志：</strong>主路有优先权</li>
+                <li><strong>有让行/停止标志：</strong>有标志的必须让行</li>
+                <li><strong>环岛：</strong>环岛内车辆有优先权</li>
+                <li><strong>紧急车辆：</strong>紧急车辆始终有优先权</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 各类标志详解 -->
+    <div class="method-section" style="background: #EBF8FF; border-left: 4px solid #2B6CB0;">
+        <h2>🚸 优先权相关标志</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 1rem;">
+            <div style="background: #FFFFFF; padding: 1rem; border-radius: 8px;">
+                <h4 style="color: #DC2626;">🛑 STOP标志</h4>
+                <p>红色八角形，白色STOP字样</p>
+                <ul class="tip-list">
+                    <li><strong>含义：</strong>必须完全停车</li>
+                    <li><strong>动作：</strong>停车至少3秒</li>
+                    <li><strong>位置：</strong>在停止线前停车</li>
+                    <li><strong>即使无车：</strong>也必须完全停车</li>
+                </ul>
+            </div>
+
+            <div style="background: #FFFFFF; padding: 1rem; border-radius: 8px;">
+                <h4 style="color: #DC2626;">⚠️ 让行标志</h4>
+                <p>红边白底倒三角形</p>
+                <ul class="tip-list">
+                    <li><strong>含义：</strong>必须让其他道路来车</li>
+                    <li><strong>动作：</strong>减速，必要时停车</li>
+                    <li><strong>与STOP区别：</strong>无车时可不完全停车</li>
+                    <li><strong>仍需观察：</strong>确认安全再通行</li>
+                </ul>
+            </div>
+
+            <div style="background: #FFFFFF; padding: 1rem; border-radius: 8px;">
+                <h4 style="color: #EAB308;">◆ 优先权标志</h4>
+                <p>黄色菱形，白色边框</p>
+                <ul class="tip-list">
+                    <li><strong>含义：</strong>你在优先道路上</li>
+                    <li><strong>动作：</strong>有通行优先权</li>
+                    <li><strong>但是：</strong>仍要注意其他车辆</li>
+                    <li><strong>持续到：</strong>看到优先权结束标志</li>
+                </ul>
+            </div>
+
+            <div style="background: #FFFFFF; padding: 1rem; border-radius: 8px;">
+                <h4 style="color: #6B7280;">◇ 优先权结束标志</h4>
+                <p>黄色菱形带斜线</p>
+                <ul class="tip-list">
+                    <li><strong>含义：</strong>优先道路结束</li>
+                    <li><strong>之后：</strong>恢复让右先行规则</li>
+                    <li><strong>注意：</strong>下个路口可能无优先权</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- T字路口特别说明 -->
+    <div class="method-section" style="background: #FDECEA; border-left: 4px solid #E53E3E;">
+        <h2>⚠️ T字路口特别说明</h2>
+
+        <div style="margin-top: 1rem;">
+            <h3 style="color: #C53030;">从支路（竖向）进入主路（横向）</h3>
+            <ul class="tip-list">
+                <li><strong>左转进入主路：</strong>让双向来车</li>
+                <li><strong>右转进入主路：</strong>让左方来车</li>
+                <li><strong>通常有让行标志：</strong>支路通常有让行标志</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C53030;">在主路（横向）上</h3>
+            <ul class="tip-list">
+                <li><strong>直行：</strong>通常有优先权</li>
+                <li><strong>左转进入支路：</strong>让对向直行车辆</li>
+                <li><strong>右转进入支路：</strong>通常有优先权</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C53030;">无标志的T字路口</h3>
+            <ul class="tip-list">
+                <li><strong>让右先行仍然适用！</strong></li>
+                <li>从支路右转时，如果右方有车，仍需让行</li>
+                <li>很多人在这里出错</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 特殊情况 -->
+    <div class="comparison">
+        <h2>特殊优先权情况</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>情况</th>
+                    <th>谁有优先权</th>
+                    <th>你的行动</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>紧急车辆（警笛响）</strong></td>
+                    <td class="recommended">紧急车辆</td>
+                    <td>靠边让路</td>
+                </tr>
+                <tr>
+                    <td><strong>电车/有轨电车</strong></td>
+                    <td class="recommended">电车</td>
+                    <td>总是让电车</td>
+                </tr>
+                <tr>
+                    <td><strong>公交车离开站台</strong></td>
+                    <td class="recommended">公交车（城区）</td>
+                    <td>让公交车驶入车道</td>
+                </tr>
+                <tr>
+                    <td><strong>葬礼车队</strong></td>
+                    <td class="recommended">葬礼车队</td>
+                    <td>不要穿插车队</td>
+                </tr>
+                <tr>
+                    <td><strong>军车队</strong></td>
+                    <td class="recommended">军车队</td>
+                    <td>不要穿插车队</td>
+                </tr>
+                <tr>
+                    <td><strong>行人在斑马线</strong></td>
+                    <td class="recommended">行人</td>
+                    <td>停车让行人通过</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 常见错误 -->
+    <div class="mistakes">
+        <h2>常见错误</h2>
+        <div class="mistake-grid">
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>忽视让右先行</h4>
+                <p>在无标志的同等道路路口，忘记让右边来车。这是荷兰基本交通规则！</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>STOP标志不完全停车</h4>
+                <p>看到STOP标志但只是减速。STOP标志要求完全停车至少3秒，即使没有来车。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>混淆让行和STOP</h4>
+                <p>把让行标志当成STOP标志完全停车，或把STOP标志当让行标志只减速。两者要求不同。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>有优先权就不观察</h4>
+                <p>因为有优先权就不观察其他车辆。优先权不等于绝对安全，仍需观察。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>信号灯故障时抢行</h4>
+                <p>信号灯故障时不知道如何处理。应按让右先行规则或听从交警指挥。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>不让紧急车辆</h4>
+                <p>听到警笛但不让路。紧急车辆（响警笛时）始终有最高优先权，必须让路。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>T字路口误解优先权</h4>
+                <p>认为在T字路口主路上一定有优先权。无标志时仍需遵守让右先行。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>忽视优先权结束标志</h4>
+                <p>看到优先权标志后一直认为有优先权，忽视了优先权结束标志。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 专业建议 -->
+    <div class="tips">
+        <h2>专业建议</h2>
+        <ul class="tip-list">
+            <li><strong>识别优先权层级：</strong>交警 > 信号灯 > 标志 > 道路等级 > 让右先行</li>
+            <li><strong>接近路口减速：</strong>给自己时间判断优先权</li>
+            <li><strong>观察标志：</strong>提前看清路口标志</li>
+            <li><strong>让右先行是默认：</strong>无其他规则时，让右边来车</li>
+            <li><strong>STOP必须完全停：</strong>至少3秒，即使无车</li>
+            <li><strong>优先权≠安全：</strong>有优先权仍需观察</li>
+            <li><strong>紧急车辆让路：</strong>听到警笛立即靠边</li>
+            <li><strong>电车始终让行：</strong>有轨电车有特殊优先权</li>
+            <li><strong>注意优先权结束：</strong>看到结束标志后规则改变</li>
+            <li><strong>眼神交流：</strong>不确定时与其他司机眼神交流</li>
+            <li><strong>宁让勿抢：</strong>不确定谁有优先权时，让行更安全</li>
+        </ul>
+    </div>
+
+    <!-- 考试要点 -->
+    <div class="method-section" style="background: #FEF5E7; border-left: 4px solid #D4AC0D;">
+        <h2>📝 考试要点</h2>
+
+        <ul class="tip-list">
+            <li><strong>✅ 正确识别标志：</strong>STOP、让行、优先权、优先权结束</li>
+            <li><strong>✅ 让右先行：</strong>同等道路无标志时让右边来车</li>
+            <li><strong>✅ STOP完全停车：</strong>至少3秒</li>
+            <li><strong>✅ 让行减速观察：</strong>必要时停车</li>
+            <li><strong>✅ 紧急车辆让路：</strong>听到警笛靠边</li>
+            <li><strong>⚠️ T字路口：</strong>无标志仍需让右先行</li>
+            <li><strong>❌ 抢行：</strong>不确定优先权时抢行</li>
+            <li><strong>❌ STOP不停：</strong>STOP标志只减速</li>
+            <li><strong>❌ 忽视标志：</strong>没看清标志就通过</li>
+        </ul>
+    </div>
+
+    <!-- 总结 -->
+    <div class="method-section" style="background: #F0FFF4; border-left: 4px solid #48BB78;">
+        <h2>✨ 总结</h2>
+        <p style="font-size: 1.1rem; line-height: 1.8;">
+            <strong>正确理解和遵守优先权规则是安全驾驶的基础。</strong>
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 1rem;">
+            记住优先权的层级顺序：
+        </p>
+        <ol style="font-size: 1.05rem; line-height: 1.8; padding-left: 2rem;">
+            <li><strong>交通警察</strong>（最高）</li>
+            <li><strong>交通信号灯</strong></li>
+            <li><strong>交通标志</strong>（STOP、让行、优先权）</li>
+            <li><strong>道路等级</strong>（主路vs支路）</li>
+            <li><strong>让右先行</strong>（默认规则）</li>
+        </ol>
+        <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 1rem; color: #2F855A; font-weight: bold;">
+            当你不确定谁有优先权时，选择让行总是更安全的！
+        </p>
+    </div>
+</div>

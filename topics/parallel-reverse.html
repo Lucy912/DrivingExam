@@ -1,0 +1,388 @@
+<div class="topic-detail">
+    <h1>🅿️ 倒车侧方停车技巧</h1>
+
+    <div class="intro">
+        <p><strong>什么是倒车侧方停车：</strong>也称"经典侧方停车"或"路边停车"，是最重要的停车技能之一。通过倒车方式，将车辆停入路边两辆已停车辆之间的空位。掌握这项技能意味着你可以停入城市中90%以上的街边车位。</p>
+    </div>
+
+    <!-- 步骤图示 -->
+    <div class="diagram-section">
+        <h2>倒车侧方停车过程</h2>
+        <div class="svg-container">
+            <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                <!-- 路面 -->
+                <rect x="0" y="0" width="800" height="600" fill="#A0AEC0"/>
+
+                <!-- 人行道 -->
+                <rect x="0" y="450" width="800" height="150" fill="#48BB78" opacity="0.3"/>
+                <rect x="0" y="430" width="800" height="20" fill="#718096"/>
+
+                <!-- 车道标线 -->
+                <line x1="0" y1="200" x2="800" y2="200" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="20,15"/>
+
+                <!-- 前方已停车辆 -->
+                <g transform="translate(450, 350)">
+                    <rect x="0" y="0" width="120" height="60" rx="5" fill="#A0AEC0"/>
+                    <rect x="10" y="10" width="30" height="40" fill="#E2E8F0"/>
+                </g>
+
+                <!-- 后方已停车辆 -->
+                <g transform="translate(100, 350)">
+                    <rect x="0" y="0" width="120" height="60" rx="5" fill="#A0AEC0"/>
+                    <rect x="10" y="10" width="30" height="40" fill="#E2E8F0"/>
+                </g>
+
+                <!-- 停车空间标注 -->
+                <line x1="220" y1="500" x2="450" y2="500" stroke="#F59E0B" stroke-width="3"/>
+                <line x1="220" y1="490" x2="220" y2="510" stroke="#F59E0B" stroke-width="3"/>
+                <line x1="450" y1="490" x2="450" y2="510" stroke="#F59E0B" stroke-width="3"/>
+                <text x="270" y="530" font-size="16" fill="#F59E0B" font-weight="bold">停车空间：只需1.5倍车长！</text>
+
+                <!-- 步骤1：初始位置 -->
+                <g id="parallel-reverse-1">
+                    <rect x="400" y="280" width="120" height="60" rx="5" fill="#4299E1" opacity="0.5"/>
+                    <text x="420" y="320" font-size="14" fill="#2D3748" font-weight="bold">步骤1：对齐</text>
+                </g>
+
+                <!-- 步骤2：开始倒车 -->
+                <g id="parallel-reverse-2">
+                    <rect x="360" y="320" width="120" height="60" rx="5" fill="#4299E1" opacity="0.7" transform="rotate(-20 420 350)"/>
+                    <text x="380" y="360" font-size="14" fill="#FFFFFF" font-weight="bold">步骤2</text>
+                </g>
+
+                <!-- 倒车路径 -->
+                <path d="M 460 340 Q 380 370, 320 420" stroke="#ED8936" stroke-width="4" fill="none" marker-end="url(#arroworange8)" stroke-dasharray="8,4"/>
+                <text x="380" y="380" font-size="13" fill="#ED8936" font-weight="bold">倒车转向</text>
+
+                <!-- 步骤3：调整角度 -->
+                <g id="parallel-reverse-3">
+                    <rect x="240" y="360" width="120" height="60" rx="5" fill="#4299E1" opacity="0.85" transform="rotate(-40 300 390)"/>
+                    <text x="260" y="400" font-size="14" fill="#FFFFFF" font-weight="bold">步骤3</text>
+                </g>
+
+                <!-- 步骤4：回正停好 -->
+                <g id="parallel-reverse-4" transform="translate(240, 350)">
+                    <rect x="0" y="0" width="120" height="60" rx="5" fill="#48BB78"/>
+                    <rect x="10" y="10" width="30" height="40" fill="#E2E8F0"/>
+                    <circle cx="15" cy="15" r="6" fill="#2D3748"/>
+                    <circle cx="35" cy="15" r="6" fill="#2D3748"/>
+                    <circle cx="15" cy="45" r="6" fill="#2D3748"/>
+                    <circle cx="35" cy="45" r="6" fill="#2D3748"/>
+                </g>
+
+                <!-- 回正路径 -->
+                <path d="M 280 410 Q 260 400, 260 370" stroke="#48BB78" stroke-width="3" fill="none" marker-end="url(#arrowgreen8)"/>
+                <text x="220" y="395" font-size="12" fill="#48BB78" font-weight="bold">回正</text>
+
+                <!-- 距离标注 -->
+                <line x1="360" y1="380" x2="400" y2="380" stroke="#E53E3E" stroke-width="2" stroke-dasharray="5,5"/>
+                <text x="345" y="370" font-size="13" fill="#E53E3E" font-weight="bold">~50cm</text>
+
+                <line x1="220" y1="380" x2="240" y2="380" stroke="#E53E3E" stroke-width="2" stroke-dasharray="5,5"/>
+                <text x="180" y="375" font-size="13" fill="#E53E3E" font-weight="bold">~30cm</text>
+
+                <!-- 箭头标记定义 -->
+                <defs>
+                    <marker id="arroworange8" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#ED8936"/>
+                    </marker>
+                    <marker id="arrowgreen8" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#48BB78"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+        <div class="explanation">
+            <strong>图解说明：</strong>橙色箭头=倒车转向路径，绿色箭头=回正方向盘。倒车侧方停车只需1.5倍车长（~7.5米），远小于前进停车所需的1.8-2倍车长！
+        </div>
+    </div>
+
+    <!-- 详细步骤 -->
+    <div class="method-section">
+        <h2>详细操作步骤</h2>
+        <div class="steering-demo">
+            <div class="step">
+                <h3>步骤1：评估停车空间</h3>
+                <p><strong>所需空间：</strong>至少<strong>1.5倍车长</strong>（约7.5米，对于5米长的车）</p>
+                <p><strong>检查清单：</strong></p>
+                <ul class="tip-list">
+                    <li>前后车辆之间的距离是否足够（用脚步测量：约12-13步）</li>
+                    <li>确认允许停车，检查标志和路面标线</li>
+                    <li>检查是否有时段限制或付费要求</li>
+                    <li>观察路缘石高度和坡度</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>步骤2：停在前车旁边</h3>
+                <p><strong>横向位置：</strong>与前车保持<strong>50厘米</strong>的距离</p>
+                <p><strong>纵向位置：</strong>你的<strong>车尾</strong>与前车<strong>车尾</strong>对齐（或稍微超前10-20厘米）</p>
+                <p><strong>车身平行：</strong>确保你的车与前车完全平行</p>
+                <p><strong>打转向灯：</strong>打右转向灯（街边停车通常在右侧）</p>
+                <p><strong>这是关键！</strong>这个起始位置决定了后续操作的成功率</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤3：开始倒车并转向</h3>
+                <p><strong>操作：</strong>挂倒挡，向右打满方向盘，缓慢倒车</p>
+                <p><strong>速度：</strong>步行速度（5-10公里/小时），越慢越好</p>
+                <p><strong>观察右后视镜：</strong>观察车尾向右后方移动，接近路缘</p>
+                <p><strong>观察左后视镜：</strong>确保车头不会刮到前车</p>
+                <p><strong>转头观察：</strong>定期转头看后方，确认安全</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤4：观察关键参照点</h3>
+                <p><strong>重要参照点：</strong>当你能在<strong>右后视镜</strong>中看到<strong>后车的整个车头</strong>时</p>
+                <p><strong>此时车辆角度：</strong>约45度角，正在顺利进入车位</p>
+                <p><strong>继续保持：</strong>保持方向盘打满，继续倒车</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤5：开始回正方向盘</h3>
+                <p><strong>时机判断：</strong>有两个方法判断回正时机：</p>
+                <ul class="tip-list">
+                    <li><strong>方法1：</strong>当车身与路缘形成约45度角时</li>
+                    <li><strong>方法2：</strong>当右后轮即将接近路缘石时（通过右后视镜观察）</li>
+                </ul>
+                <p><strong>操作：</strong>向左回方向盘至中间位置（方向盘回正）</p>
+                <p><strong>继续倒车：</strong>保持方向盘在中间位置，继续倒车</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤6：最终调整</h3>
+                <p><strong>观察：</strong>通过两侧后视镜观察车身是否与路缘平行</p>
+                <p><strong>如果车尾太靠右：</strong>向左打方向盘，继续倒车</p>
+                <p><strong>如果车尾太靠左：</strong>向右打方向盘，继续倒车</p>
+                <p><strong>距离路缘：</strong>最终车身与路缘保持15-30厘米</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤7：前进调整位置</h3>
+                <p><strong>检查距离：</strong></p>
+                <ul class="tip-list">
+                    <li>与后车距离：至少30厘米</li>
+                    <li>与前车距离：至少50厘米</li>
+                </ul>
+                <p><strong>如需调整：</strong>挂前进挡，向前移动到合适位置</p>
+                <p><strong>车身居中：</strong>确保前后距离大致均衡</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤8：完成停车</h3>
+                <p><strong>最终检查：</strong></p>
+                <ul class="tip-list">
+                    <li>车身与路缘平行</li>
+                    <li>距离路缘15-30厘米</li>
+                    <li>前后车辆有足够驶出空间</li>
+                    <li>不阻塞车道</li>
+                </ul>
+                <p><strong>坡道特殊处理：</strong>如在坡道上，打方向盘（上坡向左，下坡向右）</p>
+                <p><strong>完成：</strong>挂P挡/1挡，拉手刹，熄火</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 关键参照点详解 -->
+    <div class="method-section" style="background: #FFF7ED; border-left: 4px solid #F59E0B;">
+        <h2>🎯 关键参照点详解</h2>
+
+        <div style="margin-top: 1rem;">
+            <h3 style="color: #C05621;">1. 起始位置（最重要！）</h3>
+            <p><strong>横向：</strong>与前车保持50厘米距离</p>
+            <ul class="tip-list">
+                <li>太近（<30cm）：车头可能刮到前车</li>
+                <li>太远（>70cm）：进入角度会太平，难以停入</li>
+            </ul>
+            <p><strong>纵向：</strong>车尾与前车车尾对齐</p>
+            <ul class="tip-list">
+                <li>太靠前：倒车时车头会刮到前车</li>
+                <li>太靠后：需要倒车更长距离，可能撞到后车</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C05621;">2. 转向时机</h3>
+            <p><strong>何时打满方向盘：</strong>开始倒车时立即打满！</p>
+            <p><strong>原因：</strong>早打方向盘可以获得最大转弯角度，让车尾快速接近路缘</p>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C05621;">3. 回正时机（难点！）</h3>
+            <p><strong>视觉判断：</strong>在右后视镜中看到后车完整车头</p>
+            <p><strong>角度判断：</strong>车身与路缘约45度角</p>
+            <p><strong>距离判断：</strong>右后轮距离路缘约30-40厘米</p>
+            <p><strong>如果回正太早：</strong>车尾会停得离路缘太远</p>
+            <p><strong>如果回正太晚：</strong>车尾可能撞到路缘石</p>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C05621;">4. 停车深度</h3>
+            <p><strong>何时停止倒车：</strong>与后车保持30厘米距离</p>
+            <p><strong>判断方法：</strong>通过车内后视镜观察后车，当看起来"很近"但还没碰到时</p>
+        </div>
+    </div>
+
+    <!-- 常见错误 -->
+    <div class="mistakes">
+        <h2>常见错误</h2>
+        <div class="mistake-grid">
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>起始位置不对</h4>
+                <p>这是导致失败的第1号原因！起始位置错误，后续无论怎么操作都难以成功。必须确保车尾对齐前车车尾，距离50厘米。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>打方向盘太慢或太少</h4>
+                <p>开始倒车时必须立即打满方向盘！缓慢打方向或只打一半会导致转弯半径太大，车尾无法接近路缘。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>速度过快</h4>
+                <p>倒车速度必须保持步行速度。速度过快会让你没时间观察和调整，容易撞到前车或后车。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>回正时机不对</h4>
+                <p>这是第2号难点！太早回正导致车尾离路缘太远；太晚回正导致车尾撞路缘。记住参照点：右后视镜看到后车完整车头。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>只看一个后视镜</h4>
+                <p>必须同时观察左右后视镜！右侧观察车尾与路缘的距离，左侧观察车头与前车的距离。单侧观察会导致顾此失彼。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>车身不平行</h4>
+                <p>停好后车身与路缘有明显角度。这通常是因为回正后没有继续调整方向盘，需要二次微调。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>离路缘太远</h4>
+                <p>车身离路缘超过30厘米，突出到车道上。这通常是因为回正太早。应该让车尾更靠近路缘再回正。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>倒车太深撞到后车</h4>
+                <p>专注于路缘和角度，忘记观察后车距离。必须定期通过车内后视镜观察后车，保持至少30厘米距离。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>放弃太早</h4>
+                <p>第一次倒车位置不理想就放弃。实际上，倒车侧方停车允许多次前进倒车调整，不要期望一次完美。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>忘记打转向灯</h4>
+                <p>开始操作前和驶离车位时都必须打转向灯。这不仅是礼貌，也是法律要求。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 专业建议 -->
+    <div class="tips">
+        <h2>专业建议</h2>
+        <ul class="tip-list">
+            <li><strong>起始位置是成功的关键：</strong>车尾对齐前车车尾，距离50厘米，这决定了80%的成功率</li>
+            <li><strong>立即打满方向盘：</strong>开始倒车时立即打满，获得最大转向角度</li>
+            <li><strong>步行速度倒车：</strong>5-10公里/小时，越慢越好控制</li>
+            <li><strong>记住参照点：</strong>右后视镜看到后车完整车头时回正</li>
+            <li><strong>交替观察：</strong>右镜看路缘，左镜看前车，后视镜看后车</li>
+            <li><strong>分阶段操作：</strong>倒车→回正→微调，不要想着一次完成</li>
+            <li><strong>允许多次调整：</strong>前进倒车2-3次很正常</li>
+            <li><strong>15-30厘米距离：</strong>最终车身与路缘保持这个距离</li>
+            <li><strong>前后留空间：</strong>前车50厘米，后车30厘米</li>
+            <li><strong>使用倒车影像：</strong>如果有，配合使用但不要完全依赖</li>
+            <li><strong>坡道特殊处理：</strong>停好后打方向盘防溜车（上坡向左，下坡向右）</li>
+            <li><strong>大量练习：</strong>这项技能需要反复练习才能掌握，没有捷径</li>
+        </ul>
+    </div>
+
+    <!-- 练习建议 -->
+    <div class="method-section" style="background: #EBF8FF; border-left: 4px solid #2B6CB0;">
+        <h2>练习建议</h2>
+        <ol style="padding-left: 1.5rem;">
+            <li><strong>标记练习场地：</strong>用路锥标记前后"车辆"，初始间距设为2倍车长（~10米）</li>
+            <li><strong>练习起始位置：</strong>反复练习停在正确的起始位置（车尾对齐，距离50cm）</li>
+            <li><strong>练习打方向盘：</strong>体会"立即打满"的感觉，培养肌肉记忆</li>
+            <li><strong>找到回正点：</strong>反复练习找到"右后视镜看到后车完整车头"的时刻</li>
+            <li><strong>观察顺序：</strong>练习右镜→左镜→后视镜的观察节奏</li>
+            <li><strong>缩小空间：</strong>逐步减小路锥间距，从2倍车长→1.7倍→1.5倍→1.3倍（极限）</li>
+            <li><strong>标记参照点：</strong>在车窗上贴胶带标记关键参照点的位置</li>
+            <li><strong>录像分析：</strong>让朋友录像，从外部观察你的操作，找出问题</li>
+            <li><strong>模拟压力：</strong>在有人等待的情况下练习，提高抗压能力</li>
+            <li><strong>不同车型：</strong>在不同长度和宽度的车上练习</li>
+            <li><strong>实际街边：</strong>在交通较少时段，实际街边练习</li>
+            <li><strong>每天练习：</strong>如果可能，每天至少练习10次，连续一周</li>
+        </ol>
+    </div>
+
+    <!-- 考试要点 -->
+    <div class="method-section" style="background: #FEF5E7; border-left: 4px solid #D4AC0D;">
+        <h2>📝 考试要点</h2>
+        <p>倒车侧方停车是驾驶考试的<strong>必考项目</strong>，通常占据重要分值：</p>
+
+        <div style="margin-top: 1rem;">
+            <h3 style="color: #856404;">考试标准：</h3>
+            <ul class="tip-list">
+                <li><strong>✅ 一次完成：</strong>理想情况下一次倒车入位，不需前进调整</li>
+                <li><strong>✅ 车身入位：</strong>车辆完全进入车位，不压线</li>
+                <li><strong>✅ 距离适当：</strong>车身与路缘15-30厘米</li>
+                <li><strong>✅ 车身平行：</strong>车身与路缘基本平行（允许小角度）</li>
+                <li><strong>✅ 前后距离：</strong>与前后车辆保持安全距离</li>
+                <li><strong>✅ 充分观察：</strong>倒车过程中多次观察周围</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #856404;">扣分项：</h3>
+            <ul class="tip-list">
+                <li><strong>⚠️ 中途停顿：</strong>倒车过程中停顿（部分地区扣分）</li>
+                <li><strong>⚠️ 多次调整：</strong>需要前进倒车2次以上调整位置</li>
+                <li><strong>⚠️ 时间过长：</strong>超过规定时间（通常2-3分钟）</li>
+                <li><strong>⚠️ 车身不正：</strong>车身与路缘角度过大</li>
+                <li><strong>⚠️ 距离过大：</strong>车身离路缘超过50厘米</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #856404;">自动失败：</h3>
+            <ul class="tip-list">
+                <li><strong>❌ 碰撞标记物：</strong>碰到路锥或标记杆</li>
+                <li><strong>❌ 压线：</strong>车轮压到车位标线</li>
+                <li><strong>❌ 撞击路缘：</strong>车轮撞击或骑上路缘石</li>
+                <li><strong>❌ 超出车位：</strong>车身突出车位，阻塞车道</li>
+                <li><strong>❌ 无法完成：</strong>3次尝试仍无法停入</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 总结 -->
+    <div class="method-section" style="background: #F0FFF4; border-left: 4px solid #48BB78;">
+        <h2>✨ 总结</h2>
+        <p style="font-size: 1.1rem; line-height: 1.8;">
+            <strong>倒车侧方停车是最重要的停车技能。</strong>掌握这项技能意味着你可以在城市中的大多数街边找到停车位。它看起来复杂，但实际上遵循固定的步骤和参照点。
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 1rem;">
+            <strong>成功的三个关键：</strong>
+        </p>
+        <ol style="font-size: 1.05rem; line-height: 1.8; padding-left: 2rem;">
+            <li><strong>正确的起始位置</strong>（车尾对齐前车车尾，距离50厘米）</li>
+            <li><strong>正确的回正时机</strong>（右后视镜看到后车完整车头）</li>
+            <li><strong>大量的练习</strong>（至少50-100次才能熟练掌握）</li>
+        </ol>
+        <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 1rem; color: #2F855A; font-weight: bold;">
+            记住：每个优秀的司机都曾在侧方停车上挣扎过。不要放弃，继续练习，你一定能掌握！
+        </p>
+    </div>
+</div>

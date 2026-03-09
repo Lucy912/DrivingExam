@@ -1,0 +1,598 @@
+<div class="topic-detail">
+    <h1>🛑 紧急停车技巧</h1>
+
+    <div class="intro">
+        <p><strong>什么是紧急停车：</strong>在紧急情况下，以最短距离和最快速度安全停车的技能。这是驾驶考试的必考项目，也是实际驾驶中保命的关键技能。正确的紧急停车可以避免事故，保护自己和他人的生命安全。</p>
+    </div>
+
+    <!-- 步骤图示 -->
+    <div class="diagram-section">
+        <h2>紧急停车过程</h2>
+        <div class="svg-container">
+            <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+                <!-- 道路 -->
+                <rect x="0" y="0" width="800" height="400" fill="#A0AEC0"/>
+
+                <!-- 车道标线 -->
+                <line x1="0" y1="200" x2="800" y2="200" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="20,15"/>
+                <line x1="0" y1="100" x2="800" y2="100" stroke="#FFFFFF" stroke-width="3"/>
+                <line x1="0" y1="300" x2="800" y2="300" stroke="#FFFFFF" stroke-width="3"/>
+
+                <!-- 人行道 -->
+                <rect x="0" y="0" width="800" height="100" fill="#48BB78" opacity="0.2"/>
+                <rect x="0" y="300" width="800" height="100" fill="#48BB78" opacity="0.2"/>
+
+                <!-- 初始车辆位置 -->
+                <g id="initial-car">
+                    <rect x="100" y="140" width="120" height="60" rx="5" fill="#4299E1"/>
+                    <rect x="110" y="150" width="30" height="40" fill="#E2E8F0"/>
+                    <circle cx="115" cy="155" r="6" fill="#2D3748"/>
+                    <circle cx="135" cy="155" r="6" fill="#2D3748"/>
+                    <circle cx="115" cy="185" r="6" fill="#2D3748"/>
+                    <circle cx="135" cy="185" r="6" fill="#2D3748"/>
+                    <text x="95" y="220" font-size="16" fill="#2D3748" font-weight="bold">正常行驶</text>
+                    <text x="90" y="240" font-size="14" fill="#2D3748">50km/h</text>
+                </g>
+
+                <!-- 危险出现标志 -->
+                <g id="danger-sign">
+                    <polygon points="400,150 420,190 380,190" fill="#E53E3E"/>
+                    <text x="395" y="180" font-size="20" fill="#FFFFFF" font-weight="bold">!</text>
+                    <text x="360" y="210" font-size="16" fill="#E53E3E" font-weight="bold">危险出现</text>
+                </g>
+
+                <!-- 刹车轨迹 -->
+                <path d="M 220 170 L 550 170" stroke="#ED8936" stroke-width="6" stroke-dasharray="15,10"/>
+                <text x="350" y="160" font-size="16" fill="#ED8936" font-weight="bold">紧急制动</text>
+
+                <!-- 刹车痕迹 -->
+                <rect x="220" y="185" width="330" height="3" fill="#2D3748" opacity="0.5"/>
+                <rect x="220" y="192" width="330" height="3" fill="#2D3748" opacity="0.5"/>
+
+                <!-- 停止车辆 -->
+                <g id="stopped-car">
+                    <rect x="550" y="140" width="120" height="60" rx="5" fill="#E53E3E"/>
+                    <rect x="560" y="150" width="30" height="40" fill="#E2E8F0"/>
+                    <circle cx="565" cy="155" r="6" fill="#2D3748"/>
+                    <circle cx="585" cy="155" r="6" fill="#2D3748"/>
+                    <circle cx="565" cy="185" r="6" fill="#2D3748"/>
+                    <circle cx="585" cy="185" r="6" fill="#2D3748"/>
+
+                    <!-- 刹车灯亮起 -->
+                    <circle cx="665" cy="160" r="8" fill="#FF0000" opacity="0.8"/>
+                    <circle cx="665" cy="180" r="8" fill="#FF0000" opacity="0.8"/>
+
+                    <text x="555" y="220" font-size="16" fill="#E53E3E" font-weight="bold">完全停止</text>
+                </g>
+
+                <!-- 停车距离标注 -->
+                <line x1="100" y1="260" x2="550" y2="260" stroke="#F59E0B" stroke-width="3"/>
+                <line x1="100" y1="250" x2="100" y2="270" stroke="#F59E0B" stroke-width="3"/>
+                <line x1="550" y1="250" x2="550" y2="270" stroke="#F59E0B" stroke-width="3"/>
+                <text x="280" y="285" font-size="15" fill="#F59E0B" font-weight="bold">制动距离：取决于速度和路况</text>
+
+                <!-- 反应时间标注 -->
+                <line x1="100" y1="120" x2="220" y2="120" stroke="#9333EA" stroke-width="2" stroke-dasharray="5,5"/>
+                <text x="120" y="110" font-size="13" fill="#9333EA" font-weight="bold">反应时间 ~0.7秒</text>
+
+                <!-- 制动时间标注 -->
+                <line x1="220" y1="120" x2="550" y2="120" stroke="#DC2626" stroke-width="2" stroke-dasharray="5,5"/>
+                <text x="340" y="110" font-size="13" fill="#DC2626" font-weight="bold">制动时间 ~2-3秒</text>
+            </svg>
+        </div>
+        <div class="explanation">
+            <strong>图解说明：</strong>从发现危险到完全停止分为两个阶段：反应时间（紫色）和制动时间（红色）。总停车距离=反应距离+制动距离。
+        </div>
+    </div>
+
+    <!-- 详细步骤 -->
+    <div class="method-section">
+        <h2>紧急停车操作步骤</h2>
+        <div class="steering-demo">
+            <div class="step">
+                <h3>步骤1：识别危险（反应阶段）</h3>
+                <p><strong>常见紧急情况：</strong></p>
+                <ul class="tip-list">
+                    <li>行人突然冲出</li>
+                    <li>前车急刹车</li>
+                    <li>动物跑上道路</li>
+                    <li>儿童追球到马路上</li>
+                    <li>车辆突然变道</li>
+                    <li>考官指令"紧急停车！"</li>
+                </ul>
+                <p><strong>反应时间：</strong>普通驾驶员约0.7-1秒（训练可缩短至0.5秒）</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤2：迅速踩刹车（制动阶段）</h3>
+                <p><strong>操作要点：</strong></p>
+                <ul class="tip-list">
+                    <li><strong>双手紧握方向盘：</strong>保持10点和2点位置，防止方向跑偏</li>
+                    <li><strong>右脚快速移动：</strong>从油门立即移至刹车</li>
+                    <li><strong>用力踩刹车：</strong>快速、用力踩下刹车踏板</li>
+                    <li><strong>手动挡车辆：</strong>同时踩下离合器（防止熄火）</li>
+                    <li><strong>自动挡车辆：</strong>只需踩刹车</li>
+                </ul>
+                <p><strong>力度控制：</strong>现代车辆配备ABS，可以直接踩到底</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤3：保持方向控制</h3>
+                <p><strong>关键要点：</strong></p>
+                <ul class="tip-list">
+                    <li><strong>紧握方向盘：</strong>刹车时车辆会前倾，方向盘可能偏移</li>
+                    <li><strong>保持直线：</strong>不要急转方向盘</li>
+                    <li><strong>视线前方：</strong>看向你想去的方向，不要盯着障碍物</li>
+                </ul>
+                <p><strong>原因：</strong>急打方向+急刹车=失控</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤4：感受ABS工作</h3>
+                <p><strong>ABS（防抱死制动系统）特征：</strong></p>
+                <ul class="tip-list">
+                    <li>刹车踏板会有震动和脉冲感</li>
+                    <li>可能听到"咔咔咔"的声音</li>
+                    <li>这是<strong>正常现象</strong>，不要松开刹车</li>
+                </ul>
+                <p><strong>正确做法：</strong>持续用力踩住刹车，让ABS工作</p>
+                <p><strong>错误做法：</strong>感到震动就松开刹车（会增加制动距离）</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤5：车辆完全停止</h3>
+                <p><strong>停止后立即操作：</strong></p>
+                <ul class="tip-list">
+                    <li>保持刹车踩住</li>
+                    <li>挂入P挡（自动）或N挡（手动）</li>
+                    <li>拉起手刹</li>
+                    <li>打开双闪警示灯</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>步骤6：观察周围情况</h3>
+                <p><strong>停车后检查：</strong></p>
+                <ul class="tip-list">
+                    <li>观察后视镜，确认后方车辆反应</li>
+                    <li>检查前方危险是否已解除</li>
+                    <li>评估是否需要移动车辆到安全位置</li>
+                    <li>如在路中间，尽快移至路边</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>步骤7：重新起步（考试）</h3>
+                <p><strong>考试情况下：</strong></p>
+                <ul class="tip-list">
+                    <li>等待考官指令</li>
+                    <li>观察后方交通</li>
+                    <li>打左转向灯</li>
+                    <li>确认安全后重新起步</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 制动距离详解 -->
+    <div class="method-section" style="background: #FFF7ED; border-left: 4px solid #F59E0B;">
+        <h2>📏 制动距离详解</h2>
+
+        <p><strong>总停车距离 = 反应距离 + 制动距离</strong></p>
+
+        <div style="margin-top: 1rem;">
+            <h3 style="color: #C05621;">反应距离（思考阶段）</h3>
+            <p>从发现危险到脚接触刹车的距离</p>
+            <table class="comparison-table" style="margin-top: 0.5rem;">
+                <thead>
+                    <tr>
+                        <th>速度</th>
+                        <th>反应时间0.7秒时的距离</th>
+                        <th>反应时间1秒时的距离</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>30 km/h</td>
+                        <td>6米</td>
+                        <td>8米</td>
+                    </tr>
+                    <tr>
+                        <td>50 km/h</td>
+                        <td class="recommended">10米</td>
+                        <td>14米</td>
+                    </tr>
+                    <tr>
+                        <td>80 km/h</td>
+                        <td>16米</td>
+                        <td>22米</td>
+                    </tr>
+                    <tr>
+                        <td>100 km/h</td>
+                        <td>19米</td>
+                        <td>28米</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C05621;">制动距离（刹车阶段）</h3>
+            <p>从开始刹车到完全停止的距离（干燥路面，良好刹车）</p>
+            <table class="comparison-table" style="margin-top: 0.5rem;">
+                <thead>
+                    <tr>
+                        <th>速度</th>
+                        <th>干燥路面</th>
+                        <th>潮湿路面</th>
+                        <th>结冰路面</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>30 km/h</td>
+                        <td>6米</td>
+                        <td>9米</td>
+                        <td>18米</td>
+                    </tr>
+                    <tr>
+                        <td>50 km/h</td>
+                        <td class="recommended">14米</td>
+                        <td>25米</td>
+                        <td>50米</td>
+                    </tr>
+                    <tr>
+                        <td>80 km/h</td>
+                        <td>36米</td>
+                        <td>64米</td>
+                        <td>128米</td>
+                    </tr>
+                    <tr>
+                        <td>100 km/h</td>
+                        <td>56米</td>
+                        <td>100米</td>
+                        <td>200米</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C05621;">总停车距离示例（50km/h）</h3>
+            <ul class="tip-list">
+                <li><strong>干燥路面：</strong>反应距离10米 + 制动距离14米 = <strong>24米</strong></li>
+                <li><strong>潮湿路面：</strong>反应距离10米 + 制动距离25米 = <strong>35米</strong></li>
+                <li><strong>结冰路面：</strong>反应距离10米 + 制动距离50米 = <strong>60米</strong></li>
+            </ul>
+            <p style="margin-top: 1rem; color: #C05621; font-weight: bold;">这就是为什么恶劣天气下必须降低速度！</p>
+        </div>
+    </div>
+
+    <!-- ABS系统详解 -->
+    <div class="method-section" style="background: #EBF8FF; border-left: 4px solid #2B6CB0;">
+        <h2>🔧 ABS防抱死制动系统</h2>
+
+        <div style="margin-top: 1rem;">
+            <h3 style="color: #2C5282;">什么是ABS？</h3>
+            <p>ABS（Anti-lock Braking System）防止车轮在紧急制动时抱死（锁死不转），保持车辆的转向控制能力。</p>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #2C5282;">没有ABS会怎样？</h3>
+            <ul class="tip-list">
+                <li><strong>车轮抱死：</strong>车轮停止转动，在路面上滑行</li>
+                <li><strong>失去转向：</strong>方向盘失效，无法避让障碍物</li>
+                <li><strong>车辆打滑：</strong>容易侧滑或失控</li>
+                <li><strong>制动距离增加：</strong>特别是在湿滑路面</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #2C5282;">有ABS的优势：</h3>
+            <ul class="tip-list">
+                <li><strong>保持转向能力：</strong>紧急刹车时仍可转向避让</li>
+                <li><strong>缩短制动距离：</strong>特别是在湿滑路面</li>
+                <li><strong>防止打滑：</strong>车辆保持稳定</li>
+                <li><strong>简化操作：</strong>直接踩到底即可，无需点刹</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #2C5282;">如何使用ABS？</h3>
+            <ol style="padding-left: 1.5rem;">
+                <li><strong>快速用力踩刹车：</strong>直接踩到底，不要犹豫</li>
+                <li><strong>保持踩住：</strong>即使感到震动和脉冲，持续踩住</li>
+                <li><strong>不要松开：</strong>很多人感到震动就松开，这是错误的</li>
+                <li><strong>同时转向：</strong>如需避让，可以在刹车的同时转向</li>
+            </ol>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #2C5282;">ABS的限制：</h3>
+            <ul class="tip-list">
+                <li><strong>不能违反物理定律：</strong>仍需保持安全车距</li>
+                <li><strong>松软路面：</strong>在沙地、雪地上可能增加制动距离</li>
+                <li><strong>不是万能的：</strong>仍需谨慎驾驶，预判危险</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 常见错误 -->
+    <div class="mistakes">
+        <h2>常见错误</h2>
+        <div class="mistake-grid">
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>反应太慢</h4>
+                <p>发现危险后犹豫、思考或试图采取其他措施。紧急情况下，第一反应必须是刹车！思考可以之后进行。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>刹车力度不足</h4>
+                <p>轻踩或渐进式踩刹车。紧急停车需要快速、用力地踩到底。不要担心乘客不舒服，安全第一。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>感到ABS震动就松开</h4>
+                <p>这是最常见的错误！ABS震动是正常的，说明系统在工作。松开刹车会大幅增加制动距离。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>紧急转向而不刹车</h4>
+                <p>试图通过急转弯避让而不刹车。高速下急转弯会导致失控。正确做法：先刹车降速，再转向。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>同时急刹车和急转向</h4>
+                <p>在没有ABS的车上这样做会失控。即使有ABS，也应优先刹车，降速后再转向。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>忘记踩离合（手动挡）</h4>
+                <p>手动挡车辆紧急刹车时如果不踩离合，发动机会熄火，失去助力转向和刹车助力，非常危险。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>盯着障碍物</h4>
+                <p>"看哪撞哪"效应：你会不自觉地向你看的方向转向。应该看向安全的方向，而不是盯着障碍物。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>单手握方向盘</h4>
+                <p>紧急制动时车辆会前倾和抖动，单手无法有效控制方向。必须双手紧握10点和2点位置。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>停车后不采取措施</h4>
+                <p>紧急停车后留在原地不动。应该立即打开双闪，观察周围，必要时移动到安全位置。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>在不安全时重新起步</h4>
+                <p>紧急停车后，不观察后方就直接起步。后方可能有车辆正在快速接近，必须确认安全。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 专业建议 -->
+    <div class="tips">
+        <h2>专业建议</h2>
+        <ul class="tip-list">
+            <li><strong>预判危险：</strong>最好的紧急停车是不需要紧急停车——保持警觉，预判风险</li>
+            <li><strong>保持车距：</strong>遵守2秒法则，给自己反应和制动的空间</li>
+            <li><strong>双手握盘：</strong>始终保持10点和2点位置，紧急时才能有效控制</li>
+            <li><strong>快速用力：</strong>紧急刹车要快、要狠，踩到底</li>
+            <li><strong>手动挡踩离合：</strong>同时踩刹车和离合，防止熄火</li>
+            <li><strong>信任ABS：</strong>感到震动是正常的，继续踩住刹车</li>
+            <li><strong>保持直线：</strong>不要急打方向盘，先刹车降速</li>
+            <li><strong>看向安全方向：</strong>眼睛看向你想去的地方，不要盯着障碍物</li>
+            <li><strong>定期检查刹车：</strong>确保刹车系统状况良好</li>
+            <li><strong>了解你的车：</strong>熟悉车辆的刹车特性和制动距离</li>
+            <li><strong>调整座椅：</strong>确保能够用力踩刹车到底</li>
+            <li><strong>练习紧急停车：</strong>在安全场地练习，建立肌肉记忆</li>
+        </ul>
+    </div>
+
+    <!-- 影响制动距离的因素 -->
+    <div class="method-section" style="background: #FDECEA; border-left: 4px solid #E53E3E;">
+        <h2>⚠️ 影响制动距离的因素</h2>
+
+        <div style="margin-top: 1rem;">
+            <h3 style="color: #C53030;">1. 速度（最重要！）</h3>
+            <p>制动距离与速度的<strong>平方</strong>成正比：</p>
+            <ul class="tip-list">
+                <li>速度翻倍，制动距离增加4倍</li>
+                <li>50km/h制动距离14米，100km/h制动距离56米（4倍）</li>
+                <li>这就是为什么超速如此危险</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C53030;">2. 路面状况</h3>
+            <ul class="tip-list">
+                <li><strong>干燥沥青：</strong>最佳制动条件</li>
+                <li><strong>潮湿路面：</strong>制动距离增加约80%</li>
+                <li><strong>结冰路面：</strong>制动距离增加3-4倍！</li>
+                <li><strong>碎石路面：</strong>制动距离显著增加</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C53030;">3. 轮胎状况</h3>
+            <ul class="tip-list">
+                <li><strong>磨损轮胎：</strong>特别是在湿滑路面，制动距离大幅增加</li>
+                <li><strong>胎压不足：</strong>影响制动效果</li>
+                <li><strong>胎压过高：</strong>减少接地面积，延长制动距离</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C53030;">4. 车辆载重</h3>
+            <ul class="tip-list">
+                <li>满载车辆制动距离比空载长20-40%</li>
+                <li>刹车系统需要更多时间停止更重的车辆</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C53030;">5. 刹车系统状况</h3>
+            <ul class="tip-list">
+                <li><strong>磨损的刹车片：</strong>制动力下降</li>
+                <li><strong>刹车液不足：</strong>刹车踏板行程增加</li>
+                <li><strong>刹车过热：</strong>长下坡后刹车效果减弱</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C53030;">6. 坡度</h3>
+            <ul class="tip-list">
+                <li><strong>下坡：</strong>重力加速，制动距离增加</li>
+                <li><strong>上坡：</strong>重力减速，制动距离缩短</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 练习建议 -->
+    <div class="method-section" style="background: #EBF8FF; border-left: 4px solid #2B6CB0;">
+        <h2>练习建议</h2>
+
+        <div style="margin-top: 1rem;">
+            <h3 style="color: #2C5282;">安全练习场地</h3>
+            <p><strong>选择：</strong>空旷停车场、废弃机场跑道、驾校训练场</p>
+            <p><strong>条件：</strong>无人无车，视野开阔，路面平整</p>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #2C5282;">练习步骤</h3>
+            <ol style="padding-left: 1.5rem;">
+                <li><strong>低速练习（20-30km/h）：</strong>
+                    <ul class="tip-list">
+                        <li>感受刹车踏板的力度</li>
+                        <li>体会ABS的震动（如果有）</li>
+                        <li>观察制动距离</li>
+                    </ul>
+                </li>
+                <li><strong>中速练习（40-50km/h）：</strong>
+                    <ul class="tip-list">
+                        <li>标记起始点和预期停车点</li>
+                        <li>练习快速从油门移至刹车</li>
+                        <li>测量实际制动距离</li>
+                    </ul>
+                </li>
+                <li><strong>模拟场景：</strong>
+                    <ul class="tip-list">
+                        <li>让朋友突然举起标志牌（模拟危险出现）</li>
+                        <li>练习快速反应和制动</li>
+                        <li>记录反应时间和制动距离</li>
+                    </ul>
+                </li>
+                <li><strong>不同路面：</strong>
+                    <ul class="tip-list">
+                        <li>在干燥和潮湿路面分别练习</li>
+                        <li>体会不同路况下的制动距离差异</li>
+                        <li>（安全情况下）在碎石路面练习</li>
+                    </ul>
+                </li>
+                <li><strong>手动挡特别练习：</strong>
+                    <ul class="tip-list">
+                        <li>练习同时踩刹车和离合</li>
+                        <li>建立肌肉记忆</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #2C5282;">注意事项</h3>
+            <ul class="tip-list">
+                <li><strong>始终系安全带</strong></li>
+                <li><strong>确保周围无人无车</strong></li>
+                <li><strong>逐步提高速度，不要一开始就高速</strong></li>
+                <li><strong>注意刹车过热，练习间隔给刹车冷却时间</strong></li>
+                <li><strong>带上有经验的驾驶员陪同</strong></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 考试要点 -->
+    <div class="method-section" style="background: #FEF5E7; border-left: 4px solid #D4AC0D;">
+        <h2>📝 考试要点</h2>
+
+        <div style="margin-top: 1rem;">
+            <h3 style="color: #856404;">考试形式</h3>
+            <p>考官会在行驶中突然发出指令："紧急停车！"或拍打仪表盘。</p>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #856404;">评分标准</h3>
+            <ul class="tip-list">
+                <li><strong>✅ 快速反应：</strong>听到指令后立即刹车（<1秒）</li>
+                <li><strong>✅ 用力制动：</strong>快速、用力踩刹车到底</li>
+                <li><strong>✅ 双手控制：</strong>双手紧握方向盘，保持方向</li>
+                <li><strong>✅ 车辆稳定：</strong>车辆保持直线，没有打滑或偏离</li>
+                <li><strong>✅ 完全停止：</strong>车辆完全停住，不溜车</li>
+                <li><strong>✅ 安全措施：</strong>停车后拉手刹，打双闪（如需要）</li>
+                <li><strong>✅ 观察重启：</strong>重新起步前观察后方交通</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #856404;">扣分项</h3>
+            <ul class="tip-list">
+                <li><strong>⚠️ 反应慢：</strong>超过1秒才开始刹车</li>
+                <li><strong>⚠️ 刹车力度不足：</strong>渐进式刹车而非紧急制动</li>
+                <li><strong>⚠️ 方向不稳：</strong>车辆明显偏离直线</li>
+                <li><strong>⚠️ 未完全停止：</strong>车辆仍在缓慢移动</li>
+                <li><strong>⚠️ 发动机熄火：</strong>手动挡未踩离合导致熄火</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #856404;">自动失败</h3>
+            <ul class="tip-list">
+                <li><strong>❌ 没有刹车：</strong>听到指令后没有采取制动措施</li>
+                <li><strong>❌ 失控：</strong>车辆打滑、旋转或失控</li>
+                <li><strong>❌ 危险操作：</strong>急转方向盘导致危险</li>
+                <li><strong>❌ 碰撞：</strong>紧急停车过程中发生碰撞</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #856404;">考试技巧</h3>
+            <ul class="tip-list">
+                <li><strong>保持警觉：</strong>考试全程保持注意力，预期可能随时要求紧急停车</li>
+                <li><strong>双手握盘：</strong>始终双手正确握方向盘</li>
+                <li><strong>不要犹豫：</strong>听到指令立即执行，不要思考或确认</li>
+                <li><strong>用力到底：</strong>不要担心太猛，考官想看到你的果断</li>
+                <li><strong>保持冷静：</strong>完成后等待考官指令再重新起步</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 总结 -->
+    <div class="method-section" style="background: #E53E3E; color: #FFFFFF; border-left: 4px solid #9B1C1C;">
+        <h2 style="color: #FFFFFF;">🚨 紧急停车生存指南</h2>
+        <div style="font-size: 1.1rem; line-height: 1.8; margin-top: 1rem;">
+            <p><strong>紧急停车是保命技能，不仅仅是考试项目。</strong></p>
+            <p style="margin-top: 1rem;">在真实的紧急情况下：</p>
+            <ul style="padding-left: 2rem; margin-top: 0.5rem;">
+                <li><strong>不要思考，立即刹车</strong> - 本能反应可以救命</li>
+                <li><strong>用力踩到底</strong> - 现代车辆有ABS，不用担心</li>
+                <li><strong>双手控制方向</strong> - 保持车辆稳定</li>
+                <li><strong>相信你的训练</strong> - 肌肉记忆会接管</li>
+            </ul>
+            <p style="margin-top: 1rem; font-weight: bold; font-size: 1.2rem;">
+                记住：多一秒犹豫，多几米危险。快速、果断、用力 - 这就是紧急停车的核心！
+            </p>
+        </div>
+    </div>
+</div>

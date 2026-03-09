@@ -1,0 +1,412 @@
+<div class="topic-detail">
+    <h1>➡️ 路口右转技巧</h1>
+
+    <div class="intro">
+        <p><strong>什么是路口右转：</strong>在右侧通行国家（如荷兰、中国），右转是相对简单的转弯操作，因为你只需穿越较少的车道。但这不意味着可以掉以轻心——右转仍然需要正确的观察、信号和定位技巧。</p>
+    </div>
+
+    <!-- 步骤图示 -->
+    <div class="diagram-section">
+        <h2>路口右转过程</h2>
+        <div class="svg-container">
+            <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                <!-- 道路背景 -->
+                <rect x="0" y="0" width="800" height="600" fill="#E2E8F0"/>
+
+                <!-- 主道路（南北向） -->
+                <rect x="300" y="0" width="200" height="250" fill="#A0AEC0"/>
+                <rect x="300" y="350" width="200" height="250" fill="#A0AEC0"/>
+
+                <!-- 横道路（东西向） -->
+                <rect x="0" y="250" width="300" height="100" fill="#A0AEC0"/>
+                <rect x="500" y="250" width="300" height="100" fill="#A0AEC0"/>
+
+                <!-- 路口区域 -->
+                <rect x="300" y="250" width="200" height="100" fill="#A0AEC0"/>
+
+                <!-- 车道标线 - 主道路 -->
+                <line x1="400" y1="0" x2="400" y2="250" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="20,15"/>
+                <line x1="400" y1="350" x2="400" y2="600" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="20,15"/>
+
+                <!-- 车道标线 - 横道路 -->
+                <line x1="0" y1="300" x2="300" y2="300" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="20,15"/>
+                <line x1="500" y1="300" x2="800" y2="300" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="20,15"/>
+
+                <!-- 停止线 -->
+                <line x1="300" y1="350" x2="400" y2="350" stroke="#FFFFFF" stroke-width="5"/>
+
+                <!-- 人行横道 -->
+                <g id="crosswalk-south">
+                    <rect x="305" y="360" width="90" height="10" fill="#FFFFFF"/>
+                    <rect x="305" y="375" width="90" height="10" fill="#FFFFFF"/>
+                    <rect x="305" y="390" width="90" height="10" fill="#FFFFFF"/>
+                </g>
+                <g id="crosswalk-east">
+                    <rect x="510" y="255" width="10" height="90" fill="#FFFFFF"/>
+                    <rect x="525" y="255" width="10" height="90" fill="#FFFFFF"/>
+                    <rect x="540" y="255" width="10" height="90" fill="#FFFFFF"/>
+                </g>
+
+                <!-- 步骤1：接近路口 -->
+                <g id="approach-car">
+                    <rect x="340" y="480" width="50" height="90" rx="5" fill="#4299E1" opacity="0.5"/>
+                    <text x="320" y="540" font-size="14" fill="#2D3748" font-weight="bold">步骤1</text>
+                </g>
+
+                <!-- 步骤2：靠右定位 -->
+                <g id="position-car">
+                    <rect x="340" y="400" width="50" height="90" rx="5" fill="#4299E1" opacity="0.7"/>
+                    <text x="395" y="450" font-size="14" fill="#2D3748" font-weight="bold">步骤2</text>
+                </g>
+
+                <!-- 步骤3：开始转弯 -->
+                <g id="turning-car" transform="translate(420, 320) rotate(45)">
+                    <rect x="0" y="0" width="50" height="90" rx="5" fill="#4299E1" opacity="0.85"/>
+                </g>
+                <text x="450" y="380" font-size="14" fill="#2D3748" font-weight="bold">步骤3</text>
+
+                <!-- 转弯路径 -->
+                <path d="M 365 400 Q 420 310, 550 280" stroke="#ED8936" stroke-width="4" fill="none" marker-end="url(#arroworange9)" stroke-dasharray="8,4"/>
+
+                <!-- 步骤4：完成转弯 -->
+                <g id="final-car">
+                    <rect x="560" y="255" width="90" height="50" rx="5" fill="#48BB78"/>
+                    <text x="570" y="320" font-size="14" fill="#2D3748" font-weight="bold">步骤4：完成</text>
+                </g>
+
+                <!-- 观察方向标注 -->
+                <circle cx="250" cy="300" r="15" fill="#9333EA" opacity="0.7"/>
+                <text x="200" y="340" font-size="12" fill="#9333EA" font-weight="bold">观察左方来车</text>
+
+                <circle cx="365" y="200" r="15" fill="#9333EA" opacity="0.7"/>
+                <text x="300" y="190" font-size="12" fill="#9333EA" font-weight="bold">观察对向</text>
+
+                <!-- 行人观察 -->
+                <circle cx="530" cy="280" r="12" fill="#E53E3E"/>
+                <text x="555" y="240" font-size="12" fill="#E53E3E" font-weight="bold">注意行人！</text>
+
+                <!-- 自行车道标注 -->
+                <rect x="495" y="250" width="15" height="100" fill="#DC2626" opacity="0.3"/>
+                <text x="500" y="370" font-size="11" fill="#DC2626" font-weight="bold">自行车道</text>
+
+                <!-- 箭头定义 -->
+                <defs>
+                    <marker id="arroworange9" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#ED8936"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+        <div class="explanation">
+            <strong>图解说明：</strong>橙色箭头=转弯路径。紫色圆圈=观察方向。红色圆圈=行人观察点。特别注意右转时要让自行车道上的自行车！
+        </div>
+    </div>
+
+    <!-- 详细步骤 -->
+    <div class="method-section">
+        <h2>右转详细步骤</h2>
+        <div class="steering-demo">
+            <div class="step">
+                <h3>步骤1：提前规划（距路口100-150米）</h3>
+                <p><strong>检查导航/标志：</strong>确认要右转</p>
+                <p><strong>观察路况：</strong></p>
+                <ul class="tip-list">
+                    <li>观察路口有无交通灯</li>
+                    <li>观察是否有右转专用道</li>
+                    <li>注意是否有禁止右转标志</li>
+                    <li>观察是否有自行车道</li>
+                </ul>
+                <p><strong>打转向灯：</strong>距路口约100米时打右转向灯</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤2：变道靠右（距路口50-80米）</h3>
+                <p><strong>检查后视镜：</strong>观察右后方是否有车辆或自行车</p>
+                <p><strong>检查盲区：</strong>转头看右侧盲区</p>
+                <p><strong>变道：</strong>安全时移动到最右侧车道</p>
+                <p><strong>位置：</strong>车辆靠近道路右边缘，但不要骑上路缘</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤3：减速接近（距路口30-50米）</h3>
+                <p><strong>减速：</strong>降至20-30公里/小时</p>
+                <p><strong>降档：</strong>手动挡降至2档或3档</p>
+                <p><strong>持续观察：</strong></p>
+                <ul class="tip-list">
+                    <li><strong>左方：</strong>横向道路是否有来车</li>
+                    <li><strong>前方：</strong>是否有红灯或需要让行</li>
+                    <li><strong>右侧：</strong>是否有自行车或行人</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>步骤4：到达停止线</h3>
+                <p><strong>如果是绿灯或无信号灯：</strong></p>
+                <ul class="tip-list">
+                    <li>继续减速到15-20公里/小时</li>
+                    <li>准备转弯</li>
+                </ul>
+                <p><strong>如果是红灯：</strong></p>
+                <ul class="tip-list">
+                    <li>完全停在停止线前</li>
+                    <li>等待绿灯</li>
+                    <li>某些国家/地区红灯可右转（荷兰不允许！）</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>步骤5：最后检查（关键！）</h3>
+                <p><strong>在开始转弯前，必须进行最后检查：</strong></p>
+                <ul class="tip-list">
+                    <li><strong>左方：</strong>再次确认左侧无来车</li>
+                    <li><strong>对向：</strong>确认对向无左转车辆</li>
+                    <li><strong>右后方：</strong>转头检查自行车盲区！</li>
+                    <li><strong>人行横道：</strong>确认无行人正在过马路</li>
+                </ul>
+                <p style="color: #E53E3E; font-weight: bold;">荷兰特别注意：右转时必须让自行车优先！</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤6：执行转弯</h3>
+                <p><strong>转向时机：</strong>当车头进入路口后开始转向</p>
+                <p><strong>方向盘：</strong>平稳地向右转（约1/2到3/4圈）</p>
+                <p><strong>转弯半径：</strong>采用"小弯"，紧贴右侧</p>
+                <p><strong>速度：</strong>保持15-20公里/小时</p>
+                <p><strong>视线：</strong>看向你要去的车道</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤7：完成转弯</h3>
+                <p><strong>回正方向盘：</strong>进入新道路后逐渐回正</p>
+                <p><strong>加速：</strong>平稳加速到适当速度</p>
+                <p><strong>关闭转向灯：</strong>如果没有自动关闭，手动关闭</p>
+                <p><strong>进入正确车道：</strong>如果新道路是多车道，进入最右侧车道</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 荷兰特别规则 -->
+    <div class="method-section" style="background: #FDECEA; border-left: 4px solid #E53E3E;">
+        <h2>🇳🇱 荷兰右转特别规则</h2>
+
+        <div style="margin-top: 1rem;">
+            <h3 style="color: #C53030;">1. 自行车优先权（最重要！）</h3>
+            <p>荷兰是自行车王国，右转时<strong>必须让自行车优先</strong>：</p>
+            <ul class="tip-list">
+                <li><strong>自行车道在右侧：</strong>右转时你要穿越自行车道</li>
+                <li><strong>必须让行：</strong>即使你已经打转向灯，也要等自行车通过</li>
+                <li><strong>盲区检查：</strong>转头看右后方，自行车可能从盲区快速接近</li>
+                <li><strong>不要抢行：</strong>自行车速度可能比你想象的快（25-30km/h）</li>
+            </ul>
+            <p style="color: #C53030; font-weight: bold; margin-top: 1rem;">
+                这是考试重点！忘记让自行车可能直接不及格！
+            </p>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C53030;">2. 红灯不能右转</h3>
+            <p>与美国不同，荷兰<strong>红灯时绝对不能右转</strong>，除非有专门的绿色右转箭头。</p>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C53030;">3. 轻便摩托车（Snorfiets/Brommers）</h3>
+            <p>自行车道上可能有轻便摩托车（最高25-45km/h），右转时也要注意让行。</p>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C53030;">4. 行人优先</h3>
+            <p>右转时如果穿越人行横道，<strong>必须让正在过马路的行人优先</strong>。</p>
+        </div>
+    </div>
+
+    <!-- 不同类型路口的右转 -->
+    <div class="method-section" style="background: #FFF7ED; border-left: 4px solid #F59E0B;">
+        <h2>🚦 不同类型路口的右转</h2>
+
+        <div style="margin-top: 1rem;">
+            <h3 style="color: #C05621;">1. 有信号灯路口</h3>
+            <ul class="tip-list">
+                <li><strong>绿灯：</strong>可以右转，但仍要让行人和自行车</li>
+                <li><strong>黄灯：</strong>如果能安全停下，则停车等待</li>
+                <li><strong>红灯：</strong>必须停车，不能右转</li>
+                <li><strong>右转箭头灯：</strong>按箭头指示行动</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C05621;">2. 无信号灯路口（等级道路）</h3>
+            <ul class="tip-list">
+                <li><strong>你在主路：</strong>有优先权，但仍要观察</li>
+                <li><strong>你在支路：</strong>必须让主路来车通过后再转</li>
+                <li><strong>识别主路：</strong>看路面宽度、优先权标志</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C05621;">3. 无信号灯路口（同等道路）</h3>
+            <ul class="tip-list">
+                <li><strong>右侧优先规则：</strong>让右边来车先行</li>
+                <li><strong>右转时：</strong>你的右边通常没有来车（横向道路在你右边）</li>
+                <li><strong>但仍要观察：</strong>左方来车可能同时右转</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C05621;">4. 环岛出口右转</h3>
+            <ul class="tip-list">
+                <li><strong>打转向灯：</strong>接近出口时打右转向灯</li>
+                <li><strong>让自行车：</strong>出环岛时仍要让自行车道上的自行车</li>
+                <li><strong>详见环岛章节</strong></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 常见错误 -->
+    <div class="mistakes">
+        <h2>常见错误</h2>
+        <div class="mistake-grid">
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>忘记让自行车</h4>
+                <p>这是荷兰驾考最常见的失败原因之一！右转时必须转头检查右后方自行车，并让其先行。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>转向灯打得太晚</h4>
+                <p>应在距路口100米时就打转向灯，而不是到路口才打。太晚打灯不能给其他交通足够的反应时间。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>没有靠右定位</h4>
+                <p>右转前应移动到最右侧车道。如果在中间车道右转，会切到其他车辆的行驶路线。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>转弯半径太大</h4>
+                <p>右转应该采用"小弯"，紧贴右侧。太大的转弯半径会进入对向车道，非常危险。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>速度太快</h4>
+                <p>右转时速度应降到15-20公里/小时。速度太快无法准确控制方向，也没有时间观察行人和自行车。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>只看一个方向</h4>
+                <p>右转看起来简单，但仍需观察：左方来车、对向左转车、右侧自行车、人行横道行人。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>红灯右转</h4>
+                <p>荷兰红灯时绝对不能右转！这与美国规则不同。红灯右转直接扣分。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>忘记关转向灯</h4>
+                <p>右转后如果转向灯没有自动关闭，要手动关闭。持续闪烁的转向灯会误导其他车辆。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 专业建议 -->
+    <div class="tips">
+        <h2>专业建议</h2>
+        <ul class="tip-list">
+            <li><strong>提前100米打转向灯：</strong>给其他交通足够的反应时间</li>
+            <li><strong>靠右定位：</strong>右转前移动到最右侧车道</li>
+            <li><strong>降速到20km/h以下：</strong>保持低速便于观察和控制</li>
+            <li><strong>三次盲区检查：</strong>变道时、到达路口时、开始转弯前</li>
+            <li><strong>让自行车！让自行车！让自行车！</strong>重要的事情说三遍</li>
+            <li><strong>让行人过马路：</strong>人行横道上有行人时必须停车等待</li>
+            <li><strong>小弯转弯：</strong>紧贴右侧，不要切入对向车道</li>
+            <li><strong>眼睛看向目标：</strong>看你要去的车道，车会跟着你的视线</li>
+            <li><strong>转弯后进入右车道：</strong>多车道道路进入最右侧车道</li>
+            <li><strong>确认转向灯关闭：</strong>完成转弯后检查</li>
+            <li><strong>不要犹豫：</strong>一旦确认安全，果断转弯，犹豫会让其他人困惑</li>
+            <li><strong>练习观察节奏：</strong>左-前-右-盲区-行人-自行车</li>
+        </ul>
+    </div>
+
+    <!-- 考试要点 -->
+    <div class="method-section" style="background: #FEF5E7; border-left: 4px solid #D4AC0D;">
+        <h2>📝 考试要点</h2>
+
+        <div style="margin-top: 1rem;">
+            <h3 style="color: #856404;">评分标准</h3>
+            <ul class="tip-list">
+                <li><strong>✅ 提前打转向灯：</strong>距路口足够远（~100米）</li>
+                <li><strong>✅ 正确定位：</strong>移动到最右侧车道</li>
+                <li><strong>✅ 适当减速：</strong>转弯时速度适当（15-20km/h）</li>
+                <li><strong>✅ 充分观察：</strong>观察所有方向的交通</li>
+                <li><strong>✅ 让自行车：</strong>转头检查并让自行车先行</li>
+                <li><strong>✅ 让行人：</strong>让人行横道上的行人</li>
+                <li><strong>✅ 正确转弯半径：</strong>紧贴右侧，不切入对向</li>
+                <li><strong>✅ 进入正确车道：</strong>转入最右侧车道</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #856404;">常见扣分</h3>
+            <ul class="tip-list">
+                <li><strong>⚠️ 转向灯太晚：</strong>距路口太近才打灯</li>
+                <li><strong>⚠️ 观察不足：</strong>没有充分观察所有方向</li>
+                <li><strong>⚠️ 速度不当：</strong>太快或太慢</li>
+                <li><strong>⚠️ 转弯不顺畅：</strong>犹豫或方向盘控制不稳</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #856404;">严重错误（可能直接不及格）</h3>
+            <ul class="tip-list">
+                <li><strong>❌ 不让自行车：</strong>这是最常见的不及格原因</li>
+                <li><strong>❌ 红灯右转：</strong>荷兰禁止红灯右转</li>
+                <li><strong>❌ 危险转弯：</strong>切入对向车道或太急</li>
+                <li><strong>❌ 不让行人：</strong>行人在人行横道上时不停车</li>
+                <li><strong>❌ 造成危险：</strong>迫使其他车辆急刹或避让</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 练习建议 -->
+    <div class="method-section" style="background: #EBF8FF; border-left: 4px solid #2B6CB0;">
+        <h2>练习建议</h2>
+        <ol style="padding-left: 1.5rem;">
+            <li><strong>找不同类型路口：</strong>有信号灯、无信号灯、有自行车道、无自行车道</li>
+            <li><strong>练习观察顺序：</strong>左-前-右-盲区-行人-自行车，形成习惯</li>
+            <li><strong>特别练习盲区检查：</strong>每次右转前都转头检查右后方</li>
+            <li><strong>练习控制转弯半径：</strong>在空地上练习紧贴右侧转弯</li>
+            <li><strong>观察其他司机：</strong>在路边观察其他司机如何右转，学习好的做法</li>
+            <li><strong>模拟考试情境：</strong>让教练或朋友指出你的不足</li>
+            <li><strong>不同时段练习：</strong>早高峰、晚高峰、夜间的右转感觉不同</li>
+            <li><strong>自行车多的区域：</strong>特别在自行车多的区域练习让行</li>
+        </ol>
+    </div>
+
+    <!-- 总结 -->
+    <div class="method-section" style="background: #F0FFF4; border-left: 4px solid #48BB78;">
+        <h2>✨ 总结</h2>
+        <p style="font-size: 1.1rem; line-height: 1.8;">
+            <strong>右转是"简单"的转弯，但在荷兰有特殊挑战：自行车！</strong>
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 1rem;">
+            记住右转的核心步骤：
+        </p>
+        <ol style="font-size: 1.05rem; line-height: 1.8; padding-left: 2rem;">
+            <li><strong>提前打灯</strong>（100米）</li>
+            <li><strong>靠右定位</strong>（最右侧车道）</li>
+            <li><strong>减速观察</strong>（20km/h以下）</li>
+            <li><strong>让自行车和行人</strong>（转头检查盲区！）</li>
+            <li><strong>小弯转弯</strong>（紧贴右侧）</li>
+        </ol>
+        <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 1rem; color: #2F855A; font-weight: bold;">
+            在荷兰驾考中，"让自行车"是生死线。永远不要忘记转头检查右后方！
+        </p>
+    </div>
+</div>

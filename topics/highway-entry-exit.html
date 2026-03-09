@@ -1,0 +1,383 @@
+<div class="topic-detail">
+    <h1>🛣️ 高速公路驶入与驶出</h1>
+
+    <div class="intro">
+        <p><strong>高速公路驾驶：</strong>高速公路（Autosnelweg/A路）是荷兰最快的道路，限速通常为100-130公里/小时。正确的驶入（invoegen）和驶出（uitvoegen）技术对于安全至关重要。</p>
+    </div>
+
+    <!-- 高速公路结构图 -->
+    <div class="diagram-section">
+        <h2>高速公路匝道结构</h2>
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 300" class="highway-diagram">
+                <!-- 主车道 -->
+                <rect x="0" y="100" width="500" height="100" fill="#555"/>
+                <!-- 车道分隔线 -->
+                <line x1="0" y1="150" x2="500" y2="150" stroke="white" stroke-width="2" stroke-dasharray="20,15"/>
+
+                <!-- 加速车道（入口） -->
+                <path d="M 0 220 Q 100 220 150 200 L 300 200 L 350 200" fill="#666" stroke="#555"/>
+                <path d="M 0 250 Q 80 250 120 230 Q 160 210 200 200" fill="#666" stroke="none"/>
+
+                <!-- 减速车道（出口） -->
+                <path d="M 350 200 L 400 200 Q 450 200 480 220 L 500 230" fill="#666" stroke="#555"/>
+                <path d="M 400 200 Q 450 210 480 240 L 500 260" fill="#666" stroke="none"/>
+
+                <!-- 标签 -->
+                <text x="80" y="240" fill="#4CAF50" font-size="11" font-weight="bold">加速车道</text>
+                <text x="75" y="255" fill="#4CAF50" font-size="9">(invoegstrook)</text>
+
+                <text x="420" y="250" fill="#FF9800" font-size="11" font-weight="bold">减速车道</text>
+                <text x="415" y="265" fill="#FF9800" font-size="9">(uitvoegstrook)</text>
+
+                <text x="200" y="130" fill="white" font-size="11">行车道（右侧）</text>
+                <text x="200" y="175" fill="white" font-size="11">超车道（左侧）</text>
+
+                <!-- 车辆示意 -->
+                <!-- 正在加速的车 -->
+                <rect x="180" y="205" width="25" height="15" fill="#4CAF50" rx="3"/>
+                <path d="M 205 212 L 220 212" stroke="#4CAF50" stroke-width="2" marker-end="url(#hwArrow)"/>
+
+                <!-- 主车道车辆 -->
+                <rect x="280" y="155" width="25" height="15" fill="#2196F3" rx="3"/>
+                <rect x="350" y="125" width="25" height="15" fill="#2196F3" rx="3"/>
+
+                <!-- 正在驶出的车 -->
+                <rect x="400" y="155" width="25" height="15" fill="#FF9800" rx="3"/>
+                <path d="M 425 170 Q 450 185 470 210" fill="none" stroke="#FF9800" stroke-width="2" marker-end="url(#hwArrow)"/>
+
+                <defs>
+                    <marker id="hwArrow" markerWidth="6" markerHeight="5" refX="5" refY="2.5" orient="auto">
+                        <polygon points="0 0, 6 2.5, 0 5" fill="currentColor"/>
+                    </marker>
+                </defs>
+
+                <!-- 速度标注 -->
+                <text x="30" y="90" fill="#333" font-size="10">← 100-130 km/h →</text>
+            </svg>
+        </div>
+    </div>
+
+    <!-- 驶入高速公路 -->
+    <div class="method-section highlight-section">
+        <h2>驶入高速公路（Invoegen）</h2>
+        <div class="steering-demo">
+            <div class="step">
+                <h3>步骤1：在匝道上加速</h3>
+                <p><strong>目标速度：</strong>在加速车道末端前达到与主车道相近的速度</p>
+                <p><strong>荷兰高速：</strong>通常需要加速到80-100公里/小时</p>
+                <p style="color: #e74c3c;"><strong>关键：</strong>速度过低是最危险的错误！</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤2：观察主车道</h3>
+                <p><strong>后视镜：</strong>检查内后视镜和左侧后视镜</p>
+                <p><strong>找空隙：</strong>寻找车流中的安全间隙</p>
+                <p><strong>判断距离：</strong>评估后方车辆的速度和距离</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤3：检查盲区</h3>
+                <p><strong>转头看：</strong>向左后方转头检查盲区</p>
+                <p><strong>确认安全：</strong>确保没有车辆在您的盲区内</p>
+                <p><strong>这是考试必查项目！</strong></p>
+            </div>
+
+            <div class="step">
+                <h3>步骤4：平稳并入</h3>
+                <p><strong>打转向灯：</strong>提前打左转向灯</p>
+                <p><strong>选择时机：</strong>确认安全后果断并入</p>
+                <p><strong>保持速度：</strong>并入后保持车流速度</p>
+            </div>
+        </div>
+
+        <div class="warning-box">
+            <h3>加速车道使用原则</h3>
+            <ul>
+                <li><strong>充分利用长度：</strong>加速车道是给您加速用的，不要过早并入</li>
+                <li><strong>不要停车：</strong>除非万不得已，绝不能在加速车道上停车</li>
+                <li><strong>匹配速度：</strong>速度差越小，并入越安全</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 并入时机图示 -->
+    <div class="diagram-section">
+        <h2>选择并入时机</h2>
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 200" class="merge-timing-diagram">
+                <!-- 主车道 -->
+                <rect x="0" y="50" width="500" height="60" fill="#555"/>
+                <line x1="0" y1="80" x2="500" y2="80" stroke="white" stroke-width="2" stroke-dasharray="20,15"/>
+
+                <!-- 加速车道 -->
+                <path d="M 0 130 Q 50 130 100 110 L 250 110" fill="#666"/>
+
+                <!-- 主车道车辆 -->
+                <rect x="100" y="55" width="30" height="18" fill="#2196F3" rx="3"/>
+                <rect x="250" y="55" width="30" height="18" fill="#2196F3" rx="3"/>
+
+                <!-- 间隙标记 -->
+                <line x1="135" y1="45" x2="135" y2="75" stroke="#4CAF50" stroke-width="2"/>
+                <line x1="245" y1="45" x2="245" y2="75" stroke="#4CAF50" stroke-width="2"/>
+                <path d="M 140 50 L 240 50" stroke="#4CAF50" stroke-width="2" stroke-dasharray="5,3"/>
+                <text x="175" y="42" fill="#4CAF50" font-size="10" font-weight="bold">安全间隙</text>
+
+                <!-- 您的车 -->
+                <rect x="160" y="115" width="30" height="18" fill="#4CAF50" rx="3"/>
+                <text x="175" y="128" text-anchor="middle" fill="white" font-size="8">您</text>
+
+                <!-- 并入箭头 -->
+                <path d="M 185 115 Q 200 95 200 75" fill="none" stroke="#4CAF50" stroke-width="3" marker-end="url(#mergeArrow)"/>
+
+                <defs>
+                    <marker id="mergeArrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                        <polygon points="0 0, 8 3, 0 6" fill="#4CAF50"/>
+                    </marker>
+                </defs>
+
+                <!-- 说明 -->
+                <text x="350" y="85" fill="white" font-size="10">← 车流方向</text>
+            </svg>
+        </div>
+        <div class="diagram-explanation">
+            <p><strong>理想并入：</strong>在两车之间找到安全间隙，速度匹配后平稳并入。</p>
+        </div>
+    </div>
+
+    <!-- 驶出高速公路 -->
+    <div class="method-section">
+        <h2>驶出高速公路（Uitvoegen）</h2>
+        <div class="steering-demo">
+            <div class="step">
+                <h3>步骤1：提前准备</h3>
+                <p><strong>看路牌：</strong>出口通常提前1000米、500米、300米有预告牌</p>
+                <p><strong>选车道：</strong>提前进入最右侧车道</p>
+                <p><strong>不要临时变道：</strong>错过出口就继续前行到下一个</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤2：打转向灯</h3>
+                <p><strong>提前打灯：</strong>接近出口300米时打右转向灯</p>
+                <p><strong>告知意图：</strong>让后方车辆知道您要驶出</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤3：进入减速车道</h3>
+                <p><strong>平稳驶入：</strong>沿着分叉线进入减速车道</p>
+                <p><strong>保持速度：</strong>在主车道上保持原速度</p>
+                <p style="color: #e74c3c;"><strong>重要：</strong>在减速车道内再开始减速！</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤4：减速</h3>
+                <p><strong>进入减速车道后：</strong>开始逐渐降低速度</p>
+                <p><strong>注意限速：</strong>匝道通常限速50-70公里/小时</p>
+                <p><strong>准备弯道：</strong>匝道可能有急弯</p>
+            </div>
+        </div>
+
+        <div class="warning-box">
+            <h3>减速位置至关重要</h3>
+            <div class="comparison-inline">
+                <div class="correct">
+                    <h4>✅ 正确</h4>
+                    <p>在<strong>减速车道内</strong>减速</p>
+                </div>
+                <div class="wrong">
+                    <h4>❌ 错误</h4>
+                    <p>在<strong>主车道上</strong>减速</p>
+                    <p style="font-size: 11px; color: #e74c3c;">（会被后车追尾！）</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 速度错觉 -->
+    <div class="method-section warning-section">
+        <h2>注意：速度错觉</h2>
+        <div class="warning-box">
+            <h3>驶出高速后的危险</h3>
+            <p>在高速公路上行驶一段时间后，您的速度感会变钝。驶出时：</p>
+            <ul>
+                <li><strong>您以为</strong>自己开得很慢，实际上还是很快</li>
+                <li><strong>看速度表：</strong>不要凭感觉，必须看仪表</li>
+                <li><strong>匝道弯道：</strong>以为能过的弯道，实际可能速度过快</li>
+            </ul>
+        </div>
+        <div class="diagram-container" style="height: 120px;">
+            <svg viewBox="0 0 400 100" class="speed-illusion">
+                <rect x="20" y="30" width="150" height="50" fill="#f0f0f0" stroke="#333" rx="5"/>
+                <text x="95" y="50" text-anchor="middle" font-size="10" fill="#333">高速行驶后的感觉</text>
+                <text x="95" y="70" text-anchor="middle" font-size="20" fill="#2196F3">"60 km/h"</text>
+
+                <text x="200" y="60" font-size="24">≠</text>
+
+                <rect x="230" y="30" width="150" height="50" fill="#ffebee" stroke="#e74c3c" rx="5"/>
+                <text x="305" y="50" text-anchor="middle" font-size="10" fill="#333">实际速度</text>
+                <text x="305" y="70" text-anchor="middle" font-size="20" fill="#e74c3c">90 km/h!</text>
+            </svg>
+        </div>
+    </div>
+
+    <!-- 车道选择 -->
+    <div class="method-section">
+        <h2>高速公路车道使用规则</h2>
+        <div class="comparison">
+            <h3>荷兰高速公路车道规则</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>车道</th>
+                        <th>位置</th>
+                        <th>用途</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>行车道</strong></td>
+                        <td>最右侧</td>
+                        <td class="recommended">正常行驶，必须尽量靠右</td>
+                    </tr>
+                    <tr>
+                        <td><strong>超车道</strong></td>
+                        <td>左侧车道</td>
+                        <td>仅用于超车，超车后必须返回右侧</td>
+                    </tr>
+                    <tr>
+                        <td><strong>应急车道</strong></td>
+                        <td>最右侧路肩</td>
+                        <td class="highlight">仅限紧急情况使用</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tip-box">
+            <p><strong>记住：</strong>荷兰严格执行"靠右行驶"规则。长时间占用超车道是违法的！</p>
+        </div>
+    </div>
+
+    <!-- 常见错误 -->
+    <div class="mistakes">
+        <h2>常见错误</h2>
+        <div class="mistake-grid">
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>加速不足就并入</h4>
+                <p>速度太低并入主车道，迫使后车急刹，极其危险。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>不检查盲区</h4>
+                <p>仅看后视镜就并入，忽略可能在盲区的车辆。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>在加速车道末端停车</h4>
+                <p>找不到空隙就停车等待，造成更大危险。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>在主车道上减速驶出</h4>
+                <p>应该进入减速车道后再减速，否则会被追尾。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>错过出口急刹车</h4>
+                <p>发现错过出口后急刹车或倒车，应继续前行到下一个出口。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>驶出后不看速度表</h4>
+                <p>凭感觉判断速度，因速度错觉导致匝道超速。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 考试要点 -->
+    <div class="exam-section">
+        <h2>考试要点</h2>
+        <div class="exam-points">
+            <div class="exam-point critical">
+                <span class="point-icon">⚠️</span>
+                <div class="point-content">
+                    <h4>充分加速</h4>
+                    <p>并入前必须将速度提升到接近主车道车流速度</p>
+                </div>
+            </div>
+
+            <div class="exam-point critical">
+                <span class="point-icon">⚠️</span>
+                <div class="point-content">
+                    <h4>盲区检查</h4>
+                    <p>并入前必须转头检查左后方盲区</p>
+                </div>
+            </div>
+
+            <div class="exam-point">
+                <span class="point-icon">📋</span>
+                <div class="point-content">
+                    <h4>转向灯使用</h4>
+                    <p>并入打左灯，驶出打右灯，提前且持续</p>
+                </div>
+            </div>
+
+            <div class="exam-point">
+                <span class="point-icon">📋</span>
+                <div class="point-content">
+                    <h4>减速位置</h4>
+                    <p>驶出时在减速车道内减速，不在主车道减速</p>
+                </div>
+            </div>
+
+            <div class="exam-point">
+                <span class="point-icon">📋</span>
+                <div class="point-content">
+                    <h4>靠右行驶</h4>
+                    <p>超车后必须返回右侧车道</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 实用技巧 -->
+    <div class="tips">
+        <h2>实用技巧</h2>
+        <ul class="tip-list">
+            <li><strong>并入时果断：</strong>犹豫不决比果断并入更危险</li>
+            <li><strong>眼观六路：</strong>快速交替检查前方、后视镜、盲区</li>
+            <li><strong>利用间隙：</strong>大货车之间通常有较大间隙，可作为并入时机</li>
+            <li><strong>提前规划出口：</strong>使用导航，至少提前1公里进入右侧车道</li>
+            <li><strong>匝道减速：</strong>驶出后立即检查速度表，按匝道限速行驶</li>
+            <li><strong>雨天更小心：</strong>路面湿滑时需要更长的加速和减速距离</li>
+        </ul>
+    </div>
+
+    <!-- 总结 -->
+    <div class="summary">
+        <h2>总结</h2>
+        <div class="summary-grid">
+            <div class="summary-item">
+                <h4>驶入关键</h4>
+                <p>充分加速 + 检查盲区</p>
+            </div>
+            <div class="summary-item">
+                <h4>驶出关键</h4>
+                <p>减速车道内减速</p>
+            </div>
+            <div class="summary-item">
+                <h4>车道规则</h4>
+                <p>尽量靠右行驶</p>
+            </div>
+            <div class="summary-item">
+                <h4>注意事项</h4>
+                <p>警惕速度错觉</p>
+            </div>
+        </div>
+    </div>
+</div>

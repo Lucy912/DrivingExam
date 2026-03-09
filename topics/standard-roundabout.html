@@ -1,0 +1,367 @@
+<div class="topic-detail">
+    <h1>⭕ 标准环岛驾驶</h1>
+
+    <div class="intro">
+        <p><strong>核心规则：</strong>环岛内的车辆永远有优先权。进入环岛时必须让行给环岛内的所有车辆，包括汽车、自行车和行人。</p>
+    </div>
+
+    <!-- 环岛基本结构图 -->
+    <div class="diagram-section">
+        <h2>环岛基本结构</h2>
+        <div class="diagram-container">
+            <svg viewBox="0 0 400 400" class="roundabout-diagram">
+                <!-- 外圆 - 环岛边界 -->
+                <circle cx="200" cy="200" r="150" fill="#e8e8e8" stroke="#666" stroke-width="2"/>
+                <!-- 中心岛 -->
+                <circle cx="200" cy="200" r="60" fill="#90EE90" stroke="#228B22" stroke-width="3"/>
+                <!-- 行车道 -->
+                <circle cx="200" cy="200" r="105" fill="none" stroke="#fff" stroke-width="40" stroke-dasharray="20,10"/>
+
+                <!-- 进入道路 -->
+                <!-- 上方道路 -->
+                <rect x="180" y="0" width="40" height="50" fill="#e8e8e8" stroke="#666" stroke-width="1"/>
+                <!-- 下方道路 -->
+                <rect x="180" y="350" width="40" height="50" fill="#e8e8e8" stroke="#666" stroke-width="1"/>
+                <!-- 左侧道路 -->
+                <rect x="0" y="180" width="50" height="40" fill="#e8e8e8" stroke="#666" stroke-width="1"/>
+                <!-- 右侧道路 -->
+                <rect x="350" y="180" width="50" height="40" fill="#e8e8e8" stroke="#666" stroke-width="1"/>
+
+                <!-- 行驶方向箭头（逆时针） -->
+                <path d="M 200 85 A 115 115 0 0 1 315 200" fill="none" stroke="#2196F3" stroke-width="3" marker-end="url(#arrowhead)"/>
+                <path d="M 315 200 A 115 115 0 0 1 200 315" fill="none" stroke="#2196F3" stroke-width="3" marker-end="url(#arrowhead)"/>
+                <path d="M 200 315 A 115 115 0 0 1 85 200" fill="none" stroke="#2196F3" stroke-width="3" marker-end="url(#arrowhead)"/>
+                <path d="M 85 200 A 115 115 0 0 1 200 85" fill="none" stroke="#2196F3" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+                <!-- 箭头标记定义 -->
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#2196F3"/>
+                    </marker>
+                </defs>
+
+                <!-- 标签 -->
+                <text x="200" y="205" text-anchor="middle" fill="#228B22" font-weight="bold" font-size="12">中心岛</text>
+            </svg>
+        </div>
+        <div class="diagram-explanation">
+            <p><strong>荷兰环岛特点：</strong></p>
+            <ul>
+                <li>车辆沿<strong>顺时针方向</strong>行驶（靠右行驶国家）</li>
+                <li>进入时必须<strong>让行</strong>给环岛内车辆</li>
+                <li>中心岛通常为绿化带或隔离设施</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 进入环岛步骤 -->
+    <div class="method-section">
+        <h2>进入环岛的步骤</h2>
+        <div class="steering-demo">
+            <div class="step">
+                <h3>步骤1：接近环岛</h3>
+                <p><strong>减速：</strong>接近环岛时降低速度</p>
+                <p><strong>观察：</strong>查看交通标志确认优先权规则</p>
+                <p><strong>选道：</strong>根据目的地选择正确车道</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤2：让行检查</h3>
+                <p><strong>左侧来车：</strong>观察环岛内从左侧驶来的车辆</p>
+                <p><strong>等待时机：</strong>确保有足够间隙安全进入</p>
+                <p><strong>不要抢行：</strong>如有疑问，等待更安全的时机</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤3：进入环岛</h3>
+                <p><strong>平稳进入：</strong>看准时机后果断进入</p>
+                <p><strong>保持车速：</strong>进入后保持稳定速度</p>
+                <p><strong>靠右行驶：</strong>在环岛内靠右侧车道行驶</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 根据出口选择车道和转向灯 -->
+    <div class="method-section highlight-section">
+        <h2>出口选择与转向灯使用</h2>
+
+        <div class="comparison">
+            <h3>第一个出口（右转）</h3>
+            <div class="diagram-container" style="height: 250px;">
+                <svg viewBox="0 0 300 250" class="exit-diagram">
+                    <!-- 简化环岛 -->
+                    <circle cx="150" cy="150" r="80" fill="#e8e8e8" stroke="#666" stroke-width="2"/>
+                    <circle cx="150" cy="150" r="30" fill="#90EE90" stroke="#228B22" stroke-width="2"/>
+
+                    <!-- 进入道路（下方） -->
+                    <rect x="135" y="230" width="30" height="30" fill="#e8e8e8"/>
+                    <!-- 出口（右侧） -->
+                    <rect x="230" y="135" width="30" height="30" fill="#e8e8e8"/>
+
+                    <!-- 行驶路线 -->
+                    <path d="M 150 230 L 150 200 Q 200 200 230 150" fill="none" stroke="#4CAF50" stroke-width="4" stroke-dasharray="8,4"/>
+
+                    <!-- 车辆 -->
+                    <rect x="143" y="210" width="14" height="24" fill="#2196F3" rx="3"/>
+
+                    <!-- 转向灯指示 -->
+                    <circle cx="250" cy="100" r="15" fill="#FFA500" stroke="#FF8C00" stroke-width="2"/>
+                    <text x="250" y="105" text-anchor="middle" fill="white" font-weight="bold" font-size="12">R</text>
+
+                    <text x="150" y="30" text-anchor="middle" font-size="12" fill="#333">第一个出口：进入前打右转向灯</text>
+                </svg>
+            </div>
+            <ul>
+                <li><strong>进入前：</strong>打<strong>右转向灯</strong></li>
+                <li><strong>车道：</strong>外侧车道（右侧）</li>
+                <li><strong>保持转向灯直到驶出</strong></li>
+            </ul>
+        </div>
+
+        <div class="comparison">
+            <h3>直行（第二个出口）</h3>
+            <div class="diagram-container" style="height: 250px;">
+                <svg viewBox="0 0 300 250" class="exit-diagram">
+                    <!-- 简化环岛 -->
+                    <circle cx="150" cy="150" r="80" fill="#e8e8e8" stroke="#666" stroke-width="2"/>
+                    <circle cx="150" cy="150" r="30" fill="#90EE90" stroke="#228B22" stroke-width="2"/>
+
+                    <!-- 进入道路（下方） -->
+                    <rect x="135" y="230" width="30" height="30" fill="#e8e8e8"/>
+                    <!-- 出口（上方） -->
+                    <rect x="135" y="0" width="30" height="40" fill="#e8e8e8"/>
+
+                    <!-- 行驶路线 -->
+                    <path d="M 150 230 L 150 200 Q 200 150 150 100 L 150 40" fill="none" stroke="#4CAF50" stroke-width="4" stroke-dasharray="8,4"/>
+
+                    <!-- 车辆 -->
+                    <rect x="143" y="210" width="14" height="24" fill="#2196F3" rx="3"/>
+
+                    <!-- 转向灯指示 - 无 -->
+                    <circle cx="250" cy="100" r="15" fill="#ccc" stroke="#999" stroke-width="2"/>
+                    <text x="250" y="105" text-anchor="middle" fill="#666" font-weight="bold" font-size="10">无</text>
+
+                    <text x="150" y="30" text-anchor="middle" font-size="11" fill="#333">直行：进入时无灯，出口前打右灯</text>
+                </svg>
+            </div>
+            <ul>
+                <li><strong>进入时：</strong><strong>不打转向灯</strong></li>
+                <li><strong>车道：</strong>外侧或内侧均可</li>
+                <li><strong>接近出口时：</strong>打<strong>右转向灯</strong></li>
+            </ul>
+        </div>
+
+        <div class="comparison">
+            <h3>第三个出口或更远（左转/掉头）</h3>
+            <div class="diagram-container" style="height: 250px;">
+                <svg viewBox="0 0 300 250" class="exit-diagram">
+                    <!-- 简化环岛 -->
+                    <circle cx="150" cy="150" r="80" fill="#e8e8e8" stroke="#666" stroke-width="2"/>
+                    <circle cx="150" cy="150" r="30" fill="#90EE90" stroke="#228B22" stroke-width="2"/>
+
+                    <!-- 进入道路（下方） -->
+                    <rect x="135" y="230" width="30" height="30" fill="#e8e8e8"/>
+                    <!-- 出口（左侧） -->
+                    <rect x="40" y="135" width="30" height="30" fill="#e8e8e8"/>
+
+                    <!-- 行驶路线（沿内圈） -->
+                    <path d="M 150 230 L 150 200 Q 180 150 150 100 Q 100 100 70 150" fill="none" stroke="#4CAF50" stroke-width="4" stroke-dasharray="8,4"/>
+
+                    <!-- 车辆 -->
+                    <rect x="143" y="210" width="14" height="24" fill="#2196F3" rx="3"/>
+
+                    <!-- 转向灯指示 -->
+                    <circle cx="250" cy="100" r="15" fill="#FFA500" stroke="#FF8C00" stroke-width="2"/>
+                    <text x="250" y="105" text-anchor="middle" fill="white" font-weight="bold" font-size="12">L</text>
+
+                    <text x="150" y="30" text-anchor="middle" font-size="11" fill="#333">左转：进入前打左灯，出口前换右灯</text>
+                </svg>
+            </div>
+            <ul>
+                <li><strong>进入前：</strong>打<strong>左转向灯</strong></li>
+                <li><strong>车道：</strong>内侧车道（左侧）</li>
+                <li><strong>经过出口前一个出口时：</strong>换成<strong>右转向灯</strong></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 驶出环岛 -->
+    <div class="method-section">
+        <h2>驶出环岛的关键步骤</h2>
+        <div class="steering-demo">
+            <div class="step">
+                <h3>步骤1：提前准备</h3>
+                <p><strong>确认出口：</strong>提前识别您的出口</p>
+                <p><strong>切换车道：</strong>如在内侧车道，需提前变道到外侧</p>
+                <p><strong>打转向灯：</strong>出口前打右转向灯</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤2：检查盲区</h3>
+                <p><strong>右侧盲区：</strong>检查右侧有无自行车或摩托车</p>
+                <p><strong>后方来车：</strong>通过后视镜检查后方车辆</p>
+                <p style="color: #e74c3c;"><strong>特别注意：</strong>荷兰环岛常有并行的自行车道！</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤3：安全驶出</h3>
+                <p><strong>平稳转向：</strong>缓慢驶出环岛</p>
+                <p><strong>让行自行车：</strong>如有自行车道，必须让行骑车人</p>
+                <p><strong>检查行人：</strong>注意横穿道路的行人</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 自行车道的环岛 -->
+    <div class="method-section warning-section">
+        <h2>带自行车道的环岛（重要！）</h2>
+        <div class="diagram-container">
+            <svg viewBox="0 0 400 400" class="bike-roundabout-diagram">
+                <!-- 外圆 - 自行车道 -->
+                <circle cx="200" cy="200" r="170" fill="none" stroke="#FF5722" stroke-width="20" stroke-dasharray="30,10"/>
+                <!-- 汽车环岛 -->
+                <circle cx="200" cy="200" r="130" fill="#e8e8e8" stroke="#666" stroke-width="2"/>
+                <!-- 中心岛 -->
+                <circle cx="200" cy="200" r="50" fill="#90EE90" stroke="#228B22" stroke-width="3"/>
+
+                <!-- 行车道 -->
+                <circle cx="200" cy="200" r="90" fill="none" stroke="#fff" stroke-width="30"/>
+
+                <!-- 自行车图标 -->
+                <text x="200" y="45" text-anchor="middle" font-size="24">🚲</text>
+                <text x="355" y="205" text-anchor="middle" font-size="24">🚲</text>
+                <text x="200" y="375" text-anchor="middle" font-size="24">🚲</text>
+                <text x="45" y="205" text-anchor="middle" font-size="24">🚲</text>
+
+                <!-- 让行区域标记 -->
+                <path d="M 200 30 L 200 55" stroke="#e74c3c" stroke-width="4"/>
+                <text x="200" y="20" text-anchor="middle" fill="#e74c3c" font-size="10" font-weight="bold">让行</text>
+            </svg>
+        </div>
+        <div class="warning-box">
+            <h3>关键规则</h3>
+            <p>在荷兰，许多环岛有独立的自行车道。驶出环岛时：</p>
+            <ul>
+                <li><strong>自行车有优先权：</strong>必须让骑车人先行</li>
+                <li><strong>停车等待：</strong>如有自行车接近，停车等待</li>
+                <li><strong>回头检查：</strong>转头检查右后方盲区</li>
+                <li><strong>眼神接触：</strong>与骑车人确认后再驶出</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 常见错误 -->
+    <div class="mistakes">
+        <h2>常见错误</h2>
+        <div class="mistake-grid">
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>不让行环岛内车辆</h4>
+                <p>环岛内车辆永远有优先权。不让行可能导致碰撞和考试不及格。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>忘记打转向灯</h4>
+                <p>转向灯是告知其他驾驶员您意图的关键。驶出前必须打右转向灯。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>不检查自行车</h4>
+                <p>驶出时忘记检查自行车道是最危险的错误，也是考试中最常见的失败原因之一。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>环岛内变道不当</h4>
+                <p>从内侧车道直接驶出，切入外侧车道时未检查盲区。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>速度过快</h4>
+                <p>环岛内应保持较低速度，以便随时应对突发情况。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>错过出口后紧急转向</h4>
+                <p>错过出口时应继续绕行，不要急转弯。再转一圈即可。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 考试要点 -->
+    <div class="exam-section">
+        <h2>考试要点</h2>
+        <div class="exam-points">
+            <div class="exam-point">
+                <span class="point-icon">📋</span>
+                <div class="point-content">
+                    <h4>进入环岛</h4>
+                    <p>减速、让行、观察左侧来车、选择正确车道</p>
+                </div>
+            </div>
+
+            <div class="exam-point">
+                <span class="point-icon">📋</span>
+                <div class="point-content">
+                    <h4>转向灯使用</h4>
+                    <p>右转：进入前右灯 | 直行：出口前右灯 | 左转：进入前左灯，出口前换右灯</p>
+                </div>
+            </div>
+
+            <div class="exam-point">
+                <span class="point-icon">📋</span>
+                <div class="point-content">
+                    <h4>驶出环岛</h4>
+                    <p>打右灯、检查盲区、让行自行车、平稳驶出</p>
+                </div>
+            </div>
+
+            <div class="exam-point critical">
+                <span class="point-icon">⚠️</span>
+                <div class="point-content">
+                    <h4>自行车让行（关键！）</h4>
+                    <p>驶出时必须让行自行车道上的骑车人，这是考试重点</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 实用技巧 -->
+    <div class="tips">
+        <h2>实用技巧</h2>
+        <ul class="tip-list">
+            <li><strong>提前规划：</strong>接近环岛前确认出口位置和车道选择</li>
+            <li><strong>保持冷静：</strong>如果错过出口，不要慌张，再绕一圈</li>
+            <li><strong>观察标志：</strong>环岛入口通常有指示牌显示各出口方向</li>
+            <li><strong>眼观六路：</strong>环岛内也要注意其他车辆的动向</li>
+            <li><strong>练习多车道环岛：</strong>多车道环岛需要更多练习，注意变道时机</li>
+        </ul>
+    </div>
+
+    <!-- 总结 -->
+    <div class="summary">
+        <h2>总结</h2>
+        <div class="summary-grid">
+            <div class="summary-item">
+                <h4>进入规则</h4>
+                <p>让行环岛内所有车辆</p>
+            </div>
+            <div class="summary-item">
+                <h4>行驶方向</h4>
+                <p>顺时针（靠右行驶）</p>
+            </div>
+            <div class="summary-item">
+                <h4>驶出要点</h4>
+                <p>打右灯 + 检查自行车</p>
+            </div>
+            <div class="summary-item">
+                <h4>最重要</h4>
+                <p>让行自行车道骑车人</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,2792 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dutch Driving Exam Trainer | 荷兰路考互动训练</title>
+  <style>
+    :root{
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --text:#0b1220;
+      --muted:#667085;
+      --border:#e5e7eb;
+      --blue:#2563eb;
+      --green:#16a34a;
+      --red:#ef4444;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+      --radius:16px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:var(--bg);
+    }
+    .app{
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      min-height:100vh;
+      gap:16px;
+      padding:16px;
+    }
+    .sidebar{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .brand{
+      display:flex; flex-direction:column; gap:6px;
+      padding:10px 10px 12px;
+      border-bottom:1px solid var(--border);
+    }
+    .brand h1{font-size:16px; margin:0;}
+    .brand p{margin:0; font-size:12px; color:var(--muted);}
+    .search input{
+      width:100%;
+      padding:10px 12px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      outline:none;
+      font-size:14px;
+      background:#fff;
+    }
+    .nav{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      overflow:auto;
+      padding-right:4px;
+    }
+    .moduleTitle{
+      font-size:12px; color:var(--muted);
+      margin:10px 6px 4px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+    .navItem{
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:14px;
+      padding:10px 10px;
+      cursor:pointer;
+      transition:.15s;
+    }
+    .navItem:hover{transform:translateY(-1px)}
+    .navItem.active{
+      border-color:rgba(37,99,235,.35);
+      box-shadow:0 0 0 3px rgba(37,99,235,.12);
+    }
+    .navItem .top{
+      display:flex; justify-content:space-between; align-items:center;
+      gap:10px;
+    }
+    .badge{
+      font-size:12px;
+      color:#fff;
+      background:var(--blue);
+      padding:2px 8px;
+      border-radius:999px;
+    }
+    .navItem .t1{font-size:14px; font-weight:650;}
+    .navItem .t2{font-size:12px; color:var(--muted); margin-top:2px}
+    .content{
+      background:transparent;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:16px;
+    }
+    .headerRow{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .titleWrap h2{margin:0; font-size:20px}
+    .titleWrap .en{margin-top:4px; color:var(--muted); font-size:13px}
+    .meta{
+      display:flex; gap:8px; flex-wrap:wrap;
+      align-items:center;
+    }
+    .pill{
+      border:1px solid var(--border);
+      color:var(--muted);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      background:#fff;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 980px){
+      .app{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+    }
+    .sectionTitle{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:8px;
+      margin:0 0 8px 0;
+    }
+    .sectionTitle h3{margin:0; font-size:14px}
+    .hint{color:var(--muted); font-size:12px}
+    .goalBox{
+      border:1px dashed rgba(37,99,235,.35);
+      background:rgba(37,99,235,.06);
+      padding:12px;
+      border-radius:14px;
+      margin-top:8px;
+      font-size:14px;
+      line-height:1.5;
+    }
+    ul.clean{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .checkItem{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:10px 12px;
+      background:#fff;
+    }
+    .checkItem input{margin-top:3px}
+    .checkItem .txt .zh{font-size:14px}
+    .checkItem .txt .en{font-size:12px; color:var(--muted); margin-top:2px}
+    .fail{
+      border:1px solid rgba(239,68,68,.25);
+      background:rgba(239,68,68,.06);
+      padding:12px;
+      border-radius:14px;
+    }
+    .fail li{
+      padding:6px 0;
+      border-bottom:1px solid rgba(0,0,0,.05);
+    }
+    .fail li:last-child{border-bottom:none}
+    .quiz{
+      border:1px solid rgba(22,163,74,.25);
+      background:rgba(22,163,74,.06);
+      padding:12px;
+      border-radius:14px;
+    }
+    .quizQ{
+      font-weight:650;
+      margin-bottom:10px;
+      line-height:1.4;
+    }
+    .answers{
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    button.btn{
+      border:none;
+      padding:10px 14px;
+      border-radius:14px;
+      cursor:pointer;
+      background:#111827;
+      color:#fff;
+      font-weight:650;
+      transition:.15s;
+    }
+    button.btn:hover{transform:translateY(-1px)}
+    button.good{background:var(--green)}
+    button.bad{background:var(--red)}
+    .quizResult{
+      margin-top:10px;
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.45;
+      min-height:18px;
+    }
+    .diagramWrap{
+      border:1px solid var(--border);
+      border-radius:14px;
+      overflow:hidden;
+      background:#fff;
+    }
+    .diagramTop{
+      display:flex;
+      justify-content:space-between;
+      padding:10px 12px;
+      border-bottom:1px solid var(--border);
+      background:#fff;
+      align-items:center;
+      gap:10px;
+    }
+    .diagramTop .small{font-size:12px; color:var(--muted)}
+    .legend{
+      display:flex; gap:10px; flex-wrap:wrap;
+      font-size:12px; color:var(--muted);
+    }
+    .dot{display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px}
+    .dot.me{background:var(--blue)}
+    .dot.other{background:#9ca3af}
+    .dot.danger{background:var(--red)}
+    .hotTip{
+      padding:10px 12px;
+      font-size:13px;
+      color:var(--muted);
+      border-top:1px solid var(--border);
+      background:#fff;
+      min-height:42px;
+      line-height:1.45;
+    }
+    .footerRow{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:12px;
+    }
+    .progress{
+      font-family:var(--mono);
+      font-size:12px;
+      color:var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <!-- 左侧导航 -->
+    <aside class="sidebar">
+      <div class="brand">
+        <h1>荷兰路考互动训练 / Dutch Exam Trainer</h1>
+        <p>Checklist + Diagram + Quiz（每页一个考试技能卡）</p>
+      </div>
+
+      <div class="search">
+        <input id="searchBox" placeholder="搜索：路口 / 右转 / 环岛 / highway..." />
+      </div>
+
+      <div class="nav" id="nav"></div>
+    </aside>
+
+    <!-- 主内容 -->
+    <main class="content">
+      <section class="card" id="pageCard">
+        <div class="headerRow">
+          <div class="titleWrap">
+            <h2 id="pageTitleZh">加载中...</h2>
+            <div class="en" id="pageTitleEn"></div>
+          </div>
+          <div class="meta">
+            <span class="pill" id="pageIdPill">P-xx</span>
+            <span class="pill" id="modulePill">Module</span>
+          </div>
+        </div>
+
+        <div class="goalBox" id="goalBox"></div>
+
+        <div class="grid">
+          <!-- 左：Checklist + Fail -->
+          <div>
+            <div class="sectionTitle">
+              <h3>考试动作 Checklist</h3>
+              <span class="hint">打勾会自动保存（LocalStorage）</span>
+            </div>
+            <ul class="clean" id="checklist"></ul>
+
+            <div style="height:12px"></div>
+
+            <div class="sectionTitle">
+              <h3>关键挂科点 Fail Triggers</h3>
+              <span class="hint">最常见扣分原因</span>
+            </div>
+            <div class="fail">
+              <ul id="failList" style="margin:0; padding-left:18px;"></ul>
+            </div>
+
+            <div style="height:12px"></div>
+
+            <div class="sectionTitle">
+              <h3>互动测验 Quiz</h3>
+              <span class="hint">做对才算会</span>
+            </div>
+            <div class="quiz">
+              <div class="quizQ" id="quizQ"></div>
+              <div class="answers" id="quizAnswers"></div>
+              <div class="quizResult" id="quizResult"></div>
+            </div>
+          </div>
+
+          <!-- 右：Diagram -->
+          <div>
+            <div class="sectionTitle">
+              <h3>示意图 Diagram</h3>
+              <span class="hint">点击红色热点看解释</span>
+            </div>
+
+            <div class="diagramWrap">
+              <div class="diagramTop">
+                <div class="small">Legend 图例</div>
+                <div class="legend">
+                  <span><span class="dot me"></span>自己车 Me</span>
+                  <span><span class="dot other"></span>其他车 Others</span>
+                  <span><span class="dot danger"></span>危险/盲区 Danger</span>
+                </div>
+              </div>
+
+              <div id="diagram" style="width:100%; height:auto;"></div>
+
+              <div class="hotTip" id="hotTip">点击图上的红色点（热点）查看解释。</div>
+            </div>
+
+            <div class="footerRow">
+              <div class="progress" id="progressText">Progress: --%</div>
+              <button class="btn" id="resetBtn">Reset This Page</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+<script>
+/**
+ * ✅ 数据驱动：每一页就是一个对象
+ * 后面我们把 2–35 + 41–42 全部填满就完事了
+ */
+const pages = [
+  {
+    id: "P-02",
+    moduleZh: "基础控制",
+    moduleEn: "Fundamentals",
+    titleZh: "方向盘握法 + 转向技巧",
+    titleEn: "Hand Placement & Steering Techniques",
+    goalZh: "掌握推拉转向与交叉转向，转弯平稳，不低头找挡，不单手乱拧。",
+    goalEn: "Use push-pull and cross-over steering smoothly without drifting or looking down.",
+    checklist: [
+      { zh:"双手 9点-3点握方向盘", en:"Hands at 9-and-3 position" },
+      { zh:"小转弯用推拉（Push-Pull）保持稳定", en:"Use push-pull for gentle turns" },
+      { zh:"大转弯用交叉（Cross-over）快速到位", en:"Use cross-over for sharp turns" },
+      { zh:"转完必须回正，避免蛇形", en:"Return wheel smoothly, avoid weaving" },
+    ],
+    fail: [
+      "单手开车或手反复乱换位置 / One-handed steering",
+      "低头找挡导致偏离车道 / Looking down and drifting",
+      "转弯过急导致压线 / Over-steering and crossing lane line"
+    ],
+    quiz: {
+      qZh: "下面哪个动作是正确的？",
+      qEn: "Which steering behavior is correct?",
+      answers: [
+        { labelZh:"双手9-3，推拉转向", labelEn:"Two hands 9-3, push-pull steering", correct:true,
+          explainZh:"对。考试看的是“稳定 + 可控”。",
+          explainEn:"Correct. Examiners want stable, controlled steering." },
+        { labelZh:"单手大力拧方向盘", labelEn:"One-hand hard turning", correct:false,
+          explainZh:"错。单手容易飘、也显得不安全。",
+          explainEn:"Wrong. One-hand steering looks unsafe and unstable." },
+      ]
+    },
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="520" height="360" fill="#ffffff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Steering Wheel + Hand Position (Simplified)</text>
+
+  <!-- wheel -->
+  <circle cx="260" cy="185" r="120" fill="none" stroke="#111827" stroke-width="10"/>
+  <circle cx="260" cy="185" r="60" fill="none" stroke="#111827" stroke-width="8"/>
+
+  <!-- 9 and 3 markers -->
+  <circle cx="140" cy="185" r="8" fill="#2563eb"/>
+  <circle cx="380" cy="185" r="8" fill="#2563eb"/>
+  <text x="120" y="175" font-size="12" fill="#2563eb">9</text>
+  <text x="392" y="175" font-size="12" fill="#2563eb">3</text>
+
+  <!-- hands -->
+  <rect x="110" y="205" width="60" height="26" rx="12" fill="#d1d5db"/>
+  <rect x="350" y="205" width="60" height="26" rx="12" fill="#d1d5db"/>
+
+  <!-- hotspot -->
+  <circle class="hotspot" data-tip="热点：9点-3点握法是荷兰路考最安全、最稳定的基础。/ Tip: 9-and-3 is the safest standard for the exam."
+          cx="260" cy="60" r="10" fill="#ef4444" />
+  <text x="275" y="64" font-size="12" fill="#ef4444">HOT</text>
+
+  <!-- arrows -->
+  <path d="M255 80 C200 110, 200 260, 255 290" fill="none" stroke="#16a34a" stroke-width="5" marker-end="url(#arrow)"/>
+  <path d="M265 80 C320 110, 320 260, 265 290" fill="none" stroke="#16a34a" stroke-width="5" marker-end="url(#arrow)"/>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a" />
+    </marker>
+  </defs>
+
+  <text x="18" y="330" font-size="12" fill="#667085">Green arrows = push-pull motion (concept)</text>
+</svg>
+`,
+  },
+
+  {
+    id: "P-10",
+    moduleZh: "路口核心",
+    moduleEn: "Intersections",
+    titleZh: "路口接近与通过：6步检查法",
+    titleEn: "Approaching & Crossing an Intersection (6-Step Check)",
+    goalZh: "靠近路口时能“先观察再行动”，处理优先权、盲区、自行车与行人。",
+    goalEn: "Approach intersections with systematic observation, right-of-way decisions, and safe crossing.",
+    checklist: [
+      { zh:"减速到可控速度（准备随时停车）", en:"Slow down to a controllable speed (ready to stop)" },
+      { zh:"镜子 + 盲区快速扫一遍", en:"Check mirrors + quick blind spot scan" },
+      { zh:"判断优先权（谁先走）", en:"Assess right-of-way (who goes first)" },
+      { zh:"选对挡位，车速与挡位匹配", en:"Shift to the right gear for the speed" },
+      { zh:"左-右-左确认安全再通过", en:"Look left-right-left and proceed if safe" },
+      { zh:"通过后看后视镜，确认后方情况", en:"After crossing, check rearview mirror" },
+    ],
+    fail: [
+      "只看一个方向就冲 / Checking only one side",
+      "速度太快，无法停车 / Too fast to stop safely",
+      "忽略右侧自行车或斑马线行人 / Missing bikes or pedestrians"
+    ],
+    quiz: {
+      qZh: "你接近路口时最正确的顺序是哪一个？",
+      qEn: "What is the best order when approaching an intersection?",
+      answers: [
+        { labelZh:"减速→观察→判断优先权→再通过", labelEn:"Slow→Observe→Assess right-of-way→Proceed",
+          correct:true,
+          explainZh:"对。考试本质是“可控 + 可解释”。",
+          explainEn:"Correct. The exam rewards control and clear decision-making." },
+        { labelZh:"先冲过去再看", labelEn:"Go first, then look",
+          correct:false,
+          explainZh:"错。这属于不可控风险。",
+          explainEn:"Wrong. This is uncontrolled risk." },
+      ]
+    },
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="520" height="360" fill="#ffffff"/>
+
+  <!-- roads -->
+  <rect x="0" y="150" width="520" height="60" fill="#e5e7eb"/>
+  <rect x="230" y="0" width="60" height="360" fill="#e5e7eb"/>
+
+  <!-- lane markings -->
+  <line x1="0" y1="180" x2="520" y2="180" stroke="#ffffff" stroke-width="4" stroke-dasharray="10 10"/>
+  <line x1="260" y1="0" x2="260" y2="360" stroke="#ffffff" stroke-width="4" stroke-dasharray="10 10"/>
+
+  <!-- crosswalk -->
+  <g opacity="0.9">
+    <rect x="200" y="130" width="14" height="100" fill="#ffffff"/>
+    <rect x="225" y="130" width="14" height="100" fill="#ffffff"/>
+    <rect x="300" y="130" width="14" height="100" fill="#ffffff"/>
+    <rect x="325" y="130" width="14" height="100" fill="#ffffff"/>
+  </g>
+
+  <!-- my car -->
+  <rect x="245" y="270" width="30" height="52" rx="6" fill="#2563eb"/>
+  <text x="240" y="338" font-size="12" fill="#2563eb">ME</text>
+
+  <!-- other car from left -->
+  <rect x="70" y="160" width="52" height="30" rx="6" fill="#9ca3af"/>
+  <text x="60" y="154" font-size="12" fill="#9ca3af">Other</text>
+
+  <!-- bike on right -->
+  <circle cx="420" cy="190" r="10" fill="#9ca3af"/>
+  <text x="432" y="194" font-size="12" fill="#9ca3af">Bike</text>
+
+  <!-- movement arrow for me -->
+  <path d="M260 270 L260 120" stroke="#16a34a" stroke-width="6" marker-end="url(#arrow)"/>
+  <text x="275" y="210" font-size="12" fill="#16a34a">Go</text>
+
+  <!-- hotspots -->
+  <circle class="hotspot" data-tip="热点：斑马线 + 行人/自行车，是扣分高发区。/ Hotspot: crosswalk & bikes are fail hotspots."
+          cx="260" cy="180" r="10" fill="#ef4444"/>
+  <circle class="hotspot" data-tip="热点：右侧来车/自行车要重点看（尤其荷兰）。/ Hotspot: right-side bikes are critical in NL."
+          cx="420" cy="190" r="10" fill="#ef4444"/>
+
+  <text x="18" y="28" font-size="14" fill="#667085">Intersection (Simplified) – Click hotspots</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a" />
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-02 方向盘（已有）
+  // =========================
+  {
+    id: "P-02",
+    moduleZh: "基础控制",
+    moduleEn: "Fundamentals",
+    titleZh: "方向盘握法 + 转向技巧",
+    titleEn: "Hand Placement & Steering Techniques",
+    goalZh: "掌握推拉转向与交叉转向，转弯平稳，不低头找挡，不单手乱拧。",
+    goalEn: "Use push-pull and cross-over steering smoothly without drifting or looking down.",
+    checklist: [
+      { zh:"双手 9点-3点握方向盘", en:"Hands at 9-and-3 position" },
+      { zh:"小转弯用推拉（Push-Pull）保持稳定", en:"Use push-pull for gentle turns" },
+      { zh:"大转弯用交叉（Cross-over）快速到位", en:"Use cross-over for sharp turns" },
+      { zh:"转完必须回正，避免蛇形", en:"Return wheel smoothly, avoid weaving" },
+    ],
+    fail: [
+      "单手开车或手反复乱换位置 / One-handed steering",
+      "低头找挡导致偏离车道 / Looking down and drifting",
+      "转弯过急导致压线 / Over-steering and crossing lane line"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="520" height="360" fill="#ffffff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Steering Wheel + Hand Position (Simplified)</text>
+
+  <circle cx="260" cy="185" r="120" fill="none" stroke="#111827" stroke-width="10"/>
+  <circle cx="260" cy="185" r="60" fill="none" stroke="#111827" stroke-width="8"/>
+
+  <circle cx="140" cy="185" r="8" fill="#2563eb"/>
+  <circle cx="380" cy="185" r="8" fill="#2563eb"/>
+  <text x="120" y="175" font-size="12" fill="#2563eb">9</text>
+  <text x="392" y="175" font-size="12" fill="#2563eb">3</text>
+
+  <rect x="110" y="205" width="60" height="26" rx="12" fill="#d1d5db"/>
+  <rect x="350" y="205" width="60" height="26" rx="12" fill="#d1d5db"/>
+
+  <circle class="hotspot" data-tip="热点：9点-3点握法是路考最安全、最稳定的基础。/ Tip: 9-and-3 is the safest standard for the exam."
+          cx="260" cy="60" r="10" fill="#ef4444" />
+  <text x="275" y="64" font-size="12" fill="#ef4444">HOT</text>
+
+  <path d="M255 80 C200 110, 200 260, 255 290" fill="none" stroke="#16a34a" stroke-width="5" marker-end="url(#arrow)"/>
+  <path d="M265 80 C320 110, 320 260, 265 290" fill="none" stroke="#16a34a" stroke-width="5" marker-end="url(#arrow)"/>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a" />
+    </marker>
+  </defs>
+
+  <text x="18" y="330" font-size="12" fill="#667085">Green arrows = push-pull motion (concept)</text>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-03 坐姿 + 后视镜
+  // =========================
+  {
+    id: "P-03",
+    moduleZh: "基础控制",
+    moduleEn: "Fundamentals",
+    titleZh: "正确坐姿 + 后视镜调整",
+    titleEn: "Seating Position & Mirror Setup",
+    goalZh: "坐姿稳定、视野最大化、手脚动作不吃力：让你在考试中看起来“很安全、很可控”。",
+    goalEn: "A stable posture + maximum visibility: you look safe and fully in control during the exam.",
+    checklist: [
+      { zh:"座椅前后：踩离合/刹车时膝盖微弯", en:"Seat distance: knee slightly bent when pressing pedals" },
+      { zh:"靠背角度：手伸直能搭在方向盘上方", en:"Backrest: wrist reaches top of steering wheel with straight arm" },
+      { zh:"头枕高度：头部中间对齐头枕中心", en:"Headrest: center aligned with your head mid-level" },
+      { zh:"方向盘距离：双臂自然弯曲，肩不离靠背", en:"Wheel distance: arms slightly bent, shoulders stay back" },
+      { zh:"内后视镜：完整看到后窗中间", en:"Rearview mirror: centered view through rear window" },
+      { zh:"左右后视镜：车身只占很小一部分，主要看车道", en:"Side mirrors: minimal car body, mostly lane view" },
+    ],
+    fail: [
+      "坐得太躺/太远：反应慢、刹车不稳 / Too reclined or too far: slow reactions",
+      "镜子没调好导致盲区大 / Mirrors not set: huge blind spots",
+      "肩膀离开靠背伸手转向 / Overreaching when steering"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Seating + Mirrors (Simplified)</text>
+
+  <!-- seat -->
+  <path d="M320 260 L320 110 Q320 90 300 90 L265 90 Q240 90 240 120 L240 260 Z"
+        fill="#e5e7eb" stroke="#9ca3af" stroke-width="2"/>
+  <!-- driver -->
+  <circle cx="210" cy="130" r="18" fill="#d1d5db"/>
+  <path d="M200 150 Q210 190 215 220 Q220 255 200 265" fill="none" stroke="#111827" stroke-width="4"/>
+  <path d="M215 190 Q245 190 270 180" fill="none" stroke="#111827" stroke-width="4"/>
+  <!-- steering wheel -->
+  <circle cx="280" cy="165" r="26" fill="none" stroke="#111827" stroke-width="5"/>
+
+  <!-- pedals area -->
+  <rect x="120" y="270" width="110" height="18" rx="8" fill="#e5e7eb"/>
+  <text x="120" y="305" font-size="12" fill="#667085">Pedals</text>
+
+  <!-- mirrors -->
+  <rect x="60" y="60" width="120" height="60" rx="10" fill="#f3f4f6" stroke="#e5e7eb"/>
+  <text x="68" y="82" font-size="12" fill="#667085">Rearview</text>
+  <line x1="70" y1="100" x2="170" y2="100" stroke="#2563eb" stroke-width="3"/>
+
+  <rect x="420" y="140" width="80" height="48" rx="10" fill="#f3f4f6" stroke="#e5e7eb"/>
+  <text x="425" y="168" font-size="12" fill="#667085">Side</text>
+  <line x1="430" y1="175" x2="490" y2="175" stroke="#2563eb" stroke-width="3"/>
+
+  <!-- hotspots -->
+  <circle class="hotspot" cx="215" cy="265" r="10" fill="#ef4444"
+          data-tip="热点：膝盖要微弯，踩到底也不伸直。/ Tip: keep a slight knee bend even when fully pressing pedals."/>
+  <circle class="hotspot" cx="280" cy="165" r="10" fill="#ef4444"
+          data-tip="热点：肩不离靠背，方向盘距离要舒服。/ Tip: shoulders stay back; wheel distance should feel natural."/>
+  <circle class="hotspot" cx="120" cy="90" r="10" fill="#ef4444"
+          data-tip="热点：镜子不是用来看自己车身，而是用来看车道和来车。/ Tip: mirrors are for lanes/traffic, not your car body."/>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-04 仪表盘符号（考试用得上的是“红/黄/功能”）
+  // =========================
+  {
+    id: "P-04",
+    moduleZh: "基础控制",
+    moduleEn: "Fundamentals",
+    titleZh: "仪表盘灯光 + 常用开关（考试必会）",
+    titleEn: "Dashboard Lights & Essential Controls (Exam Must-Know)",
+    goalZh: "不需要背完所有图标，但必须分清：功能灯、黄色警告、红色危险，并会操作灯光/雨刷/双闪。",
+    goalEn: "You don’t need to memorize everything—know functional lights, yellow warnings, red danger, and key controls.",
+    checklist: [
+      { zh:"红色=立即处理（安全停车）", en:"Red = stop safely and address immediately" },
+      { zh:"黄色=尽快检查（可继续但要谨慎）", en:"Yellow = check soon (continue carefully)" },
+      { zh:"会开/关近光灯、远光灯、转向灯", en:"Operate low beam, high beam, indicators" },
+      { zh:"会开/关雨刷、除雾（前/后）", en:"Operate wipers and defog (front/rear)" },
+      { zh:"会用双闪（Hazard）", en:"Use hazard warning lights" },
+      { zh:"知道点火/启动档位（0/ACC/ON/START）", en:"Understand ignition positions (0/ACC/ON/START)" },
+    ],
+    fail: [
+      "被问到灯光/雨刷不会操作 / Cannot operate lights or wipers on request",
+      "红灯亮还继续开 / Continuing with a red warning light",
+      "夜间/雨天忘记开灯 / Forgetting lights in low visibility"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Dashboard: Red vs Yellow vs Controls</text>
+
+  <!-- panels -->
+  <rect x="20" y="50" width="480" height="120" rx="16" fill="#f3f4f6" stroke="#e5e7eb"/>
+  <text x="34" y="78" font-size="12" fill="#667085">WARNING LIGHTS</text>
+
+  <!-- icons (simplified blocks) -->
+  <rect x="40" y="92" width="110" height="58" rx="12" fill="rgba(239,68,68,.14)" stroke="rgba(239,68,68,.3)"/>
+  <text x="55" y="120" font-size="14" fill="#ef4444">RED</text>
+  <text x="55" y="142" font-size="12" fill="#667085">Stop safely</text>
+
+  <rect x="170" y="92" width="110" height="58" rx="12" fill="rgba(245,158,11,.16)" stroke="rgba(245,158,11,.35)"/>
+  <text x="185" y="120" font-size="14" fill="#b45309">YELLOW</text>
+  <text x="185" y="142" font-size="12" fill="#667085">Check soon</text>
+
+  <rect x="300" y="92" width="180" height="58" rx="12" fill="rgba(37,99,235,.10)" stroke="rgba(37,99,235,.25)"/>
+  <text x="316" y="120" font-size="14" fill="#2563eb">FUNCTION</text>
+  <text x="316" y="142" font-size="12" fill="#667085">Lights / Signals</text>
+
+  <!-- controls row -->
+  <rect x="20" y="190" width="480" height="150" rx="16" fill="#ffffff" stroke="#e5e7eb"/>
+  <text x="34" y="216" font-size="12" fill="#667085">ESSENTIAL CONTROLS</text>
+
+  <!-- buttons -->
+  <rect x="40" y="235" width="120" height="80" rx="14" fill="#111827"/>
+  <text x="62" y="280" font-size="14" fill="#fff">Hazard</text>
+
+  <rect x="180" y="235" width="120" height="80" rx="14" fill="#111827"/>
+  <text x="205" y="270" font-size="14" fill="#fff">Wipers</text>
+
+  <rect x="320" y="235" width="160" height="80" rx="14" fill="#111827"/>
+  <text x="350" y="270" font-size="14" fill="#fff">Lights</text>
+
+  <!-- hotspots -->
+  <circle class="hotspot" cx="95" cy="275" r="10" fill="#ef4444"
+          data-tip="热点：考官最爱问“双闪在哪、怎么开”。/ Tip: examiners often ask you to switch on hazard lights."/>
+  <circle class="hotspot" cx="240" cy="275" r="10" fill="#ef4444"
+          data-tip="热点：雨刷+除雾要熟练，不然雨天会很慌。/ Tip: master wipers/defog for rainy NL roads."/>
+  <circle class="hotspot" cx="400" cy="275" r="10" fill="#ef4444"
+          data-tip="热点：近光/远光/转向灯必须会，且不要误开远光晃人。/ Tip: use low/high beam properly; avoid dazzling others."/>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-05 2秒规则 + 空间缓冲
+  // =========================
+  {
+    id: "P-05",
+    moduleZh: "基础控制",
+    moduleEn: "Fundamentals",
+    titleZh: "跟车距离：2秒规则 + 空间缓冲",
+    titleEn: "Following Distance: 2-Second Rule + Space Cushion",
+    goalZh: "保持可刹停的安全距离，给自己留“逃生空间”，这是考试里的稳定加分项。",
+    goalEn: "Keep a safe stopping distance and an escape space—this earns steady exam points.",
+    checklist: [
+      { zh:"选一个路边固定参照物（树/路牌）", en:"Pick a fixed reference point (tree/sign)" },
+      { zh:"前车经过后开始数：21、22", en:"Count after the car passes: 21, 22" },
+      { zh:"少于2秒就加大距离", en:"If <2 seconds, increase distance" },
+      { zh:"雨天/夜间/高速：拉到3-4秒", en:"Rain/night/highway: increase to 3–4 seconds" },
+      { zh:"保持“空间缓冲”：前方有余量可避险", en:"Maintain a space cushion for emergencies" },
+    ],
+    fail: [
+      "紧贴前车（Tailgating）/ Following too closely",
+      "刹车频繁、车速忽快忽慢 / Constant braking and unstable speed",
+      "没有预判，遇到突发只能急刹 / No anticipation → hard braking"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">2-Second Rule (Simplified)</text>
+
+  <!-- road -->
+  <rect x="20" y="150" width="480" height="70" rx="12" fill="#e5e7eb"/>
+  <line x1="30" y1="185" x2="490" y2="185" stroke="#fff" stroke-width="4" stroke-dasharray="12 10"/>
+
+  <!-- reference point -->
+  <rect x="255" y="110" width="10" height="40" fill="#9ca3af"/>
+  <circle cx="260" cy="105" r="18" fill="#16a34a"/>
+  <text x="230" y="92" font-size="12" fill="#667085">Reference</text>
+
+  <!-- lead car -->
+  <rect x="190" y="160" width="58" height="30" rx="6" fill="#9ca3af"/>
+  <text x="185" y="150" font-size="12" fill="#667085">Lead</text>
+
+  <!-- me car -->
+  <rect x="340" y="160" width="58" height="30" rx="6" fill="#2563eb"/>
+  <text x="350" y="150" font-size="12" fill="#2563eb">ME</text>
+
+  <!-- distance arrow -->
+  <line x1="248" y1="205" x2="340" y2="205" stroke="#16a34a" stroke-width="5" marker-end="url(#arrow)"/>
+  <text x="255" y="235" font-size="12" fill="#16a34a">Count 21…22</text>
+
+  <!-- hotspots -->
+  <circle class="hotspot" cx="260" cy="105" r="10" fill="#ef4444"
+          data-tip="热点：数数一定要用固定参照物，不要凭感觉。/ Tip: always use a reference point, not intuition."/>
+  <circle class="hotspot" cx="370" cy="175" r="10" fill="#ef4444"
+          data-tip="热点：雨天/高速请拉到3-4秒，荷兰很常下雨。/ Tip: in rain/highway use 3–4 seconds."/>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a" />
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-06 行人（转弯必让）
+  // =========================
+  {
+    id: "P-06",
+    moduleZh: "基础控制",
+    moduleEn: "Fundamentals",
+    titleZh: "行人优先：转弯必须让行",
+    titleEn: "Pedestrian Priority: Yield When Turning",
+    goalZh: "你转弯时，行人/自行车穿过你的行驶路径 = 你必须让行（提前减速，准备停车）。",
+    goalEn: "If pedestrians/bikes cross your path while you turn, you must yield (slow early, be ready to stop).",
+    checklist: [
+      { zh:"接近路口先减速，扫视四个角", en:"Slow down early, scan all corners" },
+      { zh:"转弯前看斑马线/路边行人是否要过", en:"Check crosswalk/sidewalk for crossing intent" },
+      { zh:"有人准备过马路：提前停车让行", en:"If someone is about to cross: stop and yield" },
+      { zh:"转弯过程中持续观察（行人会突然冲出）", en:"Keep scanning during the turn (they may step out)" },
+      { zh:"通过后立刻看后视镜（后方自行车）", en:"After turning, check mirrors (bikes behind)" },
+    ],
+    fail: [
+      "转弯时不让行人/自行车 / Not yielding while turning",
+      "到斑马线才急刹 / Late hard braking at crosswalk",
+      "只盯前方不看角落 / Tunnel vision (not scanning corners)"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Pedestrians at Intersection (Simplified)</text>
+
+  <!-- roads -->
+  <rect x="0" y="150" width="520" height="60" fill="#e5e7eb"/>
+  <rect x="230" y="0" width="60" height="360" fill="#e5e7eb"/>
+  <line x1="0" y1="180" x2="520" y2="180" stroke="#fff" stroke-width="4" stroke-dasharray="10 10"/>
+  <line x1="260" y1="0" x2="260" y2="360" stroke="#fff" stroke-width="4" stroke-dasharray="10 10"/>
+
+  <!-- crosswalk stripes -->
+  <g opacity="0.9">
+    <rect x="200" y="132" width="14" height="96" fill="#fff"/>
+    <rect x="225" y="132" width="14" height="96" fill="#fff"/>
+    <rect x="300" y="132" width="14" height="96" fill="#fff"/>
+    <rect x="325" y="132" width="14" height="96" fill="#fff"/>
+  </g>
+
+  <!-- me car coming from right turning down -->
+  <rect x="395" y="160" width="58" height="30" rx="6" fill="#2563eb"/>
+  <text x="410" y="150" font-size="12" fill="#2563eb">ME</text>
+  <path d="M405 175 Q300 175 300 255" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- pedestrians (dots) -->
+  <circle cx="290" cy="125" r="7" fill="#9ca3af"/>
+  <circle cx="340" cy="235" r="7" fill="#9ca3af"/>
+  <text x="260" y="115" font-size="12" fill="#667085">Pedestrian</text>
+
+  <!-- hotspots -->
+  <circle class="hotspot" cx="300" cy="180" r="10" fill="#ef4444"
+          data-tip="热点：你转弯会切过斑马线 → 行人优先。/ Tip: turning crosses the crosswalk → pedestrians first."/>
+  <circle class="hotspot" cx="420" cy="175" r="10" fill="#ef4444"
+          data-tip="热点：提前减速＝你看起来更安全，考官更放心。/ Tip: early slowing looks safe and controlled."/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a" />
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-07 路口场景1（自行车道=荷兰必考盲点）
+  // =========================
+  {
+    id: "P-07",
+    moduleZh: "路口核心",
+    moduleEn: "Intersections",
+    titleZh: "路口场景 1：自行车道（双向风险）",
+    titleEn: "Intersection Case 1: Bike Lanes (Two-Way Risk)",
+    goalZh: "荷兰路口最危险的不是车，而是自行车：你必须默认“自行车两边都可能来”。",
+    goalEn: "In NL intersections, bikes are the real danger—assume they can come from BOTH directions.",
+    checklist: [
+      { zh:"靠近路口提前减速，准备随时停车", en:"Slow early, be ready to stop" },
+      { zh:"看右侧自行车道：上/下两个方向都检查", en:"Check bike lane both up/down directions" },
+      { zh:"转弯前做肩膀回头看盲区（blind spot）", en:"Shoulder check blind spot before turning" },
+      { zh:"确认自行车无冲突再行动", en:"Move only when no bike conflict" },
+    ],
+    fail: [
+      "只看一个方向的自行车 / Checking only one bike direction",
+      "没做肩膀回头盲点检查 / No shoulder check",
+      "边转边犹豫停在自行车道上 / Stopping on the bike lane"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Bike Lanes at Intersections (Simplified)</text>
+
+  <!-- main cross -->
+  <rect x="0" y="150" width="520" height="60" fill="#e5e7eb"/>
+  <rect x="210" y="0" width="100" height="360" fill="#e5e7eb"/>
+
+  <!-- bike lane on right (two-way) -->
+  <rect x="420" y="0" width="60" height="360" fill="rgba(37,99,235,.08)" stroke="rgba(37,99,235,.25)"/>
+  <text x="426" y="24" font-size="12" fill="#2563eb">Bike</text>
+  <text x="426" y="40" font-size="12" fill="#2563eb">Lane</text>
+
+  <!-- bikes arrows -->
+  <path d="M450 70 L450 30" stroke="#2563eb" stroke-width="4" marker-end="url(#barr)"/>
+  <path d="M450 290 L450 330" stroke="#2563eb" stroke-width="4" marker-end="url(#barr)"/>
+
+  <!-- me car approaching from bottom to cross -->
+  <rect x="240" y="280" width="40" height="60" rx="6" fill="#2563eb"/>
+  <text x="238" y="352" font-size="12" fill="#2563eb">ME</text>
+
+  <!-- hotspots -->
+  <circle class="hotspot" cx="450" cy="180" r="10" fill="#ef4444"
+          data-tip="热点：自行车道可能是双向的，你必须两边都看。/ Tip: bike lane can be bidirectional—check both ways."/>
+  <circle class="hotspot" cx="260" cy="250" r="10" fill="#ef4444"
+          data-tip="热点：动作顺序：减速→看镜子→肩膀回头→再动。/ Tip: slow → mirrors → shoulder check → move."/>
+
+  <defs>
+    <marker id="barr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#2563eb" />
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-08 路口场景2（多车参与，优先权判断）
+  // =========================
+  {
+    id: "P-08",
+    moduleZh: "路口核心",
+    moduleEn: "Intersections",
+    titleZh: "路口场景 2：多车参与的优先权判断",
+    titleEn: "Intersection Case 2: Right-of-Way with Multiple Vehicles",
+    goalZh: "无信号灯的路口：优先权判断要稳定、清晰、可解释（考试最看这个）。",
+    goalEn: "At uncontrolled intersections: your right-of-way decision must be stable, clear, and explainable.",
+    checklist: [
+      { zh:"提前减速，把路口当作“随时要停车”", en:"Slow early and treat it as a stop-ready zone" },
+      { zh:"先看右边（Right-hand rule 常见）", en:"Check right side first (right-hand rule is common)" },
+      { zh:"转弯要让直行车辆（尤其对向车）", en:"Yield when turning, especially to oncoming straight traffic" },
+      { zh:"二轮车更快更隐蔽：多看一眼", en:"Two-wheelers are fast and hidden—double-check" },
+      { zh:"宁可慢一点，也不要犹豫停在路口中间", en:"Better slow than stopping in the middle of the junction" },
+    ],
+    fail: [
+      "没观察右侧来车/二轮车 / Missing right-side traffic or scooters",
+      "抢行后急刹造成危险 / Forcing priority then hard braking",
+      "犹豫卡在路口中间 / Hesitating and blocking the intersection"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Multi-vehicle Intersection (Simplified)</text>
+
+  <!-- big intersection -->
+  <rect x="0" y="140" width="520" height="80" fill="#e5e7eb"/>
+  <rect x="210" y="0" width="100" height="360" fill="#e5e7eb"/>
+  <line x1="0" y1="180" x2="520" y2="180" stroke="#fff" stroke-width="4" stroke-dasharray="12 10"/>
+  <line x1="260" y1="0" x2="260" y2="360" stroke="#fff" stroke-width="4" stroke-dasharray="12 10"/>
+
+  <!-- me car at right side entering -->
+  <rect x="410" y="165" width="60" height="30" rx="6" fill="#2563eb"/>
+  <text x="420" y="156" font-size="12" fill="#2563eb">ME</text>
+
+  <!-- other cars -->
+  <rect x="240" y="30" width="40" height="60" rx="6" fill="#9ca3af"/>
+  <text x="230" y="24" font-size="12" fill="#667085">Other</text>
+
+  <rect x="240" y="270" width="40" height="60" rx="6" fill="#9ca3af"/>
+
+  <!-- scooter -->
+  <circle cx="350" cy="120" r="10" fill="#9ca3af"/>
+  <text x="365" y="124" font-size="12" fill="#667085">Scooter</text>
+
+  <!-- hotspots -->
+  <circle class="hotspot" cx="410" cy="180" r="10" fill="#ef4444"
+          data-tip="热点：无信号路口，先看右边，再做决定。/ Tip: uncontrolled intersection—check RIGHT first."/>
+  <circle class="hotspot" cx="350" cy="120" r="10" fill="#ef4444"
+          data-tip="热点：二轮车速度高、体积小，最容易漏看。/ Tip: two-wheelers are easy to miss—double check."/>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-10 路口 6步法（已有）
+  // =========================
+  {
+    id: "P-10",
+    moduleZh: "路口核心",
+    moduleEn: "Intersections",
+    titleZh: "路口接近与通过：6步检查法",
+    titleEn: "Approaching & Crossing an Intersection (6-Step Check)",
+    goalZh: "靠近路口时能“先观察再行动”，处理优先权、盲区、自行车与行人。",
+    goalEn: "Approach intersections with systematic observation, right-of-way decisions, and safe crossing.",
+    checklist: [
+      { zh:"减速到可控速度（准备随时停车）", en:"Slow down to a controllable speed (ready to stop)" },
+      { zh:"镜子 + 盲区快速扫一遍", en:"Check mirrors + quick blind spot scan" },
+      { zh:"判断优先权（谁先走）", en:"Assess right-of-way (who goes first)" },
+      { zh:"选对挡位，车速与挡位匹配", en:"Shift to the right gear for the speed" },
+      { zh:"左-右-左确认安全再通过", en:"Look left-right-left and proceed if safe" },
+      { zh:"通过后看后视镜，确认后方情况", en:"After crossing, check rearview mirror" },
+    ],
+    fail: [
+      "只看一个方向就冲 / Checking only one side",
+      "速度太快，无法停车 / Too fast to stop safely",
+      "忽略右侧自行车或斑马线行人 / Missing bikes or pedestrians"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="520" height="360" fill="#ffffff"/>
+
+  <rect x="0" y="150" width="520" height="60" fill="#e5e7eb"/>
+  <rect x="230" y="0" width="60" height="360" fill="#e5e7eb"/>
+
+  <line x1="0" y1="180" x2="520" y2="180" stroke="#ffffff" stroke-width="4" stroke-dasharray="10 10"/>
+  <line x1="260" y1="0" x2="260" y2="360" stroke="#ffffff" stroke-width="4" stroke-dasharray="10 10"/>
+
+  <g opacity="0.9">
+    <rect x="200" y="130" width="14" height="100" fill="#ffffff"/>
+    <rect x="225" y="130" width="14" height="100" fill="#ffffff"/>
+    <rect x="300" y="130" width="14" height="100" fill="#ffffff"/>
+    <rect x="325" y="130" width="14" height="100" fill="#ffffff"/>
+  </g>
+
+  <rect x="245" y="270" width="30" height="52" rx="6" fill="#2563eb"/>
+  <text x="240" y="338" font-size="12" fill="#2563eb">ME</text>
+
+  <rect x="70" y="160" width="52" height="30" rx="6" fill="#9ca3af"/>
+  <text x="60" y="154" font-size="12" fill="#9ca3af">Other</text>
+
+  <circle cx="420" cy="190" r="10" fill="#9ca3af"/>
+  <text x="432" y="194" font-size="12" fill="#9ca3af">Bike</text>
+
+  <path d="M260 270 L260 120" stroke="#16a34a" stroke-width="6" marker-end="url(#arrow)"/>
+  <text x="275" y="210" font-size="12" fill="#16a34a">Go</text>
+
+  <circle class="hotspot" data-tip="热点：斑马线 + 行人/自行车，是扣分高发区。/ Hotspot: crosswalk & bikes are fail hotspots."
+          cx="260" cy="180" r="10" fill="#ef4444"/>
+  <circle class="hotspot" data-tip="热点：右侧来车/自行车要重点看（尤其荷兰）。/ Hotspot: right-side bikes are critical in NL."
+          cx="420" cy="190" r="10" fill="#ef4444"/>
+
+  <text x="18" y="28" font-size="14" fill="#667085">Intersection (Simplified) – Click hotspots</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a" />
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+    // =========================
+  // P-09 路口：接近与通过（更完整的“考试决策”版）
+  // =========================
+  {
+    id: "P-09",
+    moduleZh: "路口核心",
+    moduleEn: "Intersections",
+    titleZh: "路口接近与通过：先慢、先看、再走",
+    titleEn: "Approaching & Crossing: Slow → Observe → Decide → Go",
+    goalZh: "路口不是靠“胆子”过去，而是靠“可控”：提前减速、提前观察、决策明确，然后一次性安全通过。",
+    goalEn: "Intersections are about control: slow early, observe early, decide clearly, cross safely in one move.",
+    checklist: [
+      { zh:"提前减速到“能停住”的速度", en:"Slow down to a speed where you can stop" },
+      { zh:"看路标/让行标志/地面标线（谁优先）", en:"Read signs/markings (who has priority)" },
+      { zh:"扫描：左→右→左 + 角落盲区", en:"Scan left→right→left + corner blind spots" },
+      { zh:"看右侧自行车道（默认双向）", en:"Check bike lane (assume two-way)" },
+      { zh:"决策后果断通过：不要停在路口中间", en:"Once decided, cross decisively (don’t stop mid-junction)" },
+      { zh:"通过后看后视镜，确认后车/自行车", en:"After crossing, check mirrors for cars/bikes behind" },
+    ],
+    fail: [
+      "临到路口才急刹 / Late hard braking at the line",
+      "犹豫停在路口中间 / Hesitating and stopping mid-junction",
+      "没看右侧自行车 / Missing right-side bikes"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Intersection Decision Flow (Simplified)</text>
+
+  <!-- roads -->
+  <rect x="0" y="150" width="520" height="60" fill="#e5e7eb"/>
+  <rect x="235" y="0" width="50" height="360" fill="#e5e7eb"/>
+  <line x1="0" y1="180" x2="520" y2="180" stroke="#fff" stroke-width="4" stroke-dasharray="10 10"/>
+  <line x1="260" y1="0" x2="260" y2="360" stroke="#fff" stroke-width="4" stroke-dasharray="10 10"/>
+
+  <!-- stop/yield line (concept) -->
+  <line x1="235" y1="245" x2="285" y2="245" stroke="#9ca3af" stroke-width="4"/>
+  <text x="210" y="240" font-size="12" fill="#667085">Line</text>
+
+  <!-- me car approaching -->
+  <rect x="245" y="280" width="30" height="52" rx="6" fill="#2563eb"/>
+  <text x="238" y="350" font-size="12" fill="#2563eb">ME</text>
+
+  <!-- other car from left -->
+  <rect x="80" y="160" width="52" height="30" rx="6" fill="#9ca3af"/>
+  <text x="70" y="154" font-size="12" fill="#667085">Other</text>
+
+  <!-- bike lane on right edge -->
+  <rect x="455" y="0" width="45" height="360" fill="rgba(37,99,235,.08)" stroke="rgba(37,99,235,.22)"/>
+  <circle cx="477" cy="190" r="10" fill="#9ca3af"/>
+  <text x="462" y="30" font-size="12" fill="#2563eb">Bike</text>
+
+  <!-- go arrow -->
+  <path d="M260 280 L260 120" stroke="#16a34a" stroke-width="6" marker-end="url(#arrow)"/>
+
+  <!-- hotspots -->
+  <circle class="hotspot" cx="260" cy="245" r="10" fill="#ef4444"
+          data-tip="热点：到线前必须降到可停车速度。/ Tip: before the line, you must be able to stop."/>
+  <circle class="hotspot" cx="477" cy="190" r="10" fill="#ef4444"
+          data-tip="热点：右侧自行车是荷兰路口最大挂科点。/ Tip: right-side bikes are a top fail reason in NL."/>
+  <circle class="hotspot" cx="260" cy="180" r="10" fill="#ef4444"
+          data-tip="热点：一旦决定就一次性通过，不要卡在路口中间。/ Tip: once you decide, cross in one smooth move."/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a" />
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-11 右转盲区（核心挂科点）
+  // =========================
+  {
+    id: "P-11",
+    moduleZh: "转弯核心",
+    moduleEn: "Turning",
+    titleZh: "右转盲区：自行车从右侧/后侧出现",
+    titleEn: "Right Turn Blind Spot: Bikes from Right/Rear",
+    goalZh: "右转前必须做“镜子 + 肩膀回头”检查。荷兰骑车人速度快，你不看就会挂。",
+    goalEn: "Before turning right: mirrors + shoulder check. In NL, fast bikes = easy fail if missed.",
+    checklist: [
+      { zh:"提前减速并保持车道位置稳定", en:"Slow early and keep stable lane position" },
+      { zh:"右后视镜 + 侧镜检查自行车", en:"Check right mirrors for bikes" },
+      { zh:"肩膀回头看右后盲区（必做）", en:"Shoulder check right rear blind spot (mandatory)" },
+      { zh:"确认自行车不冲突再开始转弯", en:"Turn only if no bike conflict" },
+      { zh:"转弯过程中持续观察（别只盯方向盘）", en:"Keep scanning during the turn" },
+    ],
+    fail: [
+      "没肩膀回头看盲区 / No shoulder check",
+      "转弯太贴右边压到自行车道 / Cutting into bike lane",
+      "边转边停在自行车道上 / Stopping on the bike lane"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Right Turn Blind Spot (Simplified)</text>
+
+  <!-- road T -->
+  <rect x="0" y="170" width="520" height="70" fill="#e5e7eb"/>
+  <rect x="270" y="0" width="70" height="360" fill="#e5e7eb"/>
+  <line x1="0" y1="205" x2="520" y2="205" stroke="#fff" stroke-width="4" stroke-dasharray="12 10"/>
+  <line x1="305" y1="0" x2="305" y2="360" stroke="#fff" stroke-width="4" stroke-dasharray="12 10"/>
+
+  <!-- bike lane at right side -->
+  <rect x="460" y="0" width="60" height="360" fill="rgba(37,99,235,.08)" stroke="rgba(37,99,235,.22)"/>
+  <text x="468" y="28" font-size="12" fill="#2563eb">Bike</text>
+
+  <!-- ME car coming from bottom going right -->
+  <rect x="290" y="270" width="30" height="52" rx="6" fill="#2563eb"/>
+  <path d="M305 270 Q305 205 400 205" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#arrow)"/>
+  <text x="286" y="345" font-size="12" fill="#2563eb">ME</text>
+
+  <!-- bike behind on right -->
+  <circle cx="488" cy="240" r="10" fill="#9ca3af"/>
+  <text x="450" y="256" font-size="12" fill="#667085">Bike</text>
+
+  <!-- blind spot fan -->
+  <path d="M305 240 L355 260 A70 70 0 0 1 305 310 Z"
+        fill="rgba(239,68,68,.12)" stroke="rgba(239,68,68,.35)"/>
+
+  <!-- hotspots -->
+  <circle class="hotspot" cx="340" cy="285" r="10" fill="#ef4444"
+          data-tip="热点：红色扇形=右后盲区，必须肩膀回头确认。/ Tip: red fan = blind spot, shoulder check required."/>
+  <circle class="hotspot" cx="488" cy="240" r="10" fill="#ef4444"
+          data-tip="热点：右侧自行车可能从后方高速逼近。/ Tip: bikes may approach fast from behind."/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a" />
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-12 右转完整流程（考试动作版）
+  // =========================
+  {
+    id: "P-12",
+    moduleZh: "转弯核心",
+    moduleEn: "Turning",
+    titleZh: "右转流程：慢、靠、看、转、回正",
+    titleEn: "Right Turn Sequence: Slow → Position → Check → Turn → Recover",
+    goalZh: "右转最重要的是：提前准备 + 盲区检查 + 不挡自行车。动作越“提前”，越像熟练司机。",
+    goalEn: "Good right turns are prepared early: blind spot checks + don’t block bike traffic.",
+    checklist: [
+      { zh:"提前打右转灯（足够早）", en:"Signal right early" },
+      { zh:"减速到可控，并选对挡位", en:"Slow down and pick the right gear" },
+      { zh:"位置靠右但不压自行车道", en:"Position right without entering bike lane" },
+      { zh:"镜子→右侧→肩膀回头盲区", en:"Mirrors → right side → shoulder check" },
+      { zh:"确认安全后一次性右转", en:"Turn in one smooth move when safe" },
+      { zh:"出弯回正、检查后视镜", en:"Recover and check mirrors" },
+    ],
+    fail: [
+      "转向灯太晚 / Late signaling",
+      "没提前降速导致转弯很冲 / Too fast → harsh turning",
+      "右转切线太多 / Cutting corners"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Right Turn (Smooth Path)</text>
+
+  <rect x="0" y="170" width="520" height="70" fill="#e5e7eb"/>
+  <rect x="270" y="0" width="70" height="360" fill="#e5e7eb"/>
+
+  <line x1="0" y1="205" x2="520" y2="205" stroke="#fff" stroke-width="4" stroke-dasharray="12 10"/>
+  <line x1="305" y1="0" x2="305" y2="360" stroke="#fff" stroke-width="4" stroke-dasharray="12 10"/>
+
+  <!-- corner highlight -->
+  <circle cx="305" cy="205" r="70" fill="rgba(245,158,11,.12)" stroke="rgba(245,158,11,.25)"/>
+  <text x="235" y="128" font-size="12" fill="#b45309">Turn zone</text>
+
+  <!-- ME car + path -->
+  <rect x="290" y="275" width="30" height="50" rx="6" fill="#2563eb"/>
+  <path d="M305 275 Q305 205 410 205" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- bike lane right -->
+  <rect x="460" y="0" width="60" height="360" fill="rgba(37,99,235,.08)" stroke="rgba(37,99,235,.22)"/>
+  <text x="468" y="28" font-size="12" fill="#2563eb">Bike</text>
+
+  <!-- hotspots -->
+  <circle class="hotspot" cx="305" cy="245" r="10" fill="#ef4444"
+          data-tip="热点：转弯前就要完成减速+观察，不要边转边找信息。/ Tip: finish slowing + checks BEFORE turning."/>
+  <circle class="hotspot" cx="470" cy="210" r="10" fill="#ef4444"
+          data-tip="热点：靠右但别压自行车道，否则容易危险/扣分。/ Tip: keep right but do not enter bike lane."/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a" />
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-13 左转盲区（对向车 + 自行车 + 行人）
+  // =========================
+  {
+    id: "P-13",
+    moduleZh: "转弯核心",
+    moduleEn: "Turning",
+    titleZh: "左转盲区：对向车优先 + 盲点扫描",
+    titleEn: "Left Turn Risk: Oncoming Priority + Blind Spot Scan",
+    goalZh: "左转最容易挂：因为你要让对向直行车，同时还要看行人/自行车，信息量最大。",
+    goalEn: "Left turns fail easily: you must yield to oncoming traffic while scanning bikes/pedestrians.",
+    checklist: [
+      { zh:"提前打左转灯并减速", en:"Signal left early and slow down" },
+      { zh:"镜子检查后方是否有人超车", en:"Mirror check for vehicles overtaking" },
+      { zh:"观察对向直行车（通常优先）", en:"Watch oncoming straight traffic (usually priority)" },
+      { zh:"确认斑马线行人、自行车道情况", en:"Check crosswalk and bike lane" },
+      { zh:"安全空隙足够再左转，不要犹豁", en:"Turn only with a clear safe gap" },
+    ],
+    fail: [
+      "抢对向车导致逼刹 / Cutting off oncoming traffic",
+      "左转前没看后方来车/超车 / Missing overtaking traffic",
+      "转弯时没顾到行人/自行车 / Missing pedestrians/bikes"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Left Turn: Yield to Oncoming</text>
+
+  <!-- roads -->
+  <rect x="0" y="150" width="520" height="60" fill="#e5e7eb"/>
+  <rect x="235" y="0" width="50" height="360" fill="#e5e7eb"/>
+  <line x1="0" y1="180" x2="520" y2="180" stroke="#fff" stroke-width="4" stroke-dasharray="10 10"/>
+  <line x1="260" y1="0" x2="260" y2="360" stroke="#fff" stroke-width="4" stroke-dasharray="10 10"/>
+
+  <!-- ME car from bottom turning left -->
+  <rect x="245" y="275" width="30" height="52" rx="6" fill="#2563eb"/>
+  <path d="M260 275 Q260 180 140 180" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#arrow)"/>
+  <text x="238" y="350" font-size="12" fill="#2563eb">ME</text>
+
+  <!-- oncoming car from top going down -->
+  <rect x="245" y="35" width="30" height="52" rx="6" fill="#9ca3af"/>
+  <path d="M260 90 L260 150" stroke="#9ca3af" stroke-width="6" marker-end="url(#garr)"/>
+  <text x="230" y="30" font-size="12" fill="#667085">Oncoming</text>
+
+  <!-- crosswalk -->
+  <g opacity="0.9">
+    <rect x="200" y="130" width="14" height="100" fill="#fff"/>
+    <rect x="225" y="130" width="14" height="100" fill="#fff"/>
+    <rect x="300" y="130" width="14" height="100" fill="#fff"/>
+    <rect x="325" y="130" width="14" height="100" fill="#fff"/>
+  </g>
+
+  <!-- hotspots -->
+  <circle class="hotspot" cx="260" cy="160" r="10" fill="#ef4444"
+          data-tip="热点：对向直行车通常优先，你必须让。/ Tip: oncoming straight traffic usually has priority."/>
+  <circle class="hotspot" cx="260" cy="200" r="10" fill="#ef4444"
+          data-tip="热点：左转信息量最大：对向车 + 行人/自行车都要顾到。/ Tip: left turn requires scanning multiple risks."/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a" />
+    </marker>
+    <marker id="garr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#9ca3af" />
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-14 左转完整流程（位置+观察+让行）
+  // =========================
+  {
+    id: "P-14",
+    moduleZh: "转弯核心",
+    moduleEn: "Turning",
+    titleZh: "左转流程：先摆位，再判断空隙",
+    titleEn: "Left Turn Sequence: Position → Observe → Gap Decision",
+    goalZh: "左转考点是“摆位+让行+不拖泥带水”。你看起来越稳定，越容易过。",
+    goalEn: "Left turn success = correct position + yielding + decisive movement.",
+    checklist: [
+      { zh:"提前打左转灯", en:"Signal left early" },
+      { zh:"减速并靠近中心线（不要压线）", en:"Slow and position near center line (don’t cross it)" },
+      { zh:"镜子检查后方是否有人超车", en:"Mirror check for overtaking vehicles" },
+      { zh:"观察对向车，判断安全空隙", en:"Watch oncoming traffic and judge safe gap" },
+      { zh:"安全空隙足够→一次性完成左转", en:"With a safe gap, complete the turn smoothly" },
+      { zh:"出弯回正后检查后视镜", en:"Recover and check mirrors after the turn" },
+    ],
+    fail: [
+      "摆位太靠左/压线 / Poor positioning (crossing line)",
+      "空隙不够还硬转 / Turning with insufficient gap",
+      "左转速度太慢卡住对向车 / Too slow, blocking oncoming traffic"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Left Turn Positioning (Simplified)</text>
+
+  <rect x="0" y="150" width="520" height="60" fill="#e5e7eb"/>
+  <rect x="235" y="0" width="50" height="360" fill="#e5e7eb"/>
+  <line x1="0" y1="180" x2="520" y2="180" stroke="#fff" stroke-width="4" stroke-dasharray="10 10"/>
+  <line x1="260" y1="0" x2="260" y2="360" stroke="#fff" stroke-width="4" stroke-dasharray="10 10"/>
+
+  <!-- center line emphasis -->
+  <line x1="260" y1="150" x2="260" y2="210" stroke="#9ca3af" stroke-width="6" opacity="0.8"/>
+  <text x="270" y="222" font-size="12" fill="#667085">Center</text>
+
+  <!-- me -->
+  <rect x="238" y="280" width="30" height="52" rx="6" fill="#2563eb"/>
+  <path d="M253 280 Q253 180 140 180" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- hotspot -->
+  <circle class="hotspot" cx="255" cy="255" r="10" fill="#ef4444"
+          data-tip="热点：左转要靠近中心线等待，但不要压线/越线。/ Tip: wait near center line without crossing it."/>
+  <circle class="hotspot" cx="200" cy="180" r="10" fill="#ef4444"
+          data-tip="热点：空隙判断要保守：宁可等一辆车，也不要抢。/ Tip: be conservative—wait rather than force it."/>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a" />
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-15 分隔车道/中央隔离（重点：提前看+提前选道）
+  // =========================
+  {
+    id: "P-15",
+    moduleZh: "转弯核心",
+    moduleEn: "Turning",
+    titleZh: "中央隔离/分隔车道：提前观察与选道",
+    titleEn: "Separated Lanes / Median: Observe Early & Choose Lane",
+    goalZh: "有中央隔离时，最重要的是“提前决定去哪条车道”，而不是到路口才乱改。",
+    goalEn: "With medians/separated lanes, decide your lane EARLY—don’t change last-second.",
+    checklist: [
+      { zh:"提前看路牌/地面箭头决定路线", en:"Read signs/road arrows early" },
+      { zh:"提前减速并进入正确车道", en:"Slow and enter the correct lane early" },
+      { zh:"变道前：镜子→转向灯→盲区", en:"Before lane change: mirrors → signal → blind spot" },
+      { zh:"通过分隔区后回正并检查后视镜", en:"After passing, stabilize and check mirrors" },
+    ],
+    fail: [
+      "到最后一刻才换道 / Last-second lane changes",
+      "变道没看盲区 / Lane change without blind spot check",
+      "进入错误车道后硬转 / Forcing a turn from the wrong lane"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Separated Lanes / Median (Simplified)</text>
+
+  <!-- road -->
+  <rect x="0" y="140" width="520" height="80" fill="#e5e7eb"/>
+  <line x1="0" y1="180" x2="520" y2="180" stroke="#fff" stroke-width="4"/>
+  <!-- median -->
+  <rect x="240" y="140" width="40" height="80" fill="#d1d5db"/>
+  <text x="238" y="135" font-size="12" fill="#667085">Median</text>
+
+  <!-- lanes arrows -->
+  <path d="M150 205 L210 205" stroke="#9ca3af" stroke-width="4" marker-end="url(#garr)"/>
+  <path d="M310 205 L370 205" stroke="#9ca3af" stroke-width="4" marker-end="url(#garr)"/>
+
+  <!-- me -->
+  <rect x="90" y="160" width="52" height="30" rx="6" fill="#2563eb"/>
+  <path d="M142 175 Q210 175 210 175" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- hotspot -->
+  <circle class="hotspot" cx="120" cy="150" r="10" fill="#ef4444"
+          data-tip="热点：提前选道是关键，别到路口才慌。/ Tip: lane choice must be made early."/>
+  <circle class="hotspot" cx="260" cy="180" r="10" fill="#ef4444"
+          data-tip="热点：分隔区让视线更复杂，注意对向/横向来车。/ Tip: medians add complexity—scan carefully."/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a" />
+    </marker>
+    <marker id="garr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#9ca3af" />
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-16 提前选道（右/左转的“例外情况”归纳）
+  // =========================
+  {
+    id: "P-16",
+    moduleZh: "转弯核心",
+    moduleEn: "Turning",
+    titleZh: "提前选道：不要临时变道硬转",
+    titleEn: "Pre-Selection: Avoid Last-Second Lane Change",
+    goalZh: "考试喜欢“提前准备”。你越早进入正确车道，动作越像老司机，风险越低。",
+    goalEn: "The exam rewards early preparation: choose the correct lane early to reduce risk.",
+    checklist: [
+      { zh:"远处看到路口就开始找车道箭头", en:"Look for lane arrows early" },
+      { zh:"需要变道：镜子→灯→盲区→再变", en:"Lane change: mirrors → signal → blind spot → move" },
+      { zh:"进入正确车道后保持稳定速度", en:"Once in lane, keep stable speed" },
+      { zh:"不要连续变道（给别人可预测性）", en:"Avoid multiple lane changes (be predictable)" },
+    ],
+    fail: [
+      "连续变道导致周围车不敢判断 / Multiple lane changes confuse others",
+      "变道太晚切入别人车头 / Late cut-in",
+      "进错车道后硬转 / Forcing a turn from wrong lane"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Lane Pre-Selection (Simplified)</text>
+
+  <!-- 2-lane road -->
+  <rect x="20" y="110" width="480" height="160" rx="16" fill="#e5e7eb"/>
+  <line x1="260" y1="120" x2="260" y2="260" stroke="#fff" stroke-width="4" stroke-dasharray="12 10"/>
+
+  <!-- arrows on lanes -->
+  <path d="M140 200 L200 200" stroke="#9ca3af" stroke-width="4" marker-end="url(#garr)"/>
+  <path d="M320 200 L380 200" stroke="#9ca3af" stroke-width="4" marker-end="url(#garr)"/>
+  <text x="90" y="155" font-size="12" fill="#667085">Lane A</text>
+  <text x="300" y="155" font-size="12" fill="#667085">Lane B</text>
+
+  <!-- ME in wrong lane changing early -->
+  <rect x="110" y="185" width="52" height="30" rx="6" fill="#2563eb"/>
+  <path d="M162 200 Q220 200 290 200" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- hotspot -->
+  <circle class="hotspot" cx="210" cy="200" r="10" fill="#ef4444"
+          data-tip="热点：变道要做“镜子→灯→盲区”，早一点做完。/ Tip: change lanes early with mirrors→signal→blind spot."/>
+  <circle class="hotspot" cx="380" cy="200" r="10" fill="#ef4444"
+          data-tip="热点：进入正确车道后别乱动，稳定=加分。/ Tip: once in correct lane, stay stable."/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a" />
+    </marker>
+    <marker id="garr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#9ca3af" />
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+  // =========================
+  // P-17 倒车直线 + 倒车转弯（基础动作）
+  // =========================
+  {
+    id: "P-17",
+    moduleZh: "倒车与停车",
+    moduleEn: "Reverse & Parking",
+    titleZh: "倒车：直线 + 倒车转弯（最稳基本功）",
+    titleEn: "Reverse: Straight + Turning (Core Control)",
+    goalZh: "倒车考试不看你“快”，只看你“稳”：低速、持续观察、方向修正小而频繁。",
+    goalEn: "Reverse is not about speed—it's about control: slow pace, constant observation, small corrections.",
+    checklist: [
+      { zh:"倒车前：镜子 + 肩膀回头确认周围安全", en:"Before reversing: mirrors + shoulder checks" },
+      { zh:"挂倒挡后先停1秒再动（让周围人反应）", en:"Pause 1s after selecting R to be predictable" },
+      { zh:"低速匀速：用离合/刹车细控", en:"Very slow speed: use clutch/brake gently" },
+      { zh:"倒车时主要看后窗方向（不是只看镜子）", en:"Look mainly through rear window, not only mirrors" },
+      { zh:"方向修正小幅多次，不要大幅猛打", en:"Use small frequent steering corrections" },
+      { zh:"随时准备停车让行人/车先走", en:"Be ready to stop and yield anytime" },
+    ],
+    fail: [
+      "倒车只盯镜子不回头 / Only mirrors, no rear observation",
+      "速度过快导致无法停车 / Too fast to stop safely",
+      "转向猛打、车身摆动大 / Over-steering and weaving"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Reverse: Straight & Turn (Simplified)</text>
+
+  <!-- parking lane -->
+  <rect x="40" y="90" width="440" height="200" rx="18" fill="#e5e7eb"/>
+  <line x1="70" y1="190" x2="450" y2="190" stroke="#fff" stroke-width="4" stroke-dasharray="12 10"/>
+
+  <!-- ME car -->
+  <rect x="250" y="210" width="52" height="30" rx="6" fill="#2563eb"/>
+  <text x="250" y="255" font-size="12" fill="#2563eb">ME</text>
+
+  <!-- reverse path -->
+  <path d="M276 210 Q260 160 210 140" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#arrow)"/>
+  <text x="210" y="120" font-size="12" fill="#16a34a">Reverse</text>
+
+  <!-- hotspots -->
+  <circle class="hotspot" cx="230" cy="150" r="10" fill="#ef4444"
+    data-tip="热点：倒车速度要慢到“随时能停”。/ Tip: reverse slow enough to stop instantly."/>
+  <circle class="hotspot" cx="276" cy="210" r="10" fill="#ef4444"
+    data-tip="热点：主要看后窗方向 + 两侧镜子辅助。/ Tip: look through rear window + mirrors assist."/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-18 三点掉头（3x）
+  // =========================
+  {
+    id: "P-18",
+    moduleZh: "倒车与停车",
+    moduleEn: "Reverse & Parking",
+    titleZh: "三点掉头：3次方向切换（3x）",
+    titleEn: "3-Point Turn: Three Moves (3x)",
+    goalZh: "动作要“慢、清楚、每次都检查盲区”。关键是：每一次前进/后退前都要重新观察。",
+    goalEn: "Slow, clear, with checks before every move. Re-check surroundings each time you change direction.",
+    checklist: [
+      { zh:"选择安全位置：道路够宽、无车逼近", en:"Pick a safe spot: enough space, no close traffic" },
+      { zh:"第1步：前进打满方向进入对侧", en:"Move 1: forward with full lock to the other side" },
+      { zh:"停车：检查前后+盲区", en:"Stop: scan front/back + blind spots" },
+      { zh:"第2步：倒车打满回正，向后退", en:"Move 2: reverse with full lock back" },
+      { zh:"停车：再次检查四周", en:"Stop again: scan all around" },
+      { zh:"第3步：前进回到正确车道并加速离开", en:"Move 3: forward into correct lane and leave" },
+    ],
+    fail: [
+      "只看一次就连续操作 / Not re-checking before each move",
+      "速度太快、轮胎尖叫 / Too fast or harsh steering",
+      "阻碍交通太久 / Blocking traffic too long"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">3-Point Turn (Simplified)</text>
+
+  <!-- road -->
+  <rect x="40" y="120" width="440" height="140" rx="18" fill="#e5e7eb"/>
+  <line x1="60" y1="190" x2="460" y2="190" stroke="#fff" stroke-width="4" stroke-dasharray="14 10"/>
+
+  <!-- step arrows -->
+  <path d="M180 210 Q220 150 290 150" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#a)"/>
+  <text x="160" y="232" font-size="12" fill="#16a34a">1</text>
+
+  <path d="M290 150 Q250 230 200 230" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#a)"/>
+  <text x="302" y="148" font-size="12" fill="#16a34a">2</text>
+
+  <path d="M200 230 Q240 200 320 200" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#a)"/>
+  <text x="190" y="255" font-size="12" fill="#16a34a">3</text>
+
+  <!-- ME -->
+  <rect x="170" y="205" width="52" height="30" rx="6" fill="#2563eb"/>
+  <text x="168" y="200" font-size="12" fill="#2563eb">ME</text>
+
+  <!-- hotspots -->
+  <circle class="hotspot" cx="240" cy="160" r="10" fill="#ef4444"
+    data-tip="热点：每次前进/后退前都要重新观察。/ Tip: re-check before every forward/reverse move."/>
+  <circle class="hotspot" cx="260" cy="240" r="10" fill="#ef4444"
+    data-tip="热点：动作慢一点没关系，最怕不观察。/ Tip: slow is fine—no observation is not."/>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-19 两点掉头（2x）
+  // =========================
+  {
+    id: "P-19",
+    moduleZh: "倒车与停车",
+    moduleEn: "Reverse & Parking",
+    titleZh: "两点掉头：前进 + 倒车（2x）",
+    titleEn: "2-Point Turn: Forward + Reverse (2x)",
+    goalZh: "适用于更宽的路：动作更少，但对“位置控制”和“倒车观察”要求更高。",
+    goalEn: "Works on wider roads: fewer moves, but requires better positioning and reverse observation.",
+    checklist: [
+      { zh:"前进靠右，准备进入侧方空间", en:"Move forward right to set up space" },
+      { zh:"前进打满方向进入对侧/入口", en:"Full lock forward into the opening" },
+      { zh:"停车观察四周（尤其后方）", en:"Stop and scan surroundings (especially rear)" },
+      { zh:"倒车打满回正，完成掉头", en:"Reverse with full lock to complete turn" },
+      { zh:"完成后回到正确车道并加速离开", en:"Return to correct lane and leave smoothly" },
+    ],
+    fail: [
+      "倒车不回头 / No rear observation",
+      "位置不够导致压线/上马路牙子 / Poor positioning hits curb/lines",
+      "动作仓促，没停稳就换挡 / Rushing, changing gear while rolling"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">2-Point Turn (Simplified)</text>
+
+  <rect x="40" y="120" width="440" height="140" rx="18" fill="#e5e7eb"/>
+  <line x1="60" y1="190" x2="460" y2="190" stroke="#fff" stroke-width="4" stroke-dasharray="14 10"/>
+
+  <!-- opening area -->
+  <rect x="380" y="140" width="80" height="60" rx="12" fill="rgba(245,158,11,.14)" stroke="rgba(245,158,11,.25)"/>
+  <text x="386" y="135" font-size="12" fill="#b45309">Space</text>
+
+  <!-- arrows -->
+  <path d="M180 210 Q260 150 395 170" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#a)"/>
+  <text x="170" y="232" font-size="12" fill="#16a34a">1</text>
+
+  <path d="M395 170 Q300 250 210 240" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#a)"/>
+  <text x="400" y="160" font-size="12" fill="#16a34a">2</text>
+
+  <rect x="170" y="205" width="52" height="30" rx="6" fill="#2563eb"/>
+
+  <!-- hotspots -->
+  <circle class="hotspot" cx="390" cy="170" r="10" fill="#ef4444"
+    data-tip="热点：两点掉头更依赖“第一次摆位”是否正确。/ Tip: 2-point turn depends on correct first positioning."/>
+  <circle class="hotspot" cx="260" cy="240" r="10" fill="#ef4444"
+    data-tip="热点：换挡前必须完全停稳。/ Tip: come to a full stop before shifting gears."/>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-20 半圈掉头 / 一把掉头（空间够时）
+  // =========================
+  {
+    id: "P-20",
+    moduleZh: "倒车与停车",
+    moduleEn: "Reverse & Parking",
+    titleZh: "半圈掉头：一把完成（空间足够时）",
+    titleEn: "U-Turn in One Smooth Arc (If Space Allows)",
+    goalZh: "核心就是：提前减速、观察对向+后方、转向圆滑，别压到路缘/自行车道。",
+    goalEn: "Key: slow early, scan oncoming + rear, smooth arc, don’t hit curb/bike lane.",
+    checklist: [
+      { zh:"确认禁止掉头标志=不要做", en:"If U-turn prohibited, don’t do it" },
+      { zh:"提前减速并打灯（必要时）", en:"Slow early and signal if appropriate" },
+      { zh:"观察对向来车 + 后方超车", en:"Check oncoming traffic + rear overtaking" },
+      { zh:"转向圆滑、速度慢，避免上马路牙子", en:"Smooth steering, slow speed, avoid curb" },
+      { zh:"完成后回到正确车道并加速离开", en:"Return to correct lane and leave smoothly" },
+    ],
+    fail: [
+      "空间不够硬转上马路牙 / Forcing it and mounting curb",
+      "对向车距离不够还掉头 / Unsafe gap to oncoming traffic",
+      "掉头中途犹豫停车 / Stopping mid U-turn"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">U-Turn (One Arc, Simplified)</text>
+
+  <rect x="40" y="120" width="440" height="140" rx="18" fill="#e5e7eb"/>
+  <line x1="60" y1="190" x2="460" y2="190" stroke="#fff" stroke-width="4" stroke-dasharray="14 10"/>
+
+  <!-- U arc -->
+  <path d="M160 210 Q260 90 360 210" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#a)"/>
+  <rect x="140" y="205" width="52" height="30" rx="6" fill="#2563eb"/>
+
+  <!-- curb danger zone -->
+  <rect x="40" y="120" width="440" height="12" fill="rgba(239,68,68,.10)"/>
+  <text x="44" y="114" font-size="12" fill="#ef4444">Curb risk</text>
+
+  <!-- hotspots -->
+  <circle class="hotspot" cx="260" cy="95" r="10" fill="#ef4444"
+    data-tip="热点：圆弧要平滑，速度越慢越不容易压到路缘。/ Tip: smoother arc + slower speed = less curb risk."/>
+  <circle class="hotspot" cx="70" cy="126" r="10" fill="#ef4444"
+    data-tip="热点：压马路牙是常见扣分点，宁可慢一点。/ Tip: mounting the curb is a common fail point."/>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-21 车流中前进停车（沿路停车前进）
+  // =========================
+  {
+    id: "P-21",
+    moduleZh: "倒车与停车",
+    moduleEn: "Reverse & Parking",
+    titleZh: "前进路边停车：找空位 + 平稳靠边",
+    titleEn: "Forward Curb Parking: Find Space & Park Smoothly",
+    goalZh: "考试看你是否“可预测”：提前减速、打灯、平稳靠边，不要突然停在车道中间。",
+    goalEn: "The exam wants predictability: slow early, signal, park smoothly—no sudden stops in lane.",
+    checklist: [
+      { zh:"发现空位→提前打灯 + 减速", en:"Spot a space → signal early + slow down" },
+      { zh:"镜子检查后方来车/自行车", en:"Check mirrors for cars/bikes behind" },
+      { zh:"靠边前留出转向空间", en:"Leave room for a smooth approach" },
+      { zh:"慢速靠边，车身与路缘平行", en:"Approach slowly and parallel to curb" },
+      { zh:"停车后拉手刹/挂挡（按车辆要求）", en:"Secure car: handbrake/gear as needed" },
+    ],
+    fail: [
+      "不打灯就靠边 / No signaling",
+      "突然急刹影响后车 / Sudden braking",
+      "停得歪或离路缘太远 / Crooked or too far from curb"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Forward Curb Parking (Simplified)</text>
+
+  <!-- road -->
+  <rect x="40" y="140" width="440" height="120" rx="18" fill="#e5e7eb"/>
+  <line x1="60" y1="200" x2="460" y2="200" stroke="#fff" stroke-width="4" stroke-dasharray="14 10"/>
+
+  <!-- curb lane highlight -->
+  <rect x="40" y="140" width="440" height="22" fill="rgba(245,158,11,.14)"/>
+  <text x="46" y="134" font-size="12" fill="#b45309">Curb side</text>
+
+  <!-- ME car -->
+  <rect x="200" y="185" width="52" height="30" rx="6" fill="#2563eb"/>
+  <path d="M252 200 Q320 165 390 165" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#a)"/>
+
+  <!-- parked target -->
+  <rect x="400" y="150" width="52" height="30" rx="6" fill="#9ca3af"/>
+  <text x="395" y="148" font-size="12" fill="#667085">Park</text>
+
+  <!-- hotspots -->
+  <circle class="hotspot" cx="260" cy="190" r="10" fill="#ef4444"
+    data-tip="热点：靠边前先镜子检查后方（自行车也算）。/ Tip: mirror check behind before moving to curb."/>
+  <circle class="hotspot" cx="420" cy="165" r="10" fill="#ef4444"
+    data-tip="热点：停车目标=平行、贴边、平稳。/ Tip: aim for parallel + close + smooth."/>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-22 前进入库：直角/斜列（Forward into a bay）
+  // =========================
+  {
+    id: "P-22",
+    moduleZh: "倒车与停车",
+    moduleEn: "Reverse & Parking",
+    titleZh: "前进入库：直角/斜列停车位",
+    titleEn: "Forward Bay Parking: Perpendicular / Angle",
+    goalZh: "前进停车位更简单，但要注意：减速、摆正角度、不压线、不刮旁车。",
+    goalEn: "Forward bay is easier, but keep it slow, aligned, and within lines without clipping cars.",
+    checklist: [
+      { zh:"提前减速并打灯（如需要）", en:"Slow early and signal if needed" },
+      { zh:"选择对准目标车位的进入角度", en:"Choose a clean entry angle" },
+      { zh:"低速进入，随时可停车修正", en:"Enter very slowly, ready to stop and adjust" },
+      { zh:"保持车身在车位线内（两边空间均衡）", en:"Stay within lines with balanced clearance" },
+      { zh:"停稳后拉手刹/挂挡", en:"Secure car after stop" },
+    ],
+    fail: [
+      "速度太快进位，修正空间不够 / Too fast → no correction margin",
+      "压线或跨线 / Touching or crossing bay lines",
+      "车头扫到旁车 / Front swings into adjacent car space"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Forward Bay Parking (Simplified)</text>
+
+  <!-- driving lane -->
+  <rect x="40" y="220" width="440" height="70" rx="16" fill="#e5e7eb"/>
+  <line x1="60" y1="255" x2="460" y2="255" stroke="#fff" stroke-width="4" stroke-dasharray="14 10"/>
+
+  <!-- bays -->
+  <rect x="40" y="70" width="440" height="140" rx="16" fill="#f3f4f6" stroke="#e5e7eb"/>
+  <line x1="140" y1="80" x2="140" y2="200" stroke="#e5e7eb" stroke-width="3"/>
+  <line x1="240" y1="80" x2="240" y2="200" stroke="#e5e7eb" stroke-width="3"/>
+  <line x1="340" y1="80" x2="340" y2="200" stroke="#e5e7eb" stroke-width="3"/>
+
+  <!-- target bay highlight -->
+  <rect x="240" y="80" width="100" height="120" fill="rgba(245,158,11,.14)"/>
+  <text x="248" y="74" font-size="12" fill="#b45309">Target</text>
+
+  <!-- ME car -->
+  <rect x="200" y="240" width="52" height="30" rx="6" fill="#2563eb"/>
+  <path d="M252 255 Q290 220 290 160" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#a)"/>
+
+  <!-- hotspots -->
+  <circle class="hotspot" cx="290" cy="200" r="10" fill="#ef4444"
+    data-tip="热点：进入车位速度越慢越容易对准。/ Tip: slower entry = easier alignment."/>
+  <circle class="hotspot" cx="290" cy="120" r="10" fill="#ef4444"
+    data-tip="热点：保持左右空间均衡，不压线。/ Tip: keep centered between bay lines."/>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-23 倒车入列（步骤版）
+  // =========================
+  {
+    id: "P-23",
+    moduleZh: "倒车与停车",
+    moduleEn: "Reverse & Parking",
+    titleZh: "倒车入列：步骤版（最常考）",
+    titleEn: "Reverse Parallel Parking: Step-by-Step (Common Exam Task)",
+    goalZh: "倒车入列最重要：慢速 + 观察 + 两次关键转向点。每次移动前都要扫视。",
+    goalEn: "Parallel reverse parking: slow + observe + two steering phases. Scan before every movement.",
+    checklist: [
+      { zh:"与前车平行停齐（留约0.5-1米侧距）", en:"Stop parallel to the front car (0.5–1m side gap)" },
+      { zh:"倒车起步前：后窗观察 + 两侧镜子", en:"Before reverse: rear window + both mirrors" },
+      { zh:"第一段：打方向进入车位角度", en:"Phase 1: steer into the space" },
+      { zh:"第二段：回正/反打让车身平行路缘", en:"Phase 2: counter-steer to become parallel" },
+      { zh:"停稳后调整距离（尽量贴边且不碰路缘）", en:"Final adjust: close to curb without touching" },
+    ],
+    fail: [
+      "倒车不回头只盯镜子 / No rear observation",
+      "压到路缘/上马路牙 / Hitting or mounting curb",
+      "占道太久/动作乱 / Blocking too long or chaotic movement"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Reverse Parallel Parking (Simplified)</text>
+
+  <!-- curb lane -->
+  <rect x="40" y="140" width="440" height="120" rx="18" fill="#e5e7eb"/>
+  <rect x="40" y="140" width="440" height="18" fill="rgba(245,158,11,.14)"/>
+  <text x="46" y="134" font-size="12" fill="#b45309">Curb</text>
+
+  <!-- parked cars -->
+  <rect x="120" y="165" width="52" height="30" rx="6" fill="#9ca3af"/>
+  <rect x="320" y="165" width="52" height="30" rx="6" fill="#9ca3af"/>
+  <text x="315" y="158" font-size="12" fill="#667085">Gap</text>
+
+  <!-- ME initial -->
+  <rect x="250" y="205" width="52" height="30" rx="6" fill="#2563eb"/>
+
+  <!-- reverse path -->
+  <path d="M276 205 Q260 175 250 175 Q230 175 220 195" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#a)"/>
+  <text x="240" y="240" font-size="12" fill="#16a34a">Reverse</text>
+
+  <!-- hotspots -->
+  <circle class="hotspot" cx="250" cy="175" r="10" fill="#ef4444"
+    data-tip="热点：两段转向：先入角度，再反打变平行。/ Tip: two phases: angle in, then counter-steer parallel."/>
+  <circle class="hotspot" cx="60" cy="148" r="10" fill="#ef4444"
+    data-tip="热点：靠边但不碰路缘，压马路牙常扣分。/ Tip: close to curb without mounting it."/>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-24 倒车入列（全局示意版）
+  // =========================
+  {
+    id: "P-24",
+    moduleZh: "倒车与停车",
+    moduleEn: "Reverse & Parking",
+    titleZh: "倒车入列：全局视角（你应该看哪里）",
+    titleEn: "Reverse Parallel Parking: What to Watch (Big Picture)",
+    goalZh: "倒车入列时你的眼睛不是只盯一个点：后窗为主，镜子辅助，两侧间隙要不断确认。",
+    goalEn: "Your eyes must move: rear window primary, mirrors assist, constantly confirm both clearances.",
+    checklist: [
+      { zh:"倒车主要看后窗方向（确认行人/车）", en:"Look mainly through rear window (people/traffic)" },
+      { zh:"左右镜子快速扫（两侧间隙）", en:"Quick mirror checks (both clearances)" },
+      { zh:"轮胎接近路缘时立刻减速/停一下", en:"Slow/stop as wheel approaches curb" },
+      { zh:"车身变平行后回正方向", en:"Straighten wheel once parallel" },
+    ],
+    fail: [
+      "视线固定不移动 / Fixed gaze, not scanning",
+      "后方有人仍继续倒 / Continuing while someone behind",
+      "快碰路缘还不减速 / Not slowing near curb"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Where to Look While Reversing</text>
+
+  <!-- lane -->
+  <rect x="40" y="150" width="440" height="110" rx="18" fill="#e5e7eb"/>
+  <rect x="40" y="150" width="440" height="16" fill="rgba(245,158,11,.14)"/>
+
+  <!-- ME -->
+  <rect x="240" y="200" width="52" height="30" rx="6" fill="#2563eb"/>
+  <text x="242" y="196" font-size="12" fill="#2563eb">ME</text>
+
+  <!-- look arrows -->
+  <path d="M266 200 L266 120" stroke="#16a34a" stroke-width="5" marker-end="url(#a)"/>
+  <path d="M250 200 L200 150" stroke="#16a34a" stroke-width="4" marker-end="url(#a)"/>
+  <path d="M292 200 L340 150" stroke="#16a34a" stroke-width="4" marker-end="url(#a)"/>
+  <text x="272" y="118" font-size="12" fill="#16a34a">Rear window</text>
+  <text x="150" y="148" font-size="12" fill="#16a34a">Left mirror</text>
+  <text x="344" y="148" font-size="12" fill="#16a34a">Right mirror</text>
+
+  <!-- hotspots -->
+  <circle class="hotspot" cx="266" cy="120" r="10" fill="#ef4444"
+    data-tip="热点：倒车首选视线=后窗方向（确保没人/车）。/ Tip: primary view = rear window direction."/>
+  <circle class="hotspot" cx="60" cy="158" r="10" fill="#ef4444"
+    data-tip="热点：靠近路缘必须减速，必要时停一下确认。/ Tip: slow/stop near curb to confirm."/>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-25 倒车入库：直角/斜列（Reverse bay）
+  // =========================
+  {
+    id: "P-25",
+    moduleZh: "倒车与停车",
+    moduleEn: "Reverse & Parking",
+    titleZh: "倒车入库：直角/斜列停车位（最稳得分项）",
+    titleEn: "Reverse Bay Parking: Perpendicular / Angle (High Score Skill)",
+    goalZh: "倒车入库其实更容易摆正：关键是慢速 + 两侧镜子对线 + 入位后回正。",
+    goalEn: "Reverse bay is often easier to align: go slow, mirror the lines, straighten once centered.",
+    checklist: [
+      { zh:"先把车头摆到合适的起始位置", en:"Set up a good starting position" },
+      { zh:"挂倒挡前停稳，检查后方安全", en:"Full stop before R; check behind" },
+      { zh:"倒车入位：两侧镜子对车位线", en:"Reverse in using both mirrors vs bay lines" },
+      { zh:"车身进入后回正方向，保持居中", en:"Straighten wheel and stay centered" },
+      { zh:"停稳后拉手刹/挂挡", en:"Secure after stopping" },
+    ],
+    fail: [
+      "起始摆位不对，后面全靠硬修 / Bad setup causes messy corrections",
+      "倒车太快，线条来不及对 / Too fast to track bay lines",
+      "压线/停歪 / Over line or crooked stop"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Reverse Bay Parking (Simplified)</text>
+
+  <!-- driving lane -->
+  <rect x="40" y="220" width="440" height="70" rx="16" fill="#e5e7eb"/>
+  <line x1="60" y1="255" x2="460" y2="255" stroke="#fff" stroke-width="4" stroke-dasharray="14 10"/>
+
+  <!-- bays -->
+  <rect x="40" y="70" width="440" height="140" rx="16" fill="#f3f4f6" stroke="#e5e7eb"/>
+  <line x1="140" y1="80" x2="140" y2="200" stroke="#e5e7eb" stroke-width="3"/>
+  <line x1="240" y1="80" x2="240" y2="200" stroke="#e5e7eb" stroke-width="3"/>
+  <line x1="340" y1="80" x2="340" y2="200" stroke="#e5e7eb" stroke-width="3"/>
+
+  <!-- target bay -->
+  <rect x="240" y="80" width="100" height="120" fill="rgba(245,158,11,.14)"/>
+  <text x="248" y="74" font-size="12" fill="#b45309">Target</text>
+
+  <!-- ME -->
+  <rect x="320" y="240" width="52" height="30" rx="6" fill="#2563eb"/>
+  <path d="M346 240 Q330 210 290 160" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#a)"/>
+
+  <!-- hotspots -->
+  <circle class="hotspot" cx="300" cy="185" r="10" fill="#ef4444"
+    data-tip="热点：倒车入库靠镜子对线，慢速更稳。/ Tip: use mirrors vs lines, slow is stable."/>
+  <circle class="hotspot" cx="290" cy="120" r="10" fill="#ef4444"
+    data-tip="热点：进位后回正方向，保持居中。/ Tip: straighten after entry and stay centered."/>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-26 靠边停车任务（Stopopdracht）
+  // =========================
+  {
+    id: "P-26",
+    moduleZh: "倒车与停车",
+    moduleEn: "Reverse & Parking",
+    titleZh: "靠边停车任务：最常见考试指令",
+    titleEn: "Pull Over & Stop: Most Common Exam Instruction",
+    goalZh: "靠边停车的核心：提前镜子、提前打灯、平稳减速、停在安全位置，不要挡路口/自行车道。",
+    goalEn: "Pull-over success = mirror check, signal early, smooth slow-down, stop safely (don’t block junctions/bike lanes).",
+    checklist: [
+      { zh:"听到指令先稳住车速，不要慌刹", en:"Stay calm—no panic braking" },
+      { zh:"镜子检查后方（车+自行车）", en:"Mirror check behind (cars + bikes)" },
+      { zh:"打右转灯（提前）", en:"Signal right early" },
+      { zh:"选择安全停车点：不在路口/弯道/斑马线附近", en:"Choose safe spot: not near junction/bend/crosswalk" },
+      { zh:"平稳靠边停下，保持与路缘平行", en:"Stop smoothly and parallel to curb" },
+      { zh:"停车后：空挡/手刹（按车型）+ 观察再开门", en:"Secure car + look before opening door" },
+    ],
+    fail: [
+      "不看镜子就靠边 / Moving over without mirror check",
+      "停在危险点：路口、斑马线、公交站 / Stopping in unsafe locations",
+      "停不平行、离路缘太远 / Not parallel or too far from curb"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Pull Over & Stop (Simplified)</text>
+
+  <!-- road -->
+  <rect x="40" y="150" width="440" height="110" rx="18" fill="#e5e7eb"/>
+  <line x1="60" y1="205" x2="460" y2="205" stroke="#fff" stroke-width="4" stroke-dasharray="14 10"/>
+  <rect x="40" y="150" width="440" height="16" fill="rgba(245,158,11,.14)"/>
+  <text x="46" y="144" font-size="12" fill="#b45309">Curb side</text>
+
+  <!-- ME -->
+  <rect x="160" y="190" width="52" height="30" rx="6" fill="#2563eb"/>
+  <path d="M212 205 Q280 165 360 165" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#a)"/>
+  <rect x="360" y="150" width="52" height="30" rx="6" fill="#9ca3af"/>
+  <text x="352" y="146" font-size="12" fill="#667085">Stop</text>
+
+  <!-- forbidden zone hint -->
+  <circle cx="440" cy="165" r="22" fill="rgba(239,68,68,.10)" stroke="rgba(239,68,68,.3)"/>
+  <text x="422" y="170" font-size="12" fill="#ef4444">No</text>
+
+  <!-- hotspots -->
+  <circle class="hotspot" cx="180" cy="180" r="10" fill="#ef4444"
+    data-tip="热点：靠边前必须先看镜子（后方自行车很关键）。/ Tip: mirror check before pulling over (bikes!)."/>
+  <circle class="hotspot" cx="360" cy="165" r="10" fill="#ef4444"
+    data-tip="热点：选择安全点停车：别靠近路口/斑马线/弯道。/ Tip: avoid stopping near junctions/crosswalks/bends."/>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+  // =========================
+  // P-27 高速：加速车道并入（Merge）
+  // =========================
+  {
+    id: "P-27",
+    moduleZh: "高速与车流",
+    moduleEn: "Highway & Traffic Flow",
+    titleZh: "高速并入：加速车道 Merge（荷兰必考）",
+    titleEn: "Highway Merge: Acceleration Lane (NL Must-Know)",
+    goalZh: "并入的核心不是“慢慢蹭”，而是“加速到同速 + 找空隙 + 果断并入”。",
+    goalEn: "Merging is NOT creeping in: match speed + find a gap + merge decisively.",
+    checklist: [
+      { zh:"进入加速车道后立刻加速到接近主路车速", en:"Accelerate early to match main traffic speed" },
+      { zh:"镜子检查主路车辆位置与速度", en:"Check mirrors to read main-lane speed/position" },
+      { zh:"肩膀回头看盲区（必做）", en:"Shoulder check blind spot (mandatory)" },
+      { zh:"选一个空隙：前车后车都留空间", en:"Pick a gap with space in front and behind" },
+      { zh:"果断并入后保持速度，不要立刻减速", en:"Merge decisively and keep speed (don’t brake immediately)" },
+    ],
+    fail: [
+      "加速不够导致并入很危险 / Not accelerating enough",
+      "不做盲区肩膀回头 / No shoulder check",
+      "并入后立刻刹车 / Braking right after merging"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Highway Merge (Simplified)</text>
+
+  <!-- main lane -->
+  <rect x="40" y="110" width="440" height="70" rx="16" fill="#e5e7eb"/>
+  <line x1="60" y1="145" x2="460" y2="145" stroke="#fff" stroke-width="4" stroke-dasharray="14 10"/>
+
+  <!-- accel lane -->
+  <rect x="40" y="210" width="440" height="70" rx="16" fill="#e5e7eb"/>
+  <line x1="60" y1="245" x2="460" y2="245" stroke="#fff" stroke-width="4" stroke-dasharray="14 10"/>
+
+  <!-- merge area -->
+  <path d="M120 210 Q220 180 320 160" stroke="rgba(37,99,235,.25)" stroke-width="10" fill="none"/>
+
+  <!-- cars -->
+  <rect x="260" y="125" width="52" height="30" rx="6" fill="#9ca3af"/>
+  <rect x="360" y="125" width="52" height="30" rx="6" fill="#9ca3af"/>
+  <rect x="140" y="225" width="52" height="30" rx="6" fill="#2563eb"/>
+  <text x="138" y="220" font-size="12" fill="#2563eb">ME</text>
+
+  <!-- path -->
+  <path d="M166 225 Q230 210 300 165" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#a)"/>
+
+  <!-- hotspots -->
+  <circle class="hotspot" cx="210" cy="210" r="10" fill="#ef4444"
+    data-tip="热点：并入前必须加速到同速，否则别人也无法让你。/ Tip: match speed first—others can’t safely yield to a slow merge."/>
+  <circle class="hotspot" cx="300" cy="165" r="10" fill="#ef4444"
+    data-tip="热点：并入动作前要肩膀回头看盲区。/ Tip: shoulder check before crossing into main lane."/>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-28 高速：并入后保持车流节奏 + 跟车距离
+  // =========================
+  {
+    id: "P-28",
+    moduleZh: "高速与车流",
+    moduleEn: "Highway & Traffic Flow",
+    titleZh: "并入后：跟车距离 + 车流节奏",
+    titleEn: "After Merge: Following Distance & Flow",
+    goalZh: "高速最怕“急刹/忽快忽慢”。你要做的是：稳定速度 + 2秒规则 + 提前预判。",
+    goalEn: "On highways, avoid harsh braking: keep stable speed + 2-second rule + anticipate early.",
+    checklist: [
+      { zh:"并入后保持稳定速度，不要马上减速", en:"Maintain speed after merging (no immediate braking)" },
+      { zh:"至少2秒跟车距离；雨天3-4秒", en:"2-second gap minimum; 3–4 seconds in rain" },
+      { zh:"远处观察刹车灯波动提前松油门", en:"Watch far ahead; ease off early to avoid braking" },
+      { zh:"镜子常扫：后方车速度更快", en:"Mirror scan often: faster vehicles behind" },
+    ],
+    fail: [
+      "并入后急刹造成后车危险 / Hard braking after merge",
+      "跟车太近 / Tailgating",
+      "频繁刹车让车流不稳 / Constant braking"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Highway Flow & Distance (Simplified)</text>
+
+  <rect x="40" y="140" width="440" height="90" rx="18" fill="#e5e7eb"/>
+  <line x1="60" y1="185" x2="460" y2="185" stroke="#fff" stroke-width="4" stroke-dasharray="14 10"/>
+
+  <rect x="150" y="170" width="52" height="30" rx="6" fill="#9ca3af"/>
+  <text x="146" y="164" font-size="12" fill="#667085">Lead</text>
+
+  <rect x="300" y="170" width="52" height="30" rx="6" fill="#2563eb"/>
+  <text x="300" y="164" font-size="12" fill="#2563eb">ME</text>
+
+  <line x1="202" y1="205" x2="300" y2="205" stroke="#16a34a" stroke-width="6" marker-end="url(#a)"/>
+  <text x="215" y="230" font-size="12" fill="#16a34a">≥ 2 seconds</text>
+
+  <circle class="hotspot" cx="250" cy="205" r="10" fill="#ef4444"
+    data-tip="热点：高速“稳”比“快”重要：预判→松油门→少刹车。/ Tip: stability beats speed; anticipate to avoid braking."/>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-29 高速：超车（Overtake）与回到右侧
+  // =========================
+  {
+    id: "P-29",
+    moduleZh: "高速与车流",
+    moduleEn: "Highway & Traffic Flow",
+    titleZh: "超车：镜子-灯-盲区-加速-回右",
+    titleEn: "Overtake: Mirrors → Signal → Blind Spot → Pass → Return Right",
+    goalZh: "超车不是“换车道就行”，而是完整流程：先确保后方更快车不会追尾你。",
+    goalEn: "Overtaking requires a full sequence so you don’t cut off faster traffic behind.",
+    checklist: [
+      { zh:"镜子看后方快车（尤其左侧车道）", en:"Mirror check fast traffic behind (left lane)" },
+      { zh:"打灯提前告知", en:"Signal early" },
+      { zh:"肩膀回头看盲区", en:"Shoulder check blind spot" },
+      { zh:"超车时保持/略加速，缩短并行时间", en:"Maintain/slightly increase speed to pass efficiently" },
+      { zh:"回右前确认被超车完整出现在镜子里", en:"Return right only when overtaken car fully visible in mirror" },
+    ],
+    fail: [
+      "不看左后方快车就并线 / Cutting into fast traffic",
+      "超车过慢导致并行太久 / Passing too slowly",
+      "超完车不回右（占左道） / Not returning to right lane"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Overtake & Return Right (Simplified)</text>
+
+  <rect x="40" y="110" width="440" height="80" rx="16" fill="#e5e7eb"/>
+  <rect x="40" y="210" width="440" height="80" rx="16" fill="#e5e7eb"/>
+  <line x1="60" y1="150" x2="460" y2="150" stroke="#fff" stroke-width="4" stroke-dasharray="14 10"/>
+  <line x1="60" y1="250" x2="460" y2="250" stroke="#fff" stroke-width="4" stroke-dasharray="14 10"/>
+
+  <text x="45" y="105" font-size="12" fill="#667085">Left lane</text>
+  <text x="45" y="205" font-size="12" fill="#667085">Right lane</text>
+
+  <rect x="180" y="235" width="52" height="30" rx="6" fill="#2563eb"/>
+  <text x="176" y="230" font-size="12" fill="#2563eb">ME</text>
+
+  <rect x="280" y="235" width="52" height="30" rx="6" fill="#9ca3af"/>
+  <text x="270" y="230" font-size="12" fill="#667085">Slow</text>
+
+  <path d="M206 235 Q210 200 210 175" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#a)"/>
+  <path d="M210 175 Q300 160 320 160" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#a)"/>
+  <path d="M320 160 Q360 160 360 235" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#a)"/>
+
+  <circle class="hotspot" cx="210" cy="190" r="10" fill="#ef4444"
+    data-tip="热点：并线前先看左后方有没有快车。/ Tip: check fast traffic behind BEFORE moving left."/>
+  <circle class="hotspot" cx="360" cy="235" r="10" fill="#ef4444"
+    data-tip="热点：回右前确保被超车完整出现在镜子里。/ Tip: return right only when the car is fully visible in mirror."/>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-30 环岛（Roundabout）基本规则
+  // =========================
+  {
+    id: "P-30",
+    moduleZh: "环岛与复杂路口",
+    moduleEn: "Roundabouts",
+    titleZh: "环岛：进入让行 + 车道选择",
+    titleEn: "Roundabout: Yield on Entry + Lane Choice",
+    goalZh: "环岛关键：进入前让行环岛内车辆；提前选车道；出环岛前要看右侧自行车与行人。",
+    goalEn: "Key: yield to traffic already in the roundabout, choose lane early, watch bikes/pedestrians on exit.",
+    checklist: [
+      { zh:"接近环岛提前减速，准备停车", en:"Slow early and be ready to stop" },
+      { zh:"进入前让行：环岛内车辆优先", en:"Yield to vehicles already in the roundabout" },
+      { zh:"提前选车道：直行/左转/掉头", en:"Choose lane early: straight/left/U-turn" },
+      { zh:"出环岛前打右灯 + 镜子 + 盲区", en:"Signal right before exit + mirrors + blind spot" },
+      { zh:"出环岛重点看右侧自行车道", en:"On exit, check right-side bike lane" },
+    ],
+    fail: [
+      "不让行直接冲入 / Not yielding on entry",
+      "出环岛不打灯 / No signal when exiting",
+      "出环岛漏看右侧自行车 / Missing bikes on exit"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Roundabout Basics (Simplified)</text>
+
+  <!-- roundabout -->
+  <circle cx="260" cy="190" r="110" fill="#e5e7eb"/>
+  <circle cx="260" cy="190" r="55" fill="#fff"/>
+
+  <!-- roads -->
+  <rect x="250" y="0" width="20" height="120" fill="#e5e7eb"/>
+  <rect x="250" y="260" width="20" height="100" fill="#e5e7eb"/>
+  <rect x="0" y="180" width="120" height="20" fill="#e5e7eb"/>
+  <rect x="400" y="180" width="120" height="20" fill="#e5e7eb"/>
+
+  <!-- yield point -->
+  <circle cx="260" cy="260" r="10" fill="#9ca3af"/>
+  <text x="275" y="265" font-size="12" fill="#667085">Yield</text>
+
+  <!-- ME entering then exiting right -->
+  <rect x="245" y="310" width="30" height="40" rx="6" fill="#2563eb"/>
+  <path d="M260 310 Q260 240 320 220 Q360 205 400 190" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#a)"/>
+  <text x="238" y="354" font-size="12" fill="#2563eb">ME</text>
+
+  <!-- hotspot -->
+  <circle class="hotspot" cx="260" cy="260" r="10" fill="#ef4444"
+    data-tip="热点：进入环岛前让行环岛内车辆。/ Tip: yield to traffic already inside the roundabout."/>
+  <circle class="hotspot" cx="400" cy="190" r="10" fill="#ef4444"
+    data-tip="热点：出环岛前右转灯 + 右侧自行车检查。/ Tip: signal right + check bikes when exiting."/>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-31 环岛出入口：右侧自行车（超高频挂科点）
+  // =========================
+  {
+    id: "P-31",
+    moduleZh: "环岛与复杂路口",
+    moduleEn: "Roundabouts",
+    titleZh: "环岛出入口：右侧自行车道盲区",
+    titleEn: "Roundabout Exits: Right-Side Bike Blind Spot",
+    goalZh: "出环岛=右转动作：你必须把它当作“右转盲区题”。",
+    goalEn: "Exiting a roundabout is basically a right turn—treat it like a right-turn blind spot.",
+    checklist: [
+      { zh:"出环岛前：镜子检查右后方", en:"Before exit: mirror check right rear" },
+      { zh:"打右灯提前告知", en:"Signal right early" },
+      { zh:"肩膀回头确认自行车盲区", en:"Shoulder check for bikes in blind spot" },
+      { zh:"确认安全后再驶出", en:"Exit only when safe" },
+    ],
+    fail: [
+      "不看右后方自行车直接出 / Exiting without checking bikes",
+      "右灯打太晚 / Late signal",
+      "在出口犹豫停车挡住后车 / Hesitating and stopping at exit"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Exit = Right Turn + Bikes (Simplified)</text>
+
+  <circle cx="240" cy="190" r="110" fill="#e5e7eb"/>
+  <circle cx="240" cy="190" r="55" fill="#fff"/>
+
+  <!-- exit road -->
+  <rect x="360" y="180" width="140" height="20" fill="#e5e7eb"/>
+  <!-- bike lane on exit -->
+  <rect x="360" y="205" width="140" height="22" fill="rgba(37,99,235,.10)" stroke="rgba(37,99,235,.25)"/>
+  <text x="365" y="240" font-size="12" fill="#2563eb">Bike lane</text>
+
+  <!-- me -->
+  <rect x="230" y="120" width="30" height="40" rx="6" fill="#2563eb"/>
+  <path d="M245 140 Q300 170 360 190" stroke="#16a34a" stroke-width="6" fill="none" marker-end="url(#a)"/>
+
+  <!-- bike dot -->
+  <circle cx="430" cy="216" r="10" fill="#9ca3af"/>
+
+  <!-- blind spot -->
+  <path d="M360 190 L400 170 A60 60 0 0 1 380 240 Z" fill="rgba(239,68,68,.12)" stroke="rgba(239,68,68,.35)"/>
+
+  <circle class="hotspot" cx="385" cy="205" r="10" fill="#ef4444"
+    data-tip="热点：出环岛前=右转盲区检查（自行车）。/ Tip: exiting requires a right-turn blind spot check (bikes)."/>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-32 车道保持（Lane Discipline）
+  // =========================
+  {
+    id: "P-32",
+    moduleZh: "车道与观察",
+    moduleEn: "Lane Discipline & Observation",
+    titleZh: "车道保持：稳定=高分",
+    titleEn: "Lane Discipline: Stability = High Score",
+    goalZh: "考试喜欢“稳定驾驶”：车道居中、微调少、观察频率高、动作可预测。",
+    goalEn: "Exams reward stability: centered lane position, minimal corrections, frequent observation, predictable actions.",
+    checklist: [
+      { zh:"保持车道居中，不贴线", en:"Stay centered, avoid hugging lane lines" },
+      { zh:"方向修正小而频繁，不要大幅摆动", en:"Small frequent corrections (no weaving)" },
+      { zh:"每8-12秒扫一次镜子（形成节奏）", en:"Mirror scan every 8–12 seconds" },
+      { zh:"任何动作前先镜子确认", en:"Before any action: mirror confirmation" },
+    ],
+    fail: [
+      "车身左右摆动大 / Weaving",
+      "镜子看太少 / Not checking mirrors enough",
+      "靠线开导致风险高 / Driving too close to lane lines"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Lane Centering (Simplified)</text>
+
+  <rect x="60" y="110" width="400" height="160" rx="18" fill="#e5e7eb"/>
+  <line x1="190" y1="120" x2="190" y2="260" stroke="#fff" stroke-width="4"/>
+  <line x1="330" y1="120" x2="330" y2="260" stroke="#fff" stroke-width="4"/>
+
+  <rect x="235" y="170" width="50" height="30" rx="6" fill="#2563eb"/>
+  <text x="228" y="165" font-size="12" fill="#2563eb">ME</text>
+
+  <circle class="hotspot" cx="260" cy="185" r="10" fill="#ef4444"
+    data-tip="热点：车道居中=看起来最安全、最可控。/ Tip: centered lane position looks safest and most controlled."/>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-33 观察节奏：镜子 + 肩膀回头（标准流程）
+  // =========================
+  {
+    id: "P-33",
+    moduleZh: "车道与观察",
+    moduleEn: "Lane Discipline & Observation",
+    titleZh: "观察节奏：镜子扫描 + 盲区肩膀回头",
+    titleEn: "Observation Rhythm: Mirrors + Shoulder Checks",
+    goalZh: "你要建立“像机器一样稳定”的观察节奏：镜子常扫；变道/转弯必回头。",
+    goalEn: "Build a consistent observation rhythm: frequent mirrors; mandatory shoulder checks for lane changes/turns.",
+    checklist: [
+      { zh:"正常行驶：每8-12秒扫镜子", en:"Normal driving: mirrors every 8–12 seconds" },
+      { zh:"减速/刹车前：先扫内后视镜", en:"Before braking: quick interior mirror check" },
+      { zh:"变道前：镜子→灯→盲区", en:"Before lane change: mirrors → signal → blind spot" },
+      { zh:"右转/出环岛：右后盲区必查自行车", en:"Right turn/exit: check right rear blind spot for bikes" },
+    ],
+    fail: [
+      "只打灯不观察 / Signaling without checking",
+      "变道不肩膀回头 / No shoulder check",
+      "刹车前不看后方 / No rear awareness before braking"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Mirror Scan + Shoulder Check (Simplified)</text>
+
+  <rect x="70" y="120" width="380" height="140" rx="18" fill="#e5e7eb"/>
+  <rect x="235" y="175" width="50" height="30" rx="6" fill="#2563eb"/>
+  <text x="230" y="170" font-size="12" fill="#2563eb">ME</text>
+
+  <!-- scan arrows -->
+  <path d="M260 175 L200 135" stroke="#16a34a" stroke-width="5" marker-end="url(#a)"/>
+  <path d="M260 175 L320 135" stroke="#16a34a" stroke-width="5" marker-end="url(#a)"/>
+  <text x="165" y="132" font-size="12" fill="#16a34a">Mirror</text>
+  <text x="325" y="132" font-size="12" fill="#16a34a">Mirror</text>
+
+  <!-- shoulder check hotspot -->
+  <circle class="hotspot" cx="300" cy="190" r="10" fill="#ef4444"
+    data-tip="热点：变道/右转必肩膀回头确认盲区。/ Tip: shoulder check is mandatory for lane changes/right turns."/>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-34 速度控制：限速 + 速度匹配（荷兰考试喜欢你“大胆但安全”）
+  // =========================
+  {
+    id: "P-34",
+    moduleZh: "速度与决策",
+    moduleEn: "Speed & Decision-Making",
+    titleZh: "速度控制：不慢吞吞，也不冒险",
+    titleEn: "Speed Control: Not Too Slow, Not Risky",
+    goalZh: "荷兰考试不喜欢“过慢”。你要做的是：遵守限速、速度匹配车流、该加速就加速。",
+    goalEn: "The exam dislikes overly slow driving. Follow limits, match flow, accelerate when needed.",
+    checklist: [
+      { zh:"进主路/并入：需要加速到同速", en:"Merging: accelerate to match traffic speed" },
+      { zh:"接近路口：提前降速到可停车", en:"Intersections: slow early to stop-ready speed" },
+      { zh:"限速区：尽量接近限速（在安全范围内）", en:"In limits: drive close to the limit when safe" },
+      { zh:"弯道/雨天：主动降低并加大距离", en:"Bends/rain: reduce speed and increase distance" },
+    ],
+    fail: [
+      "长期低于限速很多造成阻碍 / Too slow, obstructing traffic",
+      "该加速不加速并入困难 / Not accelerating when needed",
+      "弯道/雨天仍太快 / Too fast for conditions"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Speed: Match Conditions (Simplified)</text>
+
+  <rect x="60" y="150" width="400" height="90" rx="18" fill="#e5e7eb"/>
+  <line x1="80" y1="195" x2="440" y2="195" stroke="#fff" stroke-width="4" stroke-dasharray="14 10"/>
+
+  <rect x="240" y="180" width="52" height="30" rx="6" fill="#2563eb"/>
+  <text x="232" y="176" font-size="12" fill="#2563eb">ME</text>
+
+  <circle class="hotspot" cx="260" cy="165" r="10" fill="#ef4444"
+    data-tip="热点：考试喜欢你“接近限速的稳定驾驶”，不是慢吞吞。/ Tip: drive steadily near the limit when safe, not unnecessarily slow."/>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-35 考试神经系统：让考官感到安全（驾驶“表现”）
+  // =========================
+  {
+    id: "P-35",
+    moduleZh: "考试策略",
+    moduleEn: "Exam Strategy",
+    titleZh: "考试表现：让考官感到“你很安全”",
+    titleEn: "Exam Performance: Make the Examiner Feel Safe",
+    goalZh: "考试通过的秘密：不是完美，而是“可预测 + 可控 + 观察明显”。",
+    goalEn: "Passing isn’t perfection—it's predictability, control, and visible observation.",
+    checklist: [
+      { zh:"动作提前：提前减速、提前打灯", en:"Do everything early: slow early, signal early" },
+      { zh:"观察要“让人看得出来”（头部动作）", en:"Make observation visible (head movement)" },
+      { zh:"决策果断：安全空隙足够就一次性走", en:"Decisive decisions: go smoothly when gap is safe" },
+      { zh:"犯小错别慌：稳住车、继续扫描", en:"Small mistakes: stay calm, keep scanning" },
+      { zh:"停车/让行宁可多等1秒，别抢", en:"Better wait 1 extra second than force priority" },
+    ],
+    fail: [
+      "动作太晚导致危险 / Late actions create risk",
+      "犹豫停在路口中间 / Hesitating mid-junction",
+      "观察不明显让考官不放心 / No visible scanning"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Safe Driving “Signal” (Simplified)</text>
+
+  <rect x="60" y="80" width="400" height="240" rx="18" fill="#f3f4f6" stroke="#e5e7eb"/>
+  <text x="90" y="130" font-size="16" fill="#111827">Predictable</text>
+  <text x="90" y="165" font-size="16" fill="#111827">Controlled</text>
+  <text x="90" y="200" font-size="16" fill="#111827">Visible Scanning</text>
+
+  <circle class="hotspot" cx="380" cy="125" r="10" fill="#ef4444"
+    data-tip="热点：提前动作=你看起来像老司机。/ Tip: early actions make you look experienced."/>
+  <circle class="hotspot" cx="380" cy="200" r="10" fill="#ef4444"
+    data-tip="热点：头部扫描明显=考官更安心。/ Tip: visible head scanning reassures the examiner."/>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-41 终极挂科清单（你必须避免的10件事）
+  // =========================
+  {
+    id: "P-41",
+    moduleZh: "考试策略",
+    moduleEn: "Exam Strategy",
+    titleZh: "终极挂科清单：10个高频致命点",
+    titleEn: "Top Fail Triggers: 10 Common Dealbreakers",
+    goalZh: "把这10条背到肌肉记忆里：你过不过，主要看你有没有踩这些雷。",
+    goalEn: "Make these 10 items muscle memory—passing is mostly about avoiding them.",
+    checklist: [
+      { zh:"右转/出环岛不看自行车盲区", en:"No bike blind spot check on right turn/exit" },
+      { zh:"并入高速不加速到同速", en:"Merging without matching speed" },
+      { zh:"变道不肩膀回头", en:"Lane change without shoulder check" },
+      { zh:"不让行人（斑马线/转弯路径）", en:"Not yielding to pedestrians" },
+      { zh:"路口犹豫停在中间", en:"Stopping mid-intersection" },
+      { zh:"跟车太近（尤其高速）", en:"Tailgating (especially on highway)" },
+      { zh:"突然急刹让后车危险", en:"Hard braking unexpectedly" },
+      { zh:"转向灯太晚/不打灯", en:"Late/no signaling" },
+      { zh:"速度长期过慢阻碍交通", en:"Driving unnecessarily slow" },
+      { zh:"停车/掉头不观察四周", en:"Manoeuvres without scanning around" },
+    ],
+    fail: [
+      "上面任意一条在危险情况下发生，都可能直接挂科 / Any of these in a risky situation can fail you immediately."
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Top Fail Triggers (Checklist Card)</text>
+
+  <rect x="50" y="60" width="420" height="260" rx="18" fill="rgba(239,68,68,.06)" stroke="rgba(239,68,68,.25)"/>
+  <text x="80" y="110" font-size="16" fill="#111827">1) Bikes (right blind spot)</text>
+  <text x="80" y="145" font-size="16" fill="#111827">2) Merge speed mismatch</text>
+  <text x="80" y="180" font-size="16" fill="#111827">3) No shoulder check</text>
+  <text x="80" y="215" font-size="16" fill="#111827">4) Pedestrian not yielded</text>
+  <text x="80" y="250" font-size="16" fill="#111827">5) Stop mid-junction</text>
+
+  <circle class="hotspot" cx="430" cy="105" r="10" fill="#ef4444"
+    data-tip="热点：右侧自行车盲区=荷兰最容易挂。/ Tip: right-side bikes are the #1 trap in NL."/>
+</svg>
+`,
+  },
+
+  // =========================
+  // P-42 最后1周训练法（直接用你的Checklist）
+  // =========================
+  {
+    id: "P-42",
+    moduleZh: "考试策略",
+    moduleEn: "Exam Strategy",
+    titleZh: "最后1周训练法：把Checklist刷成肌肉记忆",
+    titleEn: "Final Week Plan: Turn Checklists into Muscle Memory",
+    goalZh: "最后一周别学新东西：只做高频题（右转自行车/环岛出口/高速并入/变道盲区/停车任务）。",
+    goalEn: "Don’t learn new topics in the final week—drill the high-frequency fail points daily.",
+    checklist: [
+      { zh:"每天10分钟：镜子扫描节奏训练", en:"Daily 10 min: mirror scan rhythm" },
+      { zh:"每天10分钟：右转盲区 + 出环岛自行车", en:"Daily 10 min: right-turn blind spot + roundabout exit bikes" },
+      { zh:"每天10分钟：高速并入（同速并入）", en:"Daily 10 min: highway merge at matching speed" },
+      { zh:"每天10分钟：停车任务（靠边/倒车入列）", en:"Daily 10 min: manoeuvres (pull over/parallel reverse)" },
+      { zh:"每次练车结束：复盘挂科清单10条", en:"After every lesson: review the top 10 fail triggers" },
+    ],
+    fail: [
+      "最后一周练太多新花活，反而更乱 / Learning too many new things → more confusion"
+    ],
+    diagramSVG: `
+<svg viewBox="0 0 520 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="360" fill="#fff"/>
+  <text x="18" y="28" font-size="14" fill="#667085">Final Week Drill (Simple Routine)</text>
+
+  <rect x="60" y="70" width="400" height="250" rx="18" fill="rgba(22,163,74,.08)" stroke="rgba(22,163,74,.25)"/>
+  <text x="90" y="125" font-size="16" fill="#111827">10m Mirrors</text>
+  <text x="90" y="160" font-size="16" fill="#111827">10m Bikes (Right/Exit)</text>
+  <text x="90" y="195" font-size="16" fill="#111827">10m Highway Merge</text>
+  <text x="90" y="230" font-size="16" fill="#111827">10m Manoeuvres</text>
+  <text x="90" y="265" font-size="16" fill="#111827">Review Top-10</text>
+
+  <circle class="hotspot" cx="420" cy="160" r="10" fill="#ef4444"
+    data-tip="热点：高频题每天刷，考试就像复读机一样稳。/ Tip: drill high-frequency items daily for automatic performance."/>
+</svg>
+`,
+  }
+
+];
+
+/** ✅ 渲染导航：按模块分组 */
+function groupPages(list){
+  const g = {};
+  for(const p of list){
+    const k = p.moduleZh + " / " + p.moduleEn;
+    if(!g[k]) g[k] = [];
+    g[k].push(p);
+  }
+  return g;
+}
+
+const navEl = document.getElementById("nav");
+const searchBox = document.getElementById("searchBox");
+
+let filtered = [...pages];
+let activeId = pages[0]?.id || "";
+
+function renderNav(){
+  navEl.innerHTML = "";
+  const groups = groupPages(filtered);
+
+  for(const [module, items] of Object.entries(groups)){
+    const h = document.createElement("div");
+    h.className = "moduleTitle";
+    h.textContent = module;
+    navEl.appendChild(h);
+
+    for(const p of items){
+      const item = document.createElement("div");
+      item.className = "navItem" + (p.id===activeId ? " active":"");
+      item.onclick = () => { activeId = p.id; renderNav(); renderPage(p.id); };
+
+      item.innerHTML = `
+        <div class="top">
+          <div class="t1">${p.titleZh}</div>
+          <div class="badge">${p.id}</div>
+        </div>
+        <div class="t2">${p.titleEn}</div>
+      `;
+      navEl.appendChild(item);
+    }
+  }
+}
+
+function storageKey(pageId){ return `driving_skill_${pageId}`; }
+
+function loadState(pageId){
+  try{
+    return JSON.parse(localStorage.getItem(storageKey(pageId)) || "{}");
+  }catch(e){ return {}; }
+}
+function saveState(pageId, state){
+  localStorage.setItem(storageKey(pageId), JSON.stringify(state));
+}
+
+/** ✅ 主渲染 */
+function renderPage(pageId){
+  const p = pages.find(x=>x.id===pageId);
+  if(!p) return;
+
+  // header
+  document.getElementById("pageTitleZh").textContent = p.titleZh;
+  document.getElementById("pageTitleEn").textContent = p.titleEn;
+  document.getElementById("pageIdPill").textContent = p.id;
+  document.getElementById("modulePill").textContent = `${p.moduleZh} / ${p.moduleEn}`;
+
+  // goal
+  document.getElementById("goalBox").innerHTML = `
+    <b>目标 Goal：</b><br/>
+    ${p.goalZh}<br/>
+    <span style="color:#667085">${p.goalEn}</span>
+  `;
+
+  // checklist
+  const state = loadState(pageId);
+  const list = document.getElementById("checklist");
+  list.innerHTML = "";
+  p.checklist.forEach((c, idx)=>{
+    const li = document.createElement("li");
+    li.className = "checkItem";
+    const checked = !!state[`c_${idx}`];
+
+    li.innerHTML = `
+      <input type="checkbox" ${checked ? "checked":""} />
+      <div class="txt">
+        <div class="zh">${c.zh}</div>
+        <div class="en">${c.en}</div>
+      </div>
+    `;
+    li.querySelector("input").addEventListener("change", (e)=>{
+      state[`c_${idx}`] = e.target.checked;
+      saveState(pageId, state);
+      updateProgress(pageId);
+    });
+
+    list.appendChild(li);
+  });
+
+  // fail list
+  const failEl = document.getElementById("failList");
+  failEl.innerHTML = "";
+  p.fail.forEach(t=>{
+    const li = document.createElement("li");
+    li.innerHTML = `<span>${t}</span>`;
+    failEl.appendChild(li);
+  });
+
+  // quiz
+  document.getElementById("quizQ").innerHTML = `
+    ${p.quiz.qZh}<br/>
+    <span style="color:#667085;font-weight:500">${p.quiz.qEn}</span>
+  `;
+  const ansWrap = document.getElementById("quizAnswers");
+  const resultEl = document.getElementById("quizResult");
+  ansWrap.innerHTML = "";
+  resultEl.textContent = "";
+
+  p.quiz.answers.forEach((a)=>{
+    const btn = document.createElement("button");
+    btn.className = "btn " + (a.correct ? "good":"bad");
+    btn.innerHTML = `${a.labelZh}<br/><span style="font-weight:500;opacity:.9">${a.labelEn}</span>`;
+    btn.onclick = () => {
+      resultEl.innerHTML = a.correct
+        ? `✅ ${a.explainZh}<br/><span>${a.explainEn}</span>`
+        : `❌ ${a.explainZh}<br/><span>${a.explainEn}</span>`;
+    };
+    ansWrap.appendChild(btn);
+  });
+
+  // diagram
+  document.getElementById("diagram").innerHTML = p.diagramSVG;
+  document.getElementById("hotTip").textContent = "点击图上的红色点（热点）查看解释。";
+  const svgRoot = document.getElementById("diagram").querySelector("svg");
+  if(svgRoot){
+    svgRoot.querySelectorAll(".hotspot").forEach(node=>{
+      node.style.cursor = "pointer";
+      node.addEventListener("click", ()=>{
+        document.getElementById("hotTip").textContent = node.getAttribute("data-tip") || "";
+      });
+    });
+  }
+
+  // reset button
+  document.getElementById("resetBtn").onclick = ()=>{
+    localStorage.removeItem(storageKey(pageId));
+    renderPage(pageId);
+  };
+
+  updateProgress(pageId);
+}
+
+function updateProgress(pageId){
+  const p = pages.find(x=>x.id===pageId);
+  const state = loadState(pageId);
+  const total = p.checklist.length;
+  let done = 0;
+  for(let i=0;i<total;i++){
+    if(state[`c_${i}`]) done++;
+  }
+  const pct = total ? Math.round((done/total)*100) : 0;
+  document.getElementById("progressText").textContent = `Progress: ${pct}% (${done}/${total})`;
+}
+
+/** 搜索过滤 */
+searchBox.addEventListener("input", (e)=>{
+  const q = (e.target.value || "").trim().toLowerCase();
+  if(!q){
+    filtered = [...pages];
+  }else{
+    filtered = pages.filter(p=>{
+      return (
+        p.titleZh.toLowerCase().includes(q) ||
+        p.titleEn.toLowerCase().includes(q) ||
+        p.moduleZh.toLowerCase().includes(q) ||
+        p.moduleEn.toLowerCase().includes(q)
+      );
+    });
+  }
+  // 如果过滤后 active 不存在，切到第一项
+  if(!filtered.find(x=>x.id===activeId) && filtered.length){
+    activeId = filtered[0].id;
+  }
+  renderNav();
+  renderPage(activeId);
+});
+
+// init
+renderNav();
+renderPage(activeId);
+</script>
+</body>
+</html>

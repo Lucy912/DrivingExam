@@ -1,0 +1,428 @@
+<div class="topic-detail">
+    <h1>🅿️ 前进斜角停车技巧</h1>
+
+    <div class="intro">
+        <p><strong>什么是前进斜角停车：</strong>车辆向前直接驶入与车道成45-60度角的斜角车位。这是最简单、最快速的停车方式，常见于街边停车位和商业区。由于顺应车位角度，几乎不需要特殊技巧。</p>
+    </div>
+
+    <!-- 步骤图示 -->
+    <div class="diagram-section">
+        <h2>前进斜角停车过程</h2>
+        <div class="svg-container">
+            <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                <!-- 停车场区域 -->
+                <rect x="0" y="0" width="800" height="600" fill="#E2E8F0"/>
+
+                <!-- 斜角车位标线 -->
+                <polygon points="450,100 650,200 580,330 380,230" fill="#FFFFFF" stroke="#718096" stroke-width="3"/>
+                <line x1="450" y1="100" x2="380" y2="230" stroke="#FFD700" stroke-width="4"/>
+                <line x1="650" y1="200" x2="580" y2="330" stroke="#FFFFFF" stroke-width="4"/>
+
+                <!-- 相邻斜角车位 -->
+                <polygon points="250,0 450,100 380,230 180,130" fill="#FFFFFF" stroke="#718096" stroke-width="3" opacity="0.3"/>
+                <polygon points="650,200 850,300 780,430 580,330" fill="#FFFFFF" stroke="#718096" stroke-width="3" opacity="0.3"/>
+
+                <!-- 已停车辆（相邻） -->
+                <g transform="translate(300, 60) rotate(30)">
+                    <rect x="0" y="0" width="100" height="50" rx="5" fill="#A0AEC0"/>
+                    <rect x="10" y="10" width="25" height="30" fill="#E2E8F0"/>
+                </g>
+
+                <!-- 车道标线 -->
+                <line x1="0" y1="350" x2="800" y2="550" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="20,15"/>
+                <rect x="0" y="350" width="800" height="250" fill="#4A5568" opacity="0.15"/>
+
+                <!-- 步骤1：接近位置 -->
+                <g id="diagonal-forward-approach">
+                    <rect x="100" y="370" width="100" height="50" rx="5" fill="#4299E1" opacity="0.5"/>
+                    <text x="115" y="405" font-size="14" fill="#2D3748" font-weight="bold">步骤1：接近</text>
+                </g>
+
+                <!-- 接近箭头 -->
+                <path d="M 150 420 L 300 360" stroke="#4299E1" stroke-width="3" fill="none" marker-end="url(#arrowblue6)"/>
+
+                <!-- 步骤2：对齐车位 -->
+                <g id="diagonal-forward-align">
+                    <rect x="300" y="330" width="100" height="50" rx="5" fill="#4299E1" opacity="0.7" transform="rotate(20 350 355)"/>
+                    <text x="305" y="365" font-size="14" fill="#FFFFFF" font-weight="bold">步骤2：转向</text>
+                </g>
+
+                <!-- 转向箭头 -->
+                <path d="M 340 340 Q 400 270, 460 210" stroke="#ED8936" stroke-width="4" fill="none" marker-end="url(#arroworange6)" stroke-dasharray="8,4"/>
+                <text x="370" y="280" font-size="14" fill="#ED8936" font-weight="bold">顺势转入</text>
+
+                <!-- 步骤3：最终位置 -->
+                <g id="diagonal-forward-final" transform="translate(480, 160) rotate(30)">
+                    <rect x="0" y="0" width="100" height="50" rx="5" fill="#48BB78"/>
+                    <rect x="10" y="10" width="25" height="30" fill="#E2E8F0"/>
+                    <circle cx="15" cy="15" r="5" fill="#2D3748"/>
+                    <circle cx="30" cy="15" r="5" fill="#2D3748"/>
+                    <circle cx="15" cy="35" r="5" fill="#2D3748"/>
+                    <circle cx="30" cy="35" r="5" fill="#2D3748"/>
+                    <text x="20" y="65" font-size="14" fill="#2D3748" font-weight="bold">完成</text>
+                </g>
+
+                <!-- 角度标注 -->
+                <path d="M 100 370 L 200 370" stroke="#2D3748" stroke-width="2"/>
+                <path d="M 100 370 L 180 310" stroke="#2D3748" stroke-width="2"/>
+                <path d="M 180 365 A 25 25 0 0 1 165 340" stroke="#2D3748" stroke-width="2" fill="none"/>
+                <text x="155" y="375" font-size="12" fill="#2D3748" font-weight="bold">45-60°</text>
+
+                <!-- 箭头标记定义 -->
+                <defs>
+                    <marker id="arrowblue6" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#4299E1"/>
+                    </marker>
+                    <marker id="arroworange6" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#ED8936"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+        <div class="explanation">
+            <strong>图解说明：</strong>蓝色箭头=接近车道，橙色箭头=顺势转入车位。前进斜角停车非常简单，几乎是"直接开进去"。
+        </div>
+    </div>
+
+    <!-- 详细步骤 -->
+    <div class="method-section">
+        <h2>详细操作步骤</h2>
+        <div class="steering-demo">
+            <div class="step">
+                <h3>步骤1：识别斜角车位方向</h3>
+                <p><strong>重要：</strong>确认车位是"前进进入"类型（斜角指向你行驶的方向）</p>
+                <p><strong>检查：</strong></p>
+                <ul class="tip-list">
+                    <li>观察车位标线角度和方向箭头</li>
+                    <li>确认车位内没有障碍物</li>
+                    <li>观察相邻车位是否有车</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>步骤2：在车道上行驶</h3>
+                <p><strong>操作：</strong>沿着车道正常行驶，保持在车道中央</p>
+                <p><strong>速度：</strong>保持10-20公里/小时的低速</p>
+                <p><strong>打转向灯：</strong>提前打右转向灯（如果车位在右侧）</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤3：对准车位</h3>
+                <p><strong>操作：</strong>当车头接近目标车位时，向右轻微转向，对准车位中央</p>
+                <p><strong>要点：</strong>由于车位本身有角度，你只需要轻微转向（约1/4圈方向盘）</p>
+                <p><strong>观察：</strong>通过挡风玻璃直接观察车位标线</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤4：顺势驶入</h3>
+                <p><strong>操作：</strong>保持转向角度，让车辆顺着车位的斜角自然滑入</p>
+                <p><strong>速度：</strong>减速到步行速度（5-10公里/小时）</p>
+                <p><strong>观察：</strong></p>
+                <ul class="tip-list">
+                    <li><strong>右侧：</strong>确保车身不会刮到右侧标线或车辆</li>
+                    <li><strong>前方：</strong>观察车位前方是否有障碍物</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>步骤5：前进到位</h3>
+                <p><strong>操作：</strong>继续前进直到车辆完全进入车位</p>
+                <p><strong>停车时机：</strong>
+                    <ul class="tip-list">
+                        <li>地下停车场：距离前方墙壁30-50厘米</li>
+                        <li>街边车位：车尾对齐车位后端标线</li>
+                    </ul>
+                </p>
+            </div>
+
+            <div class="step">
+                <h3>步骤6：检查位置</h3>
+                <p><strong>检查清单：</strong></p>
+                <ul class="tip-list">
+                    <li>车身在车位标线内</li>
+                    <li>车辆角度与车位标线一致</li>
+                    <li>两侧距离大致均匀</li>
+                    <li>车尾没有超出车位后端</li>
+                </ul>
+                <p><strong>完成：</strong>挂P挡/1挡，拉手刹，熄火</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 为什么前进斜角停车最简单 -->
+    <div class="method-section" style="background: #F0FFF4; border-left: 4px solid #48BB78;">
+        <h2>✅ 为什么这是最简单的停车方式？</h2>
+
+        <div style="margin-top: 1rem;">
+            <h3 style="color: #2F855A;">1. 顺应自然角度</h3>
+            <p>斜角车位的设计就是为了方便前进停入。车位角度与你的行驶方向一致，几乎是"直接开进去"，不需要复杂的转向操作。</p>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #2F855A;">2. 完美视野</h3>
+            <p>前进停车 + 直接视线 = 可以清楚看到车位内的所有情况，没有盲区，不需要依赖后视镜。</p>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #2F855A;">3. 快速高效</h3>
+            <p>从进入车道到停好，只需5-10秒。这就是为什么商业区喜欢使用斜角车位——提高停车效率，减少拥堵。</p>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #2F855A;">4. 适合新手</h3>
+            <p>这是新手驾驶员最容易掌握的停车方式。基本上能开车就能停好，几乎没有失败的可能。</p>
+        </div>
+    </div>
+
+    <!-- 对比其他斜角停车方式 -->
+    <div class="comparison">
+        <h2>前进斜角停车 vs 倒车斜角停车</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>特点</th>
+                    <th>前进斜角停车</th>
+                    <th>倒车斜角停车</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>难度</strong></td>
+                    <td class="recommended">非常容易</td>
+                    <td>中等</td>
+                </tr>
+                <tr>
+                    <td><strong>停车速度</strong></td>
+                    <td class="recommended">极快（5-10秒）</td>
+                    <td>较快（15-20秒）</td>
+                </tr>
+                <tr>
+                    <td><strong>可视性</strong></td>
+                    <td class="recommended">极好（直接视线）</td>
+                    <td>一般（通过镜子）</td>
+                </tr>
+                <tr>
+                    <td><strong>转向幅度</strong></td>
+                    <td class="recommended">极小（1/4圈）</td>
+                    <td>中等（3/4圈）</td>
+                </tr>
+                <tr>
+                    <td><strong>离开难度</strong></td>
+                    <td>中等（倒车视野一般）</td>
+                    <td class="recommended">容易（前进视野好）</td>
+                </tr>
+                <tr>
+                    <td><strong>所需空间</strong></td>
+                    <td class="recommended">标准</td>
+                    <td>标准</td>
+                </tr>
+                <tr>
+                    <td><strong>失败风险</strong></td>
+                    <td class="recommended">极低</td>
+                    <td>低</td>
+                </tr>
+                <tr>
+                    <td><strong>适用场景</strong></td>
+                    <td class="recommended">商业区，街边车位，购物中心</td>
+                    <td>某些特殊设计的停车场</td>
+                </tr>
+                <tr>
+                    <td><strong>车位设计</strong></td>
+                    <td class="recommended">最常见（>90%斜角车位）</td>
+                    <td>较少见</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 常见错误 -->
+    <div class="mistakes">
+        <h2>常见错误（虽然很少发生）</h2>
+        <div class="mistake-grid">
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>认错车位方向</h4>
+                <p>有些停车场同时有两种斜角车位（前进和倒车）。必须看清箭头标识，不要逆向停入"倒车进入"的车位。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>速度过快</h4>
+                <p>虽然这种停车很简单，但仍需保持10-20公里/小时的低速，以便随时停车避让行人或其他车辆。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>转向角度过大</h4>
+                <p>只需轻微转向（1/4圈方向盘）即可。过度转向会导致车头内侧刮到左侧车辆。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>没有对准车位中央</h4>
+                <p>虽然容易停入，但如果一开始没对准中央，最终会停偏，影响两侧开门空间。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>开得太深</h4>
+                <p>特别是街边斜角车位，要注意不要让车头撞到路缘石或树木。车尾应对齐后端标线。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>忘记打转向灯</h4>
+                <p>虽然是简单操作，但转向灯不可少。后方车辆需要知道你要停车。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>倒车离开时不观察</h4>
+                <p>前进停车后需要倒车离开。倒车离开时，斜角会造成一定盲区，必须仔细观察。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>占用两个车位</h4>
+                <p>停歪了导致压线或跨越两个车位。虽然容易停入，但仍要保持车身与标线平行。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 专业建议 -->
+    <div class="tips">
+        <h2>专业建议</h2>
+        <ul class="tip-list">
+            <li><strong>识别车位类型：</strong>确认是"前进进入"类型，观察地面箭头标识</li>
+            <li><strong>保持车道中央：</strong>接近时在车道中央行驶，方便对准车位</li>
+            <li><strong>提前打转向灯：</strong>让后方车辆知道你要停车</li>
+            <li><strong>轻微转向：</strong>只需1/4圈方向盘，不要过度转向</li>
+            <li><strong>对准中央：</strong>确保车头对准车位中央线</li>
+            <li><strong>保持低速：</strong>10-20公里/小时接近，5-10公里/小时进入</li>
+            <li><strong>直接视线：</strong>通过挡风玻璃直接观察，比看镜子更准确</li>
+            <li><strong>控制深度：</strong>街边车位注意车尾对齐，地下车位留30-50厘米前方空间</li>
+            <li><strong>检查角度：</strong>确保车身与车位标线角度一致</li>
+            <li><strong>倒车离开观察：</strong>离开时倒车，注意斜角盲区</li>
+            <li><strong>不要急：</strong>虽然简单，但不要因为简单而粗心大意</li>
+            <li><strong>礼让行人：</strong>商业区车位周围行人多，随时准备停车</li>
+        </ul>
+    </div>
+
+    <!-- 倒车离开技巧 -->
+    <div class="method-section" style="background: #FFF7ED; border-left: 4px solid #F59E0B;">
+        <h2>🔄 倒车离开技巧</h2>
+        <p>前进斜角停车后需要倒车离开，虽然比垂直车位容易，但仍需注意：</p>
+
+        <div style="margin-top: 1rem;">
+            <h3 style="color: #C05621;">准备工作：</h3>
+            <ul class="tip-list">
+                <li>上车前观察周围，确认无障碍物和行人</li>
+                <li>调整后视镜确保能看清两侧</li>
+                <li>启动倒车影像（如果有）</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C05621;">倒车过程：</h3>
+            <ol style="padding-left: 1.5rem;">
+                <li><strong>缓慢倒车：</strong>速度不超过步行速度</li>
+                <li><strong>直线倒出：</strong>保持方向盘在中间位置，沿车位角度直线倒出</li>
+                <li><strong>观察两侧：</strong>通过后视镜观察左右车辆，确保不刮蹭</li>
+                <li><strong>转头观察：</strong>定期转头看后方车道，观察来车和行人</li>
+                <li><strong>车尾出车位：</strong>当车尾完全离开车位后，准备转向</li>
+                <li><strong>打转向灯：</strong>准备进入行车道前打转向灯</li>
+                <li><strong>转向进入车道：</strong>向左转向（如果车位在右侧），驶入行车道</li>
+                <li><strong>让行车道车辆：</strong>行车道上的车辆有优先权</li>
+            </ol>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C05621;">斜角车位的优势：</h3>
+            <p>相比垂直车位，斜角车位倒车离开时有更好的后方视野。车辆是斜着倒出，能更早看到行车道上的来车。</p>
+        </div>
+    </div>
+
+    <!-- 街边斜角停车特别说明 -->
+    <div class="method-section" style="background: #EBF8FF; border-left: 4px solid #2B6CB0;">
+        <h2>🛣️ 街边斜角停车特别说明</h2>
+
+        <p>街边斜角车位非常常见，有一些特殊注意事项：</p>
+
+        <div style="margin-top: 1rem;">
+            <h3 style="color: #2C5282;">停车前检查：</h3>
+            <ul class="tip-list">
+                <li><strong>停车标志：</strong>确认允许停车，注意时段限制</li>
+                <li><strong>停车计费：</strong>查看是否需要付费，如何付费</li>
+                <li><strong>时间限制：</strong>注意最长停车时限（通常1-2小时）</li>
+                <li><strong>禁停区域：</strong>不得在消防栓5米内、路口10米内停车</li>
+                <li><strong>装卸区域：</strong>不得占用商业装卸区域</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #2C5282;">停车操作要点：</h3>
+            <ul class="tip-list">
+                <li><strong>不阻塞交通：</strong>快速完成停车，不要长时间占用车道</li>
+                <li><strong>车尾对齐：</strong>车尾与车位后端标线对齐，不要超出</li>
+                <li><strong>不碰路缘：</strong>车头不要碰到路缘石</li>
+                <li><strong>开门安全：</strong>开门前观察后方自行车和车辆</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #2C5282;">离开时：</h3>
+            <ul class="tip-list">
+                <li><strong>观察后方交通：</strong>街边车流可能很快，倒车时格外小心</li>
+                <li><strong>观察自行车：</strong>自行车可能从后方快速接近</li>
+                <li><strong>行人优先：</strong>人行道附近可能有行人穿过</li>
+                <li><strong>耐心等待：</strong>等待安全间隙再驶入车道</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 练习建议 -->
+    <div class="method-section" style="background: #F7FAFC; border-left: 4px solid #718096;">
+        <h2>练习建议</h2>
+        <p>前进斜角停车非常简单，通常不需要特别练习。但为了确保安全，可以：</p>
+        <ol style="padding-left: 1.5rem;">
+            <li><strong>找到斜角车位：</strong>在商业区或大型停车场找到斜角车位</li>
+            <li><strong>观察其他司机：</strong>看其他司机如何快速停入，学习节奏</li>
+            <li><strong>练习判断角度：</strong>练习只用1/4圈方向盘对准车位</li>
+            <li><strong>练习控制深度：</strong>街边车位练习让车尾对齐后端线</li>
+            <li><strong>重点练习离开：</strong>倒车离开比停入更需要练习</li>
+            <li><strong>观察盲区：</strong>体会斜角倒车时的视野和盲区</li>
+            <li><strong>不同角度车位：</strong>练习45度和60度等不同角度的车位</li>
+            <li><strong>实际街边练习：</strong>在交通较少时段练习街边斜角停车</li>
+        </ol>
+    </div>
+
+    <!-- 考试要点 -->
+    <div class="method-section" style="background: #FEF5E7; border-left: 4px solid #D4AC0D;">
+        <h2>📝 考试要点</h2>
+        <p>前进斜角停车通常不作为驾驶考试的主要项目，因为太简单了。但在实际道路考试中可能会遇到：</p>
+        <ul class="tip-list">
+            <li><strong>✅ 识别车位类型：</strong>正确识别"前进进入"斜角车位</li>
+            <li><strong>✅ 打转向灯：</strong>进入车位前打转向灯</li>
+            <li><strong>✅ 不压线：</strong>车身完全在车位标线内</li>
+            <li><strong>✅ 角度一致：</strong>车身与车位标线角度一致</li>
+            <li><strong>✅ 位置适当：</strong>车尾对齐后端，不超出车位</li>
+            <li><strong>✅ 倒车离开安全：</strong>离开时充分观察后方交通</li>
+            <li><strong>⚠️ 速度适当：</strong>不要因为简单而开得太快</li>
+            <li><strong>❌ 逆向停车：</strong>停入"倒车进入"类型的车位会扣分</li>
+        </ul>
+    </div>
+
+    <!-- 总结 -->
+    <div class="method-section" style="background: #F0FFF4; border-left: 4px solid #48BB78;">
+        <h2>✨ 总结</h2>
+        <p style="font-size: 1.1rem; line-height: 1.8;">
+            <strong>前进斜角停车是所有停车方式中最简单的。</strong>几乎不需要特殊技巧，顺着车位的角度直接开进去即可。这就是为什么商业区、购物中心和街边大量使用这种车位设计——它让停车变得快速高效，减少拥堵。
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 1rem;">
+            唯一需要注意的是<strong>倒车离开时的安全观察</strong>。虽然斜角车位比垂直车位容易倒出，但后方仍然是活跃的行车道，必须谨慎观察来车和行人。
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 1rem; color: #2F855A; font-weight: bold;">
+            记住：如果你能开车，你就能停好前进斜角车位！
+        </p>
+    </div>
+</div>

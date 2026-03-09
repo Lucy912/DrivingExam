@@ -1,0 +1,303 @@
+<!-- Gear Shifting Methods - Detailed Interactive Content -->
+<div class="topic-detail">
+    <h1>⚙️ Gear Shifting Methods</h1>
+
+    <div class="intro">
+        <p><strong>Understanding the transmission:</strong> The drivetrain connects your engine to the wheels. Proper gear shifting ensures smooth driving and prevents engine damage.</p>
+    </div>
+
+    <!-- Drivetrain Diagram -->
+    <div class="diagram-section">
+        <h2>1. The Drivetrain System</h2>
+        <div class="svg-container">
+            <svg viewBox="0 0 600 200" class="drivetrain-svg">
+                <!-- Motor -->
+                <rect x="20" y="60" width="100" height="80" fill="#4A5568" stroke="#2D3748" stroke-width="2"/>
+                <text x="70" y="105" text-anchor="middle" fill="white" font-size="14">Motor</text>
+
+                <!-- Clutch -->
+                <circle cx="150" cy="100" r="30" fill="#CBD5E0" stroke="#2D3748" stroke-width="2"/>
+                <text x="150" y="105" text-anchor="middle" font-size="12">Clutch</text>
+
+                <!-- Gearbox -->
+                <rect x="190" y="70" width="80" height="60" fill="#718096" stroke="#2D3748" stroke-width="2"/>
+                <circle cx="230" y="100" r="25" fill="none" stroke="#2D3748" stroke-width="2"/>
+
+                <!-- Gear pattern -->
+                <g transform="translate(215, 85)">
+                    <line x1="0" y1="0" x2="10" y2="-10" stroke="#2D3748" stroke-width="2"/>
+                    <line x1="10" y1="-10" x2="20" y2="0" stroke="#2D3748" stroke-width="2"/>
+                    <line x1="20" y1="0" x2="30" y2="-10" stroke="#2D3748" stroke-width="2"/>
+                    <text x="15" y="25" font-size="10" text-anchor="middle">1-2-3-4-5</text>
+                </g>
+
+                <!-- Driveshaft -->
+                <line x1="270" y1="100" x2="400" y2="100" stroke="#4A5568" stroke-width="8"/>
+                <text x="335" y="90" text-anchor="middle" font-size="12">Driveshaft</text>
+
+                <!-- Wheel -->
+                <circle cx="520" cy="100" r="60" fill="none" stroke="#2D3748" stroke-width="6"/>
+                <circle cx="520" cy="100" r="50" fill="#4A5568"/>
+                <g transform="translate(520, 100)">
+                    <line x1="-30" y1="0" x2="30" y2="0" stroke="white" stroke-width="2"/>
+                    <line x1="0" y1="-30" x2="0" y2="30" stroke="white" stroke-width="2"/>
+                </g>
+                <text x="520" y="175" text-anchor="middle" font-size="12">Driven Wheel</text>
+
+                <!-- Arrows -->
+                <path d="M 120 100 L 140 100 L 135 95 M 140 100 L 135 105" stroke="#E53E3E" stroke-width="2" fill="none"/>
+                <path d="M 270 100 L 395 100 L 390 95 M 395 100 L 390 105" stroke="#E53E3E" stroke-width="2" fill="none"/>
+            </svg>
+        </div>
+        <p class="explanation"><strong>How it works:</strong> The motor generates power → clutch engages/disengages → gearbox selects gear ratio → driveshaft transmits power → wheels rotate</p>
+    </div>
+
+    <!-- Feed-through Method -->
+    <div class="method-section">
+        <h2>2. Feed-Through Method (Doorgeefmethode)</h2>
+        <p class="method-description">
+            <strong>Best for:</strong> Smooth, controlled steering<br>
+            <strong>Common use:</strong> Normal driving, gradual turns
+        </p>
+
+        <div class="steering-demo">
+            <div class="step">
+                <h3>Step 1: Starting Position</h3>
+                <svg viewBox="0 0 300 300" class="steering-wheel">
+                    <!-- Wheel circle -->
+                    <circle cx="150" cy="150" r="100" fill="#2D3748" stroke="#1A202C" stroke-width="4"/>
+                    <circle cx="150" cy="150" r="85" fill="none" stroke="#4A5568" stroke-width="8"/>
+
+                    <!-- Spokes -->
+                    <line x1="150" y1="70" x2="150" y2="230" stroke="#4A5568" stroke-width="6"/>
+                    <line x1="70" y1="150" x2="230" y2="150" stroke="#4A5568" stroke-width="6"/>
+
+                    <!-- Clock positions -->
+                    <circle cx="150" cy="70" r="8" fill="#48BB78"/>
+                    <text x="150" y="60" text-anchor="middle" fill="white" font-size="12">12</text>
+
+                    <circle cx="230" cy="150" r="8" fill="#48BB78"/>
+                    <text x="245" y="155" text-anchor="middle" fill="white" font-size="12">3</text>
+
+                    <circle cx="150" cy="230" r="8" fill="#48BB78"/>
+                    <text x="150" y="250" text-anchor="middle" fill="white" font-size="12">6</text>
+
+                    <circle cx="70" cy="150" r="8" fill="#48BB78"/>
+                    <text x="55" y="155" text-anchor="middle" fill="white" font-size="12">9</text>
+
+                    <!-- Left hand -->
+                    <g class="hand left-hand">
+                        <ellipse cx="70" cy="150" rx="20" ry="30" fill="#ECC94B" opacity="0.8"/>
+                        <text x="70" y="155" text-anchor="middle" font-size="16">L</text>
+                    </g>
+
+                    <!-- Right hand -->
+                    <g class="hand right-hand">
+                        <ellipse cx="230" cy="150" rx="20" ry="30" fill="#ECC94B" opacity="0.8"/>
+                        <text x="230" y="155" text-anchor="middle" font-size="16">R</text>
+                    </g>
+                </svg>
+                <p><strong>Both hands at 9 and 3 o'clock position</strong> - This is your default grip position.</p>
+            </div>
+
+            <div class="step">
+                <h3>Step 2: Turning (e.g., turning right)</h3>
+                <svg viewBox="0 0 300 300" class="steering-wheel">
+                    <!-- Wheel rotated -->
+                    <g transform="rotate(45 150 150)">
+                        <circle cx="150" cy="150" r="100" fill="#2D3748" stroke="#1A202C" stroke-width="4"/>
+                        <circle cx="150" cy="150" r="85" fill="none" stroke="#4A5568" stroke-width="8"/>
+                        <line x1="150" y1="70" x2="150" y2="230" stroke="#4A5568" stroke-width="6"/>
+                        <line x1="70" y1="150" x2="230" y2="150" stroke="#4A5568" stroke-width="6"/>
+                    </g>
+
+                    <!-- Hands moved -->
+                    <ellipse cx="200" cy="95" rx="20" ry="30" fill="#ECC94B" opacity="0.8" transform="rotate(45 200 95)"/>
+                    <text x="200" y="100" text-anchor="middle" font-size="16">R</text>
+
+                    <ellipse cx="100" cy="205" rx="20" ry="30" fill="#ECC94B" opacity="0.8" transform="rotate(45 100 205)"/>
+                    <text x="100" y="210" text-anchor="middle" font-size="16">L</text>
+
+                    <!-- Arrow showing rotation -->
+                    <path d="M 220 150 A 70 70 0 0 1 185 215" stroke="#48BB78" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#48BB78"/>
+                        </marker>
+                    </defs>
+                </svg>
+                <p><strong>Push with right hand, pull with left</strong> - Hands stay on the wheel and "feed through" the rotation.</p>
+            </div>
+
+            <div class="step">
+                <h3>Step 3: Continuing the Turn</h3>
+                <p>Keep feeding the wheel through your hands smoothly. Your hands slide along the wheel's surface without leaving it. This maintains continuous control.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cross-Over Method -->
+    <div class="method-section">
+        <h2>3. Cross-Over Method (Overpakme thode)</h2>
+        <p class="method-description">
+            <strong>Best for:</strong> Sharp turns, parking maneuvers<br>
+            <strong>Common use:</strong> Tight corners, parallel parking
+        </p>
+
+        <div class="steering-demo">
+            <div class="step">
+                <h3>Step 1: Start Position (9 & 3)</h3>
+                <svg viewBox="0 0 300 300" class="steering-wheel">
+                    <circle cx="150" cy="150" r="100" fill="#2D3748" stroke="#1A202C" stroke-width="4"/>
+                    <circle cx="150" cy="150" r="85" fill="none" stroke="#4A5568" stroke-width="8"/>
+                    <line x1="150" y1="70" x2="150" y2="230" stroke="#4A5568" stroke-width="6"/>
+                    <line x1="70" y1="150" x2="230" y2="150" stroke="#4A5568" stroke-width="6"/>
+
+                    <ellipse cx="70" cy="150" rx="20" ry="30" fill="#4299E1" opacity="0.8"/>
+                    <text x="70" y="155" text-anchor="middle" font-size="16">L</text>
+
+                    <ellipse cx="230" cy="150" rx="20" ry="30" fill="#4299E1" opacity="0.8"/>
+                    <text x="230" y="155" text-anchor="middle" font-size="16">R</text>
+                </svg>
+            </div>
+
+            <div class="step">
+                <h3>Step 2: Pull Down</h3>
+                <svg viewBox="0 0 300 300" class="steering-wheel">
+                    <g transform="rotate(30 150 150)">
+                        <circle cx="150" cy="150" r="100" fill="#2D3748" stroke="#1A202C" stroke-width="4"/>
+                        <circle cx="150" cy="150" r="85" fill="none" stroke="#4A5568" stroke-width="8"/>
+                        <line x1="150" y1="70" x2="150" y2="230" stroke="#4A5568" stroke-width="6"/>
+                        <line x1="70" y1="150" x2="230" y2="150" stroke="#4A5568" stroke-width="6"/>
+                    </g>
+
+                    <ellipse cx="100" cy="200" rx="20" ry="30" fill="#4299E1" opacity="0.8" transform="rotate(30 100 200)"/>
+                    <text x="100" y="205" text-anchor="middle" font-size="16">L</text>
+
+                    <path d="M 70 150 Q 70 170 100 200" stroke="#F56565" stroke-width="3" fill="none" stroke-dasharray="5,5" marker-end="url(#arrowred)"/>
+
+                    <defs>
+                        <marker id="arrowred" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#F56565"/>
+                        </marker>
+                    </defs>
+                </svg>
+                <p><strong>Pull down with left hand</strong> to about 6 o'clock</p>
+            </div>
+
+            <div class="step">
+                <h3>Step 3: Cross Over</h3>
+                <svg viewBox="0 0 300 300" class="steering-wheel">
+                    <g transform="rotate(30 150 150)">
+                        <circle cx="150" cy="150" r="100" fill="#2D3748" stroke="#1A202C" stroke-width="4"/>
+                        <circle cx="150" cy="150" r="85" fill="none" stroke="#4A5568" stroke-width="8"/>
+                        <line x1="150" y1="70" x2="150" y2="230" stroke="#4A5568" stroke-width="6"/>
+                        <line x1="70" y1="150" x2="230" y2="150" stroke="#4A5568" stroke-width="6"/>
+                    </g>
+
+                    <!-- Right hand crossing over -->
+                    <ellipse cx="85" cy="95" rx="20" ry="30" fill="#4299E1" opacity="0.8" transform="rotate(-20 85 95)"/>
+                    <text x="85" y="100" text-anchor="middle" font-size="16">R</text>
+
+                    <path d="M 230 150 Q 180 120 85 95" stroke="#ED8936" stroke-width="3" fill="none" stroke-dasharray="5,5" marker-end="url(#arroworange)"/>
+
+                    <defs>
+                        <marker id="arroworange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#ED8936"/>
+                        </marker>
+                    </defs>
+                </svg>
+                <p><strong>Right hand crosses over</strong> to grab the wheel at 12 o'clock</p>
+            </div>
+
+            <div class="step">
+                <h3>Step 4: Continue Turning</h3>
+                <p>Right hand pulls down while left hand releases and resets to 9 o'clock. Repeat if more steering is needed.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Key Differences -->
+    <div class="comparison">
+        <h2>4. When to Use Each Method</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Situation</th>
+                    <th>Feed-Through</th>
+                    <th>Cross-Over</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Highway lane changes</td>
+                    <td class="recommended">✓ Best choice</td>
+                    <td>Not needed</td>
+                </tr>
+                <tr>
+                    <td>Gentle curves</td>
+                    <td class="recommended">✓ Best choice</td>
+                    <td>Not needed</td>
+                </tr>
+                <tr>
+                    <td>Parallel parking</td>
+                    <td>Too slow</td>
+                    <td class="recommended">✓ Best choice</td>
+                </tr>
+                <tr>
+                    <td>Sharp turns</td>
+                    <td>Can work</td>
+                    <td class="recommended">✓ Faster</td>
+                </tr>
+                <tr>
+                    <td>3-point turns</td>
+                    <td>Not efficient</td>
+                    <td class="recommended">✓ Best choice</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Common Mistakes -->
+    <div class="mistakes">
+        <h2>5. Common Mistakes to Avoid</h2>
+        <div class="mistake-grid">
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>Crossing hands on airbag</h4>
+                <p>Never cross hands over the center of the steering wheel. If the airbag deploys, your arm could hit your face.</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>Gripping too tight</h4>
+                <p>A death grip causes fatigue. Hold firmly but relaxed, like holding a bird - secure but not crushing.</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>Palming the wheel</h4>
+                <p>Using just your palm to spin the wheel is unsafe - you can lose control if you hit a bump.</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>One-handed steering</h4>
+                <p>Always use both hands except when shifting gears or operating controls briefly.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Practice Tips -->
+    <div class="tips">
+        <h2>6. Practice Tips</h2>
+        <ul class="tip-list">
+            <li><strong>Start in a parking lot:</strong> Practice both methods at low speed until they feel natural</li>
+            <li><strong>Watch your hands:</strong> Initially, glance down to ensure proper hand placement</li>
+            <li><strong>Feel the wheel:</strong> Learn to sense the wheel position through your hands, not just visually</li>
+            <li><strong>Smooth transitions:</strong> Avoid jerky movements - smooth input = smooth car response</li>
+            <li><strong>Return to center:</strong> After turning, let the wheel self-center slightly, then guide it with light touch</li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交互式驾校学习 - 荷兰驾照理论</title>
+    <link rel="stylesheet" href="interactive-styles.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <h1>🚗 交互式驾校学习系统</h1>
+            <p class="subtitle">通过可视化、分步指导掌握驾驶技能</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <button class="nav-btn active" data-section="basics">🎯 基础知识</button>
+            <button class="nav-btn" data-section="maneuvers">🔄 驾驶操作</button>
+            <button class="nav-btn" data-section="parking">🅿️ 停车技巧</button>
+            <button class="nav-btn" data-section="intersections">🛣️ 路口规则</button>
+            <button class="nav-btn" data-section="roundabouts">⭕ 环岛驾驶</button>
+            <button class="nav-btn" data-section="signs">🚸 交通标志</button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Basics Section -->
+            <section id="basics" class="section active">
+                <div class="topic-grid">
+                    <!-- Gear Shifting -->
+                    <div class="topic-card" onclick="showTopic('gear-shifting')">
+                        <div class="topic-icon">⚙️</div>
+                        <h3>换挡方法</h3>
+                        <p>穿手法和交叉法技巧</p>
+                    </div>
+
+                    <!-- Seating Position -->
+                    <div class="topic-card" onclick="showTopic('seating')">
+                        <div class="topic-icon">💺</div>
+                        <h3>座椅调整</h3>
+                        <p>正确坐姿和后视镜调整</p>
+                    </div>
+
+                    <!-- Dashboard -->
+                    <div class="topic-card" onclick="showTopic('dashboard')">
+                        <div class="topic-icon">📊</div>
+                        <h3>仪表盘符号</h3>
+                        <p>警告灯和指示灯</p>
+                    </div>
+
+                    <!-- 2-Second Rule -->
+                    <div class="topic-card" onclick="showTopic('following-distance')">
+                        <div class="topic-icon">⏱️</div>
+                        <h3>跟车距离</h3>
+                        <p>两秒法则和安全距离</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Maneuvers Section -->
+            <section id="maneuvers" class="section">
+                <div class="topic-grid">
+                    <div class="topic-card" onclick="showTopic('reversing')">
+                        <div class="topic-icon">⏪</div>
+                        <h3>倒车技巧</h3>
+                        <p>安全倒车方法</p>
+                    </div>
+
+                    <div class="topic-card" onclick="showTopic('3-point-turn')">
+                        <div class="topic-icon">🔃</div>
+                        <h3>三点掉头</h3>
+                        <p>狭窄空间掉头技巧</p>
+                    </div>
+
+                    <div class="topic-card" onclick="showTopic('2-point-turn')">
+                        <div class="topic-icon">🔃</div>
+                        <h3>两点掉头</h3>
+                        <p>利用车道掉头</p>
+                    </div>
+
+                    <div class="topic-card" onclick="showTopic('u-turn')">
+                        <div class="topic-icon">↩️</div>
+                        <h3>U型转弯</h3>
+                        <p>半圆掉头技巧</p>
+                    </div>
+
+                    <div class="topic-card" onclick="showTopic('emergency-stop')">
+                        <div class="topic-icon">🛑</div>
+                        <h3>紧急停车</h3>
+                        <p>紧急制动技巧</p>
+                    </div>
+
+                    <div class="topic-card" onclick="showTopic('highway-entry-exit')">
+                        <div class="topic-icon">🛣️</div>
+                        <h3>高速公路驶入驶出</h3>
+                        <p>加速车道和减速车道使用</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Parking Section -->
+            <section id="parking" class="section">
+                <div class="topic-grid">
+                    <div class="topic-card" onclick="showTopic('parallel-forward')">
+                        <div class="topic-icon">🅿️</div>
+                        <h3>前进式侧方停车</h3>
+                        <p>向前侧方位停车</p>
+                    </div>
+
+                    <div class="topic-card" onclick="showTopic('parallel-reverse')">
+                        <div class="topic-icon">🅿️</div>
+                        <h3>倒车式侧方停车</h3>
+                        <p>经典侧方位停车技巧</p>
+                    </div>
+
+                    <div class="topic-card" onclick="showTopic('perpendicular-forward')">
+                        <div class="topic-icon">🅿️</div>
+                        <h3>前进式垂直停车</h3>
+                        <p>90度车头朝内停车</p>
+                    </div>
+
+                    <div class="topic-card" onclick="showTopic('perpendicular-reverse')">
+                        <div class="topic-icon">🅿️</div>
+                        <h3>倒车式垂直停车</h3>
+                        <p>倒车入库技巧</p>
+                    </div>
+
+                    <div class="topic-card" onclick="showTopic('diagonal-reverse')">
+                        <div class="topic-icon">🅿️</div>
+                        <h3>倒车斜角停车</h3>
+                        <p>45-60度角停车</p>
+                    </div>
+
+                    <div class="topic-card" onclick="showTopic('diagonal-forward')">
+                        <div class="topic-icon">🅿️</div>
+                        <h3>前进斜角停车</h3>
+                        <p>最简单的停车方式</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Intersections Section -->
+            <section id="intersections" class="section">
+                <div class="topic-grid">
+                    <div class="topic-card" onclick="showTopic('right-turn')">
+                        <div class="topic-icon">➡️</div>
+                        <h3>路口右转</h3>
+                        <p>右转技巧和自行车让行</p>
+                    </div>
+
+                    <div class="topic-card" onclick="showTopic('left-turn')">
+                        <div class="topic-icon">⬅️</div>
+                        <h3>路口左转</h3>
+                        <p>左转技巧和优先权规则</p>
+                    </div>
+
+                    <div class="topic-card" onclick="showTopic('intersection-approach')">
+                        <div class="topic-icon">🚦</div>
+                        <h3>路口接近与穿越</h3>
+                        <p>信号灯和优先权规则</p>
+                    </div>
+
+                    <div class="topic-card" onclick="showTopic('pedestrian-rules')">
+                        <div class="topic-icon">🚶</div>
+                        <h3>行人规则</h3>
+                        <p>斑马线和行人让行</p>
+                    </div>
+
+                    <div class="topic-card" onclick="showTopic('intersection-types')">
+                        <div class="topic-icon">🔀</div>
+                        <h3>路口类型与优先权</h3>
+                        <p>让右先行和优先权规则</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Roundabouts Section -->
+            <section id="roundabouts" class="section">
+                <div class="topic-grid">
+                    <div class="topic-card" onclick="showTopic('standard-roundabout')">
+                        <div class="topic-icon">⭕</div>
+                        <h3>标准环岛</h3>
+                        <p>环岛进入、行驶和驶出规则</p>
+                    </div>
+
+                    <div class="topic-card" onclick="showTopic('turbo-roundabout')">
+                        <div class="topic-icon">🌀</div>
+                        <h3>涡轮环岛</h3>
+                        <p>带物理隔离的高效环岛</p>
+                    </div>
+
+                    <div class="topic-card" onclick="showTopic('roundabout-cyclists')">
+                        <div class="topic-icon">🚲</div>
+                        <h3>环岛自行车让行</h3>
+                        <p>自行车优先权规则（考试重点）</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="signs" class="section">
+                <h2>交通标志 - 即将推出</h2>
+            </section>
+        </main>
+
+        <!-- Modal for detailed topic view -->
+        <div id="topicModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div id="modalBody"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="interactive-app.js"></script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<div class="topic-detail">
+    <h1>🅿️ 前进垂直停车技巧</h1>
+
+    <div class="intro">
+        <p><strong>什么是前进垂直停车：</strong>车辆向前直接驶入与车道成90度角的车位，车头朝内。相比倒车停车，这种方法速度更快，适合宽敞车位和快速停车场景。但由于前轮转向的局限性，对空间要求更高，且离开时需要倒车。</p>
+    </div>
+
+    <!-- 步骤图示 -->
+    <div class="diagram-section">
+        <h2>前进垂直停车过程</h2>
+        <div class="svg-container">
+            <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                <!-- 停车场区域 -->
+                <rect x="0" y="0" width="800" height="600" fill="#E2E8F0"/>
+
+                <!-- 车位标线 -->
+                <rect x="500" y="100" width="200" height="400" fill="#FFFFFF" stroke="#718096" stroke-width="3"/>
+                <line x1="500" y1="100" x2="500" y2="500" stroke="#FFD700" stroke-width="4"/>
+                <line x1="700" y1="100" x2="700" y2="500" stroke="#FFFFFF" stroke-width="4"/>
+
+                <!-- 相邻车位 -->
+                <rect x="300" y="100" width="200" height="400" fill="#FFFFFF" stroke="#718096" stroke-width="3" opacity="0.3"/>
+
+                <!-- 已停车辆（相邻） -->
+                <g transform="translate(350, 150) rotate(90)">
+                    <rect x="0" y="0" width="120" height="60" rx="5" fill="#A0AEC0"/>
+                    <rect x="10" y="10" width="30" height="40" fill="#E2E8F0"/>
+                </g>
+
+                <!-- 车道 -->
+                <rect x="0" y="0" width="500" height="150" fill="#4A5568" opacity="0.2"/>
+
+                <!-- 步骤1：接近位置 -->
+                <g id="forward-approach">
+                    <rect x="200" y="50" width="120" height="60" rx="5" fill="#4299E1" opacity="0.5"/>
+                    <text x="220" y="90" font-size="16" fill="#2D3748" font-weight="bold">步骤1</text>
+                    <text x="205" y="130" font-size="14" fill="#2D3748">接近车位</text>
+                </g>
+
+                <!-- 距离标注 -->
+                <line x1="320" y1="80" x2="500" y2="80" stroke="#E53E3E" stroke-width="2" stroke-dasharray="5,5"/>
+                <text x="380" y="70" font-size="14" fill="#E53E3E" font-weight="bold">~2-2.5米</text>
+
+                <!-- 步骤2：开始转向 -->
+                <g id="forward-turning">
+                    <rect x="350" y="90" width="120" height="60" rx="5" fill="#4299E1" opacity="0.7" transform="rotate(20 410 120)"/>
+                    <text x="370" y="130" font-size="16" fill="#FFFFFF" font-weight="bold">步骤2</text>
+                </g>
+
+                <!-- 转向箭头 -->
+                <path d="M 260 80 Q 350 100, 430 140" stroke="#ED8936" stroke-width="4" fill="none" marker-end="url(#arroworange5)" stroke-dasharray="8,4"/>
+                <text x="300" y="110" font-size="14" fill="#ED8936" font-weight="bold">前进转向</text>
+
+                <!-- 步骤3：调整角度 -->
+                <g id="forward-adjusting">
+                    <rect x="480" y="180" width="120" height="60" rx="5" fill="#4299E1" opacity="0.85" transform="rotate(70 540 210)"/>
+                    <text x="510" y="220" font-size="16" fill="#FFFFFF" font-weight="bold">步骤3</text>
+                </g>
+
+                <!-- 步骤4：最终位置 -->
+                <g id="forward-final" transform="translate(540, 350) rotate(90)">
+                    <rect x="0" y="0" width="120" height="60" rx="5" fill="#48BB78"/>
+                    <rect x="10" y="10" width="30" height="40" fill="#E2E8F0"/>
+                    <circle cx="15" cy="15" r="6" fill="#2D3748"/>
+                    <circle cx="35" cy="15" r="6" fill="#2D3748"/>
+                    <circle cx="15" cy="45" r="6" fill="#2D3748"/>
+                    <circle cx="35" cy="45" r="6" fill="#2D3748"/>
+                    <text x="30" y="80" font-size="16" fill="#2D3748" font-weight="bold">完成</text>
+                </g>
+
+                <!-- 回正箭头 -->
+                <path d="M 540 210 Q 560 280, 570 340" stroke="#48BB78" stroke-width="4" fill="none" marker-end="url(#arrowgreen5)"/>
+                <text x="520" y="270" font-size="14" fill="#48BB78" font-weight="bold">回正前进</text>
+
+                <!-- 参照物标记 -->
+                <circle cx="500" cy="100" r="10" fill="#F59E0B"/>
+                <text x="450" y="90" font-size="13" fill="#F59E0B" font-weight="bold">黄线起点</text>
+
+                <!-- 箭头标记定义 -->
+                <defs>
+                    <marker id="arroworange5" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#ED8936"/>
+                    </marker>
+                    <marker id="arrowgreen5" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#48BB78"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+        <div class="explanation">
+            <strong>图解说明：</strong>橙色箭头=前进转向路径，绿色箭头=回正继续前进。红色虚线表示与车位保持2-2.5米的距离（比倒车停车需要更宽）。
+        </div>
+    </div>
+
+    <!-- 详细步骤 -->
+    <div class="method-section">
+        <h2>详细操作步骤</h2>
+        <div class="steering-demo">
+            <div class="step">
+                <h3>步骤1：选择车位并接近</h3>
+                <p><strong>检查：</strong></p>
+                <ul class="tip-list">
+                    <li>确认车位足够宽敞（前进停车需要更大空间）</li>
+                    <li>理想车位宽度：至少3.5米（比倒车停车多需要0.5米）</li>
+                    <li>观察两侧车位情况</li>
+                    <li>打右转向灯（如果车位在右侧）</li>
+                </ul>
+                <p><strong>操作：</strong>缓慢前进，与目标车位保持约2-2.5米的平行距离</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤2：确定转向起始点</h3>
+                <p><strong>关键参照点：</strong>当你的车头（前保险杠）与目标车位的<strong>起始线（黄线）</strong>对齐时</p>
+                <p><strong>为什么是车头：</strong>前进停车时，前轮负责转向，所以参照点在车头而不是后视镜</p>
+                <p><strong>距离：</strong>确保与车位保持2-2.5米的横向距离</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤3：开始转向</h3>
+                <p><strong>操作：</strong>当车头对齐黄线后，向右打满方向盘，开始向车位方向转向</p>
+                <p><strong>速度：</strong>保持步行速度（5-10公里/小时）</p>
+                <p><strong>观察：</strong></p>
+                <ul class="tip-list">
+                    <li><strong>右侧：</strong>观察右侧车辆或障碍物，确保车头不会刮蹭</li>
+                    <li><strong>左侧：</strong>确保车尾不会扫到左侧车辆</li>
+                    <li><strong>前方：</strong>观察车位内是否有障碍物</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>步骤4：调整进入角度</h3>
+                <p><strong>目标：</strong>使车辆以约45-60度角接近车位</p>
+                <p><strong>观察车头：</strong>确保车头对准车位中央</p>
+                <p><strong>左侧盲区：</strong>特别注意车尾左侧，这是前进停车最危险的盲区</p>
+                <p><strong>微调：</strong>根据车头位置小幅度调整方向盘</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤5：回正方向盘</h3>
+                <p><strong>时机：</strong>当车身与车位标线接近垂直（约80-85度）时</p>
+                <p><strong>操作：</strong>逐渐回正方向盘，继续前进驶入车位</p>
+                <p><strong>观察：</strong>通过车窗观察两侧距离，确保车身居中</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤6：前进到位</h3>
+                <p><strong>观察前方：</strong>注意车位内的墙壁、栏杆或地面标记</p>
+                <p><strong>停车时机：</strong>距离前方障碍物约30-50厘米时停车</p>
+                <p><strong>注意：</strong>不要完全开到头，留出安全距离</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤7：检查和调整</h3>
+                <p><strong>检查清单：</strong></p>
+                <ul class="tip-list">
+                    <li>车身是否在车位标线内</li>
+                    <li>两侧距离是否均匀（各约50-60厘米）</li>
+                    <li>车尾是否超出车位</li>
+                    <li>如需调整，倒车或前进修正位置</li>
+                </ul>
+                <p><strong>完成：</strong>挂P挡（自动挡）或R挡（手动挡），拉手刹，熄火</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 前进 vs 倒车停车对比 -->
+    <div class="comparison">
+        <h2>前进垂直停车 vs 倒车垂直停车</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>特点</th>
+                    <th>前进垂直停车</th>
+                    <th>倒车垂直停车</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>停车速度</strong></td>
+                    <td class="recommended">快（~15秒）</td>
+                    <td>中等（~30秒）</td>
+                </tr>
+                <tr>
+                    <td><strong>所需空间</strong></td>
+                    <td>较大（2-2.5米+宽车位）</td>
+                    <td class="recommended">较小（1.5米+标准车位）</td>
+                </tr>
+                <tr>
+                    <td><strong>车位宽度要求</strong></td>
+                    <td>较宽（≥3.5米）</td>
+                    <td class="recommended">标准（≥3米）</td>
+                </tr>
+                <tr>
+                    <td><strong>停车难度</strong></td>
+                    <td>较难（前轮转向限制）</td>
+                    <td class="recommended">较容易</td>
+                </tr>
+                <tr>
+                    <td><strong>可视性</strong></td>
+                    <td class="recommended">好（直接视线）</td>
+                    <td>一般（通过镜子）</td>
+                </tr>
+                <tr>
+                    <td><strong>离开难度</strong></td>
+                    <td>困难（需倒车）</td>
+                    <td class="recommended">容易（前进驶出）</td>
+                </tr>
+                <tr>
+                    <td><strong>车尾盲区</strong></td>
+                    <td>大（左后方）</td>
+                    <td class="recommended">小</td>
+                </tr>
+                <tr>
+                    <td><strong>适用场景</strong></td>
+                    <td class="recommended">宽敞车位，快速停车，短时停留</td>
+                    <td>狭窄车位，购物中心，长时停留</td>
+                </tr>
+                <tr>
+                    <td><strong>推荐度</strong></td>
+                    <td>仅在空间充足时</td>
+                    <td class="recommended">首选方法</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 为什么倒车停车更好 -->
+    <div class="method-section" style="background: #FFF7ED; border-left: 4px solid #F59E0B;">
+        <h2>💡 为什么倒车停车通常更好？</h2>
+
+        <div style="margin-top: 1rem;">
+            <h3 style="color: #C05621;">1. 后轮转向原理</h3>
+            <p>倒车时，后轮成为"转向轮"（通过前轮转向传导），提供更小的转弯半径和更高的灵活性。前进时，前轮虽然转向，但受到车身长度的限制。</p>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C05621;">2. 离开时更安全</h3>
+            <p>倒车停车后，离开时是前进驶出，视野好，安全性高。前进停车后需要倒车离开，在繁忙停车场很危险。</p>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C05621;">3. 空间要求更低</h3>
+            <p>倒车停车只需1.5米宽的车道和标准3米宽车位。前进停车需要2-2.5米车道和3.5米宽车位，很多车位达不到。</p>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C05621;">4. 何时使用前进停车？</h3>
+            <ul class="tip-list">
+                <li><strong>超宽车位：</strong>车位宽度明显超过3.5米，空间充裕</li>
+                <li><strong>短时停留：</strong>只停几分钟，快进快出</li>
+                <li><strong>需要打开后备箱：</strong>后备箱朝外方便取物</li>
+                <li><strong>练习技能：</strong>为了练习前进停车和倒车离开的技能</li>
+                <li><strong>紧急情况：</strong>需要快速停车，没时间倒车</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 常见错误 -->
+    <div class="mistakes">
+        <h2>常见错误</h2>
+        <div class="mistake-grid">
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>距离车位太近</h4>
+                <p>前进停车需要2-2.5米距离。如果只有1.5米（倒车停车的距离），前轮转向半径不够，无法有效进入车位。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>转向起始点太早或太晚</h4>
+                <p>必须等车头对齐黄线才转向。太早转向会导致车尾扫到左侧；太晚转向会导致车头撞右侧。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>忽视左后方盲区</h4>
+                <p>前进停车时，车尾左后方是最大盲区。车尾可能扫到左侧车辆而你看不见。必须多次观察左侧镜。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>选择太窄的车位</h4>
+                <p>前进停车至少需要3.5米宽的车位。在标准3米车位强行前进停车会非常困难且容易刮蹭。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>速度过快</h4>
+                <p>前进停车的可控性本来就差，速度过快会让情况更糟。必须保持步行速度。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>开得太深</h4>
+                <p>前进停车时容易低估距离，开得过深导致撞墙或栏杆。应在距离障碍物30-50厘米时停车。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>忘记回正方向盘</h4>
+                <p>如果不及时回正，车辆会以斜角停在车位里，占用过多空间或压线。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>离开时倒车不观察</h4>
+                <p>前进停车后必须倒车离开。倒车离开时，后方是行车道，必须非常谨慎，充分观察后方来车和行人。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 专业建议 -->
+    <div class="tips">
+        <h2>专业建议</h2>
+        <ul class="tip-list">
+            <li><strong>优先选择倒车停车：</strong>除非有充分理由，否则倒车停车是更好的选择</li>
+            <li><strong>确认车位够宽：</strong>至少3.5米宽，否则使用倒车停车</li>
+            <li><strong>保持2-2.5米距离：</strong>这是前进停车的关键距离</li>
+            <li><strong>车头对齐黄线：</strong>这是最可靠的转向起始点</li>
+            <li><strong>快速打满方向盘：</strong>获得最大转向角度</li>
+            <li><strong>持续观察左后方：</strong>这是最危险的盲区</li>
+            <li><strong>保持低速：</strong>5-10公里/小时，便于观察和调整</li>
+            <li><strong>留出前方空间：</strong>距离障碍物至少30厘米</li>
+            <li><strong>检查两侧距离：</strong>确保各有50-60厘米空间方便开门</li>
+            <li><strong>离开时极度谨慎：</strong>倒车离开时后方是活跃的行车道，非常危险</li>
+            <li><strong>使用倒车影像：</strong>离开时一定使用倒车摄像头和雷达</li>
+            <li><strong>考虑后备箱需求：</strong>如果需要频繁使用后备箱，前进停车更方便</li>
+        </ul>
+    </div>
+
+    <!-- 倒车离开技巧 -->
+    <div class="method-section" style="background: #FDECEA; border-left: 4px solid #E53E3E;">
+        <h2>⚠️ 倒车离开技巧（重要！）</h2>
+        <p>前进停车后需要倒车离开，这是整个过程中最危险的环节：</p>
+
+        <ol style="padding-left: 1.5rem; margin-top: 1rem;">
+            <li><strong>上车前观察：</strong>绕车一周，观察车位周围是否有新的障碍物或购物车</li>
+            <li><strong>调整后视镜：</strong>确保后视镜角度能看清车位两侧</li>
+            <li><strong>启动倒车影像：</strong>如果有倒车摄像头，一定使用</li>
+            <li><strong>缓慢倒车：</strong>速度不超过步行速度</li>
+            <li><strong>观察顺序：</strong>
+                <ul class="tip-list">
+                    <li>先看左右后视镜，确认车位两侧无障碍</li>
+                    <li>转头看后方行车道，观察来车</li>
+                    <li>再看倒车影像（如果有）</li>
+                    <li>交替观察，不要只看一个方向</li>
+                </ul>
+            </li>
+            <li><strong>当车尾出车位一半时：</strong>停车，再次观察左右来车</li>
+            <li><strong>优先让行：</strong>行车道上的车辆有优先权，耐心等待</li>
+            <li><strong>转向时机：</strong>车尾完全离开车位后，才开始转向进入行车道</li>
+            <li><strong>打转向灯：</strong>准备进入行车道前打转向灯</li>
+            <li><strong>加速融入：</strong>安全进入行车道后，及时加速到正常行驶速度</li>
+        </ol>
+    </div>
+
+    <!-- 练习建议 -->
+    <div class="method-section" style="background: #EBF8FF; border-left: 4px solid #2B6CB0;">
+        <h2>练习建议</h2>
+        <ol style="padding-left: 1.5rem;">
+            <li><strong>先掌握倒车停车：</strong>倒车停车是基础，先练熟再学前进停车</li>
+            <li><strong>找宽敞车位：</strong>选择明显大于3.5米的车位练习</li>
+            <li><strong>标记距离：</strong>用路锥标记2-2.5米的距离线</li>
+            <li><strong>练习参照点：</strong>反复练习"车头对齐黄线"的感觉</li>
+            <li><strong>观察盲区：</strong>特别练习观察左后方车尾盲区</li>
+            <li><strong>对比练习：</strong>在同一车位分别练习前进和倒车停车，体会差异</li>
+            <li><strong>重点练习倒车离开：</strong>这是前进停车最困难的部分</li>
+            <li><strong>模拟繁忙场景：</strong>让朋友开车经过，模拟倒车离开时的真实压力</li>
+            <li><strong>不同车位宽度：</strong>从宽到窄逐步练习，了解自己的极限</li>
+            <li><strong>实际应用：</strong>只在确实合适的情况下使用前进停车</li>
+        </ol>
+    </div>
+
+    <!-- 考试要点 -->
+    <div class="method-section" style="background: #FEF5E7; border-left: 4px solid #D4AC0D;">
+        <h2>📝 考试要点</h2>
+        <p>在驾驶考试中，前进垂直停车通常不作为主要考核项目，但可能在特定场景下要求：</p>
+        <ul class="tip-list">
+            <li><strong>✅ 选择合适车位：</strong>考官会指定足够宽的车位</li>
+            <li><strong>✅ 不压线：</strong>车身完全在车位标线内</li>
+            <li><strong>✅ 位置居中：</strong>两侧距离大致相等</li>
+            <li><strong>✅ 充分观察：</strong>转向前和过程中多次观察周围</li>
+            <li><strong>✅ 倒车离开：</strong>离开时必须充分观察后方交通</li>
+            <li><strong>⚠️ 倒车停车优先：</strong>如果考官未指定方式，优先选择倒车停车</li>
+            <li><strong>❌ 自动失败：</strong>碰撞车位标记物、压线、碰到其他车辆</li>
+        </ul>
+    </div>
+</div>

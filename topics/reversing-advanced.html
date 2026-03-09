@@ -1,0 +1,428 @@
+<div class="topic-detail">
+    <h1>⏪ 直线和转弯倒车技巧</h1>
+
+    <div class="intro">
+        <p><strong>什么是直线和转弯倒车：</strong>这是高级倒车技能，包括直线倒车和在倒车时进行转向调整。这些技能是停车操作和掉头的基础。</p>
+    </div>
+
+    <!-- 直线倒车图示 -->
+    <div class="diagram-section">
+        <h2>1. 直线倒车</h2>
+        <div class="svg-container">
+            <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+                <!-- 道路 -->
+                <rect x="100" y="0" width="200" height="600" fill="#A0AEC0"/>
+                <line x1="100" y1="0" x2="100" y2="600" stroke="#FFFFFF" stroke-width="3"/>
+                <line x1="300" y1="0" x2="300" y2="600" stroke="#FFFFFF" stroke-width="3"/>
+                <line x1="200" y1="0" x2="200" y2="600" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="15,10"/>
+
+                <!-- 人行道 -->
+                <rect x="0" y="0" width="100" height="600" fill="#48BB78" opacity="0.3"/>
+                <rect x="300" y="0" width="100" height="600" fill="#48BB78" opacity="0.3"/>
+                <rect x="80" y="0" width="20" height="600" fill="#718096"/>
+                <rect x="300" y="0" width="20" height="600" fill="#718096"/>
+
+                <!-- 车辆起始位置 -->
+                <g id="straight-start">
+                    <rect x="170" y="100" width="60" height="100" rx="5" fill="#4299E1"/>
+                    <rect x="180" y="110" width="40" height="30" fill="#E2E8F0"/>
+                    <circle cx="185" cy="110" r="8" fill="#2D3748"/>
+                    <circle cx="215" cy="110" r="8" fill="#2D3748"/>
+                    <circle cx="185" cy="190" r="8" fill="#2D3748"/>
+                    <circle cx="215" cy="190" r="8" fill="#2D3748"/>
+                    <text x="150" y="230" font-size="16" fill="#FFFFFF" font-weight="bold">起点</text>
+                </g>
+
+                <!-- 直线倒车轨迹 -->
+                <path d="M 200 220 L 200 480"
+                      stroke="#ED8936"
+                      stroke-width="6"
+                      fill="none"
+                      marker-end="url(#arroworange3)"
+                      stroke-dasharray="10,5"/>
+
+                <!-- 车辆终点位置 -->
+                <g id="straight-end">
+                    <rect x="170" y="450" width="60" height="100" rx="5" fill="#48BB78" opacity="0.7"/>
+                    <rect x="180" y="460" width="40" height="30" fill="#E2E8F0"/>
+                    <circle cx="185" cy="460" r="8" fill="#2D3748"/>
+                    <circle cx="215" cy="460" r="8" fill="#2D3748"/>
+                    <circle cx="185" cy="540" r="8" fill="#2D3748"/>
+                    <circle cx="215" cy="540" r="8" fill="#2D3748"/>
+                    <text x="150" y="580" font-size="16" fill="#FFFFFF" font-weight="bold">终点</text>
+                </g>
+
+                <!-- 距离保持标注 -->
+                <line x1="100" y1="350" x2="170" y2="350" stroke="#F56565" stroke-width="2" stroke-dasharray="5,5"/>
+                <text x="110" y="340" font-size="12" fill="#F56565" font-weight="bold">保持约0.5m</text>
+
+                <!-- 箭头标记 -->
+                <defs>
+                    <marker id="arroworange3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#ED8936"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+        <p class="explanation"><strong>直线倒车：</strong>保持车辆与道路边缘平行，匀速倒车。橙色虚线=倒车轨迹。</p>
+    </div>
+
+    <!-- 转弯倒车图示 -->
+    <div class="diagram-section">
+        <h2>2. 转弯倒车（右转为例）</h2>
+        <div class="svg-container">
+            <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                <!-- 主干道 -->
+                <rect x="0" y="200" width="600" height="200" fill="#A0AEC0"/>
+                <line x1="0" y1="200" x2="600" y2="200" stroke="#FFFFFF" stroke-width="3"/>
+                <line x1="0" y1="400" x2="600" y2="400" stroke="#FFFFFF" stroke-width="3"/>
+                <line x1="0" y1="300" x2="600" y2="300" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="15,10"/>
+
+                <!-- 侧路 -->
+                <rect x="400" y="0" width="200" height="200" fill="#A0AEC0"/>
+                <line x1="400" y1="0" x2="400" y2="200" stroke="#FFFFFF" stroke-width="3"/>
+                <line x1="600" y1="0" x2="600" y2="200" stroke="#FFFFFF" stroke-width="3"/>
+                <line x1="500" y1="0" x2="500" y2="200" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="15,10"/>
+
+                <!-- 转角 -->
+                <path d="M 400 200 Q 400 200, 400 200" fill="#A0AEC0"/>
+
+                <!-- 车辆起始位置 -->
+                <g id="turn-start">
+                    <rect x="470" y="270" width="60" height="100" rx="5" fill="#4299E1"/>
+                    <rect x="480" y="280" width="40" height="30" fill="#E2E8F0"/>
+                    <circle cx="485" cy="280" r="8" fill="#2D3748"/>
+                    <circle cx="515" cy="280" r="8" fill="#2D3748"/>
+                    <circle cx="485" cy="360" r="8" fill="#2D3748"/>
+                    <circle cx="515" cy="360" r="8" fill="#2D3748"/>
+                    <text x="545" y="320" font-size="16" fill="#FFFFFF" font-weight="bold">起点</text>
+                </g>
+
+                <!-- 转弯倒车轨迹 -->
+                <path d="M 500 250 Q 480 220, 480 100"
+                      stroke="#ED8936"
+                      stroke-width="6"
+                      fill="none"
+                      marker-end="url(#arroworange4)"
+                      stroke-dasharray="10,5"/>
+
+                <!-- 车辆终点位置 -->
+                <g id="turn-end">
+                    <rect x="450" y="50" width="60" height="100" rx="5" fill="#48BB78" opacity="0.7"/>
+                    <rect x="460" y="60" width="40" height="30" fill="#E2E8F0"/>
+                    <circle cx="465" cy="60" r="8" fill="#2D3748"/>
+                    <circle cx="495" cy="60" r="8" fill="#2D3748"/>
+                    <circle cx="465" cy="140" r="8" fill="#2D3748"/>
+                    <circle cx="495" cy="140" r="8" fill="#2D3748"/>
+                    <text x="520" y="100" font-size="16" fill="#FFFFFF" font-weight="bold">终点</text>
+                </g>
+
+                <!-- 观察区域标注 -->
+                <ellipse cx="450" cy="180" rx="80" ry="100" fill="#F56565" opacity="0.1" stroke="#F56565" stroke-width="2" stroke-dasharray="5,5"/>
+                <text x="380" y="160" font-size="14" fill="#F56565" font-weight="bold">盲区！</text>
+                <text x="370" y="180" font-size="12" fill="#F56565">转头观察</text>
+
+                <!-- 箭头标记 -->
+                <defs>
+                    <marker id="arroworange4" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#ED8936"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+        <p class="explanation"><strong>转弯倒车：</strong>倒车同时转向进入侧路。橙色虚线=倒车转弯轨迹，红色区域=盲区需特别观察。</p>
+    </div>
+
+    <!-- 详细步骤：直线倒车 -->
+    <div class="method-section">
+        <h2>直线倒车步骤</h2>
+        <div class="steering-demo">
+            <div class="step">
+                <h3>1. 我可以在这里停车吗？</h3>
+                <p><strong>检查：</strong></p>
+                <ul class="tip-list">
+                    <li>查看禁止停车标志</li>
+                    <li>确保不阻塞车道、入口或消防栓</li>
+                    <li>确认倒车路线上无障碍物</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>2. 停车并观察</h3>
+                <p><strong>操作：</strong>停在道路右侧，距离人行道约0.5米</p>
+                <p><strong>观察：</strong>检查所有后视镜和两侧盲区</p>
+            </div>
+
+            <div class="step">
+                <h3>3. 开始倒车</h3>
+                <p><strong>操作：</strong></p>
+                <ul class="tip-list">
+                    <li>挂倒挡</li>
+                    <li>转身，右臂放在副驾驶座椅靠背上</li>
+                    <li>从右肩向后看</li>
+                    <li>以步行速度（5公里/小时）倒车</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>4. 保持直线</h3>
+                <p><strong>技巧：</strong>通过后窗观察道路边缘线，保持车辆与其平行</p>
+                <p><strong>微调：</strong>如果车辆偏离，轻微转动方向盘纠正</p>
+            </div>
+
+            <div class="step">
+                <h3>5. 持续观察</h3>
+                <p><strong>主要看：</strong>后方和倒车方向</p>
+                <p><strong>也要看：</strong>定期检查前方和两侧（每3-5秒）</p>
+            </div>
+
+            <div class="step">
+                <h3>6. 纠正偏离</h3>
+                <p><strong>如果向左偏：</strong>方向盘向右转</p>
+                <p><strong>如果向右偏：</strong>方向盘向左转</p>
+                <p><strong>注意：</strong>纠正后要立即回正方向盘</p>
+            </div>
+
+            <div class="step">
+                <h3>7. 停车</h3>
+                <p><strong>何时停：</strong>到达目标位置或需要重新观察时</p>
+                <p><strong>操作：</strong>停车后挂空挡或P挡</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 详细步骤：转弯倒车 -->
+    <div class="method-section">
+        <h2>转弯倒车步骤</h2>
+        <div class="steering-demo">
+            <div class="step">
+                <h3>1. 定位起始位置</h3>
+                <p><strong>位置：</strong>停在转弯口前，车身与道路边缘平行</p>
+                <p><strong>距离：</strong>距离转角约1-2车身长度</p>
+            </div>
+
+            <div class="step">
+                <h3>2. 全方位观察</h3>
+                <p><strong>特别注意：</strong></p>
+                <ul class="tip-list">
+                    <li>转向侧的盲区（右转倒车时的右后方）</li>
+                    <li>可能从侧路出来的车辆或行人</li>
+                    <li>主干道上的来车</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>3. 缓慢倒车并开始转向</h3>
+                <p><strong>时机：</strong>当车辆后部接近转角时开始转动方向盘</p>
+                <p><strong>速度：</strong>保持步行速度（5公里/小时）</p>
+                <p><strong>转向：</strong>向要进入的方向打方向盘（右转倒车则向右打）</p>
+            </div>
+
+            <div class="step">
+                <h3>4. 控制转向角度</h3>
+                <p><strong>观察：</strong>通过后视镜和转头观察车辆与侧路边缘的关系</p>
+                <p><strong>调整：</strong>根据需要调整方向盘转动幅度</p>
+            </div>
+
+            <div class="step">
+                <h3>5. 完成转向</h3>
+                <p><strong>操作：</strong>车辆完全进入侧路后，回正方向盘</p>
+                <p><strong>位置：</strong>保持车身与侧路平行，距边缘约0.5米</p>
+            </div>
+
+            <div class="step">
+                <h3>6. 停车并准备前进</h3>
+                <p><strong>停车：</strong>在安全位置停车</p>
+                <p><strong>观察：</strong>准备从侧路驶回主干道前，再次全方位观察</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 对比表格 -->
+    <div class="comparison">
+        <h2>直线倒车 vs 转弯倒车</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>特点</th>
+                    <th>直线倒车</th>
+                    <th>转弯倒车</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>难度</strong></td>
+                    <td class="recommended">较简单</td>
+                    <td>较复杂</td>
+                </tr>
+                <tr>
+                    <td><strong>主要观察方向</strong></td>
+                    <td>正后方</td>
+                    <td>后方+转向侧</td>
+                </tr>
+                <tr>
+                    <td><strong>方向盘操作</strong></td>
+                    <td class="recommended">保持直线或微调</td>
+                    <td>需要转动</td>
+                </tr>
+                <tr>
+                    <td><strong>盲区风险</strong></td>
+                    <td class="recommended">较低</td>
+                    <td>较高</td>
+                </tr>
+                <tr>
+                    <td><strong>常用场景</strong></td>
+                    <td>靠边停车、调整位置</td>
+                    <td>倒车入库、进入侧路</td>
+                </tr>
+                <tr>
+                    <td><strong>观察频率</strong></td>
+                    <td>主要看后方</td>
+                    <td class="recommended">需频繁转头</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 常见错误 -->
+    <div class="mistakes">
+        <h2>常见错误</h2>
+        <div class="mistake-grid">
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>只看后视镜</h4>
+                <p>后视镜有盲区！必须转身向后看。依赖后视镜会导致看不到行人、儿童或小障碍物。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>速度过快</h4>
+                <p>倒车速度必须保持在步行速度（5公里/小时）。速度过快会导致反应时间不足。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>不持续观察</h4>
+                <p>一个孩子可能在1秒内跑到车后。必须持续扫视所有方向，不能只看一个方向。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>长距离倒车</h4>
+                <p>倒车超过50米是危险的。如果需要倒很远，考虑掉头后前进，这样更安全。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>纠正过度</h4>
+                <p>发现偏离时，轻微转动方向盘即可。过度纠正会导致车辆来回摆动。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>转弯时机不对</h4>
+                <p>转弯倒车时过早或过晚转向都会导致位置不佳。应该在后轮接近转角时开始转向。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>忽略盲区</h4>
+                <p>转弯倒车时，转向侧的盲区特别大。必须转头直接观察，不能只看后视镜。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>忘记回正方向盘</h4>
+                <p>纠正偏离后或完成转弯后必须回正方向盘。否则下次前进时车辆会突然转向。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 专业建议 -->
+    <div class="tips">
+        <h2>专业建议</h2>
+        <ul class="tip-list">
+            <li><strong>正确姿势：</strong>右臂搭在副驾座椅靠背上，从右肩向后看</li>
+            <li><strong>步行速度：</strong>5公里/小时是理想的倒车速度</li>
+            <li><strong>左手控制：</strong>左手放在方向盘12点钟位置，便于精确控制</li>
+            <li><strong>持续观察：</strong>每3-5秒检查一次前方和两侧</li>
+            <li><strong>使用参照物：</strong>利用后窗看路边线、停车线等参照物</li>
+            <li><strong>微调为主：</strong>轻微的方向盘调整比大幅度转动更好</li>
+            <li><strong>随时准备停：</strong>脚随时放在刹车上，准备立即停车</li>
+            <li><strong>转头观察盲区：</strong>不要完全依赖后视镜</li>
+            <li><strong>声音提示：</strong>倒车雷达或影像系统是辅助，不能替代观察</li>
+            <li><strong>夜间倒车：</strong>打开倒车灯和应急灯增加可见度</li>
+        </ul>
+    </div>
+
+    <!-- 倒车时方向盘的对应关系 -->
+    <div class="method-section" style="background: #FFF5E6; border-left: 4px solid #ED8936;">
+        <h2>倒车时方向盘转向对应关系</h2>
+        <p style="margin-bottom: 1rem;"><strong>重要概念：</strong>倒车时方向盘转向与车尾移动方向一致。</p>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>想让车尾向...</th>
+                    <th>方向盘转向</th>
+                    <th>记忆要点</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>车尾向左</strong></td>
+                    <td class="recommended">向左转</td>
+                    <td>方向盘左转 → 车尾左移</td>
+                </tr>
+                <tr>
+                    <td><strong>车尾向右</strong></td>
+                    <td class="recommended">向右转</td>
+                    <td>方向盘右转 → 车尾右移</td>
+                </tr>
+                <tr>
+                    <td><strong>纠正：车辆向左偏离</strong></td>
+                    <td class="recommended">向右转</td>
+                    <td>让车尾向右回到中心</td>
+                </tr>
+                <tr>
+                    <td><strong>纠正：车辆向右偏离</strong></td>
+                    <td class="recommended">向左转</td>
+                    <td>让车尾向左回到中心</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="margin-top: 1rem; padding: 1rem; background: #FFFFFF; border-radius: 8px;">
+            <strong>💡 记忆技巧：</strong>倒车时，想象你坐在车尾朝外看。方向盘往哪转，车尾就往哪去。这和前进时一样！
+        </p>
+    </div>
+
+    <!-- 练习建议 -->
+    <div class="method-section" style="background: #EBF8FF; border-left: 4px solid #2B6CB0;">
+        <h2>练习建议</h2>
+
+        <h3 style="color: #2B6CB0; margin-top: 1.5rem;">直线倒车练习：</h3>
+        <ol style="padding-left: 1.5rem;">
+            <li><strong>空旷场地：</strong>用路锥设置两条平行线（宽3米），练习在其间直线倒车</li>
+            <li><strong>距离判断：</strong>练习倒车指定距离（10米、20米等）</li>
+            <li><strong>保持平行：</strong>练习保持车身与道路边缘平行</li>
+            <li><strong>微调练习：</strong>故意让车辆偏离，然后练习纠正</li>
+        </ol>
+
+        <h3 style="color: #2B6CB0; margin-top: 1.5rem;">转弯倒车练习：</h3>
+        <ol style="padding-left: 1.5rem;">
+            <li><strong>L型路线：</strong>用路锥设置L型路线，练习90度转弯倒车</li>
+            <li><strong>转向时机：</strong>反复练习找到最佳转向时机点</li>
+            <li><strong>不同角度：</strong>练习30度、45度、90度等不同角度的转弯</li>
+            <li><strong>盲区观察：</strong>让朋友站在盲区位置，练习转头观察</li>
+        </ol>
+
+        <h3 style="color: #2B6CB0; margin-top: 1.5rem;">综合练习：</h3>
+        <ol style="padding-left: 1.5rem;">
+            <li><strong>组合动作：</strong>直线倒车→转弯→再直线倒车</li>
+            <li><strong>实际场景：</strong>在实际停车场练习倒车入库</li>
+            <li><strong>计时练习：</strong>在保证安全的前提下提高操作速度</li>
+            <li><strong>夜间练习：</strong>熟悉夜间倒车的视线条件</li>
+        </ol>
+    </div>
+</div>

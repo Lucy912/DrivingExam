@@ -1,0 +1,492 @@
+<div class="topic-detail">
+    <h1>⬅️ 路口左转技巧</h1>
+
+    <div class="intro">
+        <p><strong>什么是路口左转：</strong>左转是路口操作中最复杂的动作之一，因为你需要穿越对向车道。这要求精确的时机判断、充分的观察和正确的定位。在荷兰，左转还需要特别注意自行车和电动车。</p>
+    </div>
+
+    <!-- 步骤图示 -->
+    <div class="diagram-section">
+        <h2>路口左转过程</h2>
+        <div class="svg-container">
+            <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                <!-- 道路背景 -->
+                <rect x="0" y="0" width="800" height="600" fill="#E2E8F0"/>
+
+                <!-- 主道路（南北向） -->
+                <rect x="300" y="0" width="200" height="250" fill="#A0AEC0"/>
+                <rect x="300" y="350" width="200" height="250" fill="#A0AEC0"/>
+
+                <!-- 横道路（东西向） -->
+                <rect x="0" y="250" width="300" height="100" fill="#A0AEC0"/>
+                <rect x="500" y="250" width="300" height="100" fill="#A0AEC0"/>
+
+                <!-- 路口区域 -->
+                <rect x="300" y="250" width="200" height="100" fill="#A0AEC0"/>
+
+                <!-- 车道标线 -->
+                <line x1="400" y1="0" x2="400" y2="250" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="20,15"/>
+                <line x1="400" y1="350" x2="400" y2="600" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="20,15"/>
+                <line x1="0" y1="300" x2="300" y2="300" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="20,15"/>
+                <line x1="500" y1="300" x2="800" y2="300" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="20,15"/>
+
+                <!-- 停止线 -->
+                <line x1="400" y1="350" x2="500" y2="350" stroke="#FFFFFF" stroke-width="5"/>
+
+                <!-- 人行横道 -->
+                <g id="crosswalk-west">
+                    <rect x="255" y="305" width="10" height="40" fill="#FFFFFF"/>
+                    <rect x="270" y="305" width="10" height="40" fill="#FFFFFF"/>
+                    <rect x="285" y="305" width="10" height="40" fill="#FFFFFF"/>
+                </g>
+
+                <!-- 对向来车 -->
+                <g id="oncoming-car">
+                    <rect x="340" y="120" width="50" height="90" rx="5" fill="#E53E3E" opacity="0.7"/>
+                    <text x="310" y="110" font-size="12" fill="#E53E3E" font-weight="bold">对向来车</text>
+                    <path d="M 365 210 L 365 250" stroke="#E53E3E" stroke-width="3" marker-end="url(#arrowred)" stroke-dasharray="5,5"/>
+                </g>
+
+                <!-- 步骤1：接近路口 -->
+                <g id="left-approach">
+                    <rect x="410" y="480" width="50" height="90" rx="5" fill="#4299E1" opacity="0.5"/>
+                    <text x="470" y="530" font-size="14" fill="#2D3748" font-weight="bold">步骤1</text>
+                </g>
+
+                <!-- 步骤2：靠左定位 -->
+                <g id="left-position">
+                    <rect x="410" y="380" width="50" height="90" rx="5" fill="#4299E1" opacity="0.7"/>
+                    <text x="470" y="430" font-size="14" fill="#2D3748" font-weight="bold">步骤2</text>
+                </g>
+
+                <!-- 步骤3：等待位置 -->
+                <g id="left-wait">
+                    <rect x="410" y="270" width="50" height="90" rx="5" fill="#ED8936" opacity="0.8"/>
+                    <text x="470" y="320" font-size="14" fill="#ED8936" font-weight="bold">步骤3：等待</text>
+                </g>
+
+                <!-- 左转路径 -->
+                <path d="M 435 270 Q 350 280, 250 280" stroke="#48BB78" stroke-width="4" fill="none" marker-end="url(#arrowgreen10)" stroke-dasharray="8,4"/>
+
+                <!-- 步骤4：完成转弯 -->
+                <g id="left-final">
+                    <rect x="100" y="305" width="90" height="50" rx="5" fill="#48BB78"/>
+                    <text x="105" y="370" font-size="14" fill="#2D3748" font-weight="bold">步骤4：完成</text>
+                </g>
+
+                <!-- 观察方向 -->
+                <circle cx="350" cy="180" r="15" fill="#9333EA" opacity="0.7"/>
+                <text x="290" y="175" font-size="12" fill="#9333EA" font-weight="bold">观察对向</text>
+
+                <circle cx="250" cy="350" r="12" fill="#9333EA" opacity="0.7"/>
+                <text x="200" y="380" font-size="12" fill="#9333EA" font-weight="bold">左方来车</text>
+
+                <!-- 自行车道标注 -->
+                <rect x="285" y="250" width="15" height="100" fill="#DC2626" opacity="0.3"/>
+                <text x="220" y="320" font-size="11" fill="#DC2626" font-weight="bold">自行车道</text>
+
+                <!-- 危险区域标注 -->
+                <ellipse cx="380" cy="300" rx="60" ry="40" fill="#E53E3E" opacity="0.15"/>
+                <text x="340" y="305" font-size="13" fill="#E53E3E" font-weight="bold">危险区域</text>
+
+                <!-- 箭头定义 -->
+                <defs>
+                    <marker id="arrowgreen10" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#48BB78"/>
+                    </marker>
+                    <marker id="arrowred" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#E53E3E"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+        <div class="explanation">
+            <strong>图解说明：</strong>橙色车辆=等待对向车辆通过。绿色箭头=左转路径。红色椭圆=危险区域（需穿越对向车道）。左转时必须让对向直行车辆和右转车辆！
+        </div>
+    </div>
+
+    <!-- 详细步骤 -->
+    <div class="method-section">
+        <h2>左转详细步骤</h2>
+        <div class="steering-demo">
+            <div class="step">
+                <h3>步骤1：提前规划（距路口150-200米）</h3>
+                <p><strong>检查导航/标志：</strong>确认要左转</p>
+                <p><strong>观察路况：</strong></p>
+                <ul class="tip-list">
+                    <li>是否有左转专用道</li>
+                    <li>是否有左转专用信号灯</li>
+                    <li>是否有禁止左转标志</li>
+                    <li>对向车流量如何</li>
+                </ul>
+                <p><strong>打转向灯：</strong>距路口约150米时打左转向灯</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤2：变道靠左（距路口80-100米）</h3>
+                <p><strong>检查后视镜：</strong>观察左后方是否有车辆</p>
+                <p><strong>检查盲区：</strong>转头看左侧盲区</p>
+                <p><strong>变道：</strong>安全时移动到最左侧车道（或左转专用道）</p>
+                <p><strong>位置：</strong>车辆靠近道路中央分隔线，但不要压线</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤3：减速接近（距路口50米）</h3>
+                <p><strong>减速：</strong>降至20-30公里/小时</p>
+                <p><strong>降档：</strong>手动挡降至2档</p>
+                <p><strong>开始观察对向交通：</strong></p>
+                <ul class="tip-list">
+                    <li><strong>对向直行：</strong>是否有车辆直行</li>
+                    <li><strong>对向右转：</strong>对向右转车也有优先权</li>
+                    <li><strong>左方来车：</strong>横向道路是否有来车</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>步骤4：到达等待位置（关键！）</h3>
+                <p><strong>正确的等待位置：</strong></p>
+                <ul class="tip-list">
+                    <li>前进到路口中央</li>
+                    <li>前轮接近但不越过路口中心点</li>
+                    <li>车身保持直行方向（还没开始转弯）</li>
+                    <li>这样可以为后方车辆让出空间</li>
+                </ul>
+                <p><strong>如果信号灯变黄/红：</strong>已经进入路口的车辆必须完成转弯</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤5：等待对向车辆（耐心！）</h3>
+                <p><strong>必须让行：</strong></p>
+                <ul class="tip-list">
+                    <li><strong>对向直行车辆：</strong>绝对优先</li>
+                    <li><strong>对向右转车辆：</strong>通常有优先权</li>
+                </ul>
+                <p><strong>判断时机：</strong></p>
+                <ul class="tip-list">
+                    <li>对向无车或距离足够远（至少5-6秒间隔）</li>
+                    <li>不要冒险！宁可多等一个信号灯周期</li>
+                </ul>
+                <p style="color: #E53E3E; font-weight: bold;">永远不要催促！安全第一！</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤6：最后检查并执行转弯</h3>
+                <p><strong>转弯前最后确认：</strong></p>
+                <ul class="tip-list">
+                    <li><strong>对向：</strong>确认没有新的来车</li>
+                    <li><strong>左方：</strong>确认左侧道路畅通</li>
+                    <li><strong>自行车道：</strong>转头检查左侧自行车道</li>
+                    <li><strong>人行横道：</strong>确认无行人</li>
+                </ul>
+                <p><strong>转弯操作：</strong>快速但平稳地完成转弯，不要犹豫</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤7：完成转弯</h3>
+                <p><strong>转弯路径：</strong>不要"切角"，走正常的弧线</p>
+                <p><strong>进入车道：</strong>进入新道路的右侧车道（如多车道）</p>
+                <p><strong>加速：</strong>快速加速融入车流</p>
+                <p><strong>关闭转向灯：</strong>如果没有自动关闭</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 左转优先权规则 -->
+    <div class="method-section" style="background: #FDECEA; border-left: 4px solid #E53E3E;">
+        <h2>🚨 左转优先权规则（必须记住！）</h2>
+
+        <div style="margin-top: 1rem;">
+            <h3 style="color: #C53030;">谁有优先权？</h3>
+            <p>左转时，你通常<strong>没有优先权</strong>，必须让行：</p>
+
+            <table class="comparison-table" style="margin-top: 1rem;">
+                <thead>
+                    <tr>
+                        <th>交通类型</th>
+                        <th>你的义务</th>
+                        <th>说明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>对向直行车辆</strong></td>
+                        <td class="recommended" style="color: #E53E3E;">必须让行</td>
+                        <td>直行优先于左转</td>
+                    </tr>
+                    <tr>
+                        <td><strong>对向右转车辆</strong></td>
+                        <td class="recommended" style="color: #E53E3E;">通常让行</td>
+                        <td>右转通常优先于左转</td>
+                    </tr>
+                    <tr>
+                        <td><strong>对向自行车</strong></td>
+                        <td class="recommended" style="color: #E53E3E;">必须让行</td>
+                        <td>自行车可能直行或右转</td>
+                    </tr>
+                    <tr>
+                        <td><strong>左侧自行车道</strong></td>
+                        <td class="recommended" style="color: #E53E3E;">必须让行</td>
+                        <td>你的转弯会穿越自行车道</td>
+                    </tr>
+                    <tr>
+                        <td><strong>人行横道行人</strong></td>
+                        <td class="recommended" style="color: #E53E3E;">必须让行</td>
+                        <td>正在过马路的行人</td>
+                    </tr>
+                    <tr>
+                        <td><strong>左方直行车辆</strong></td>
+                        <td>视情况而定</td>
+                        <td>取决于路口类型和信号灯</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C53030;">特殊情况：左转箭头灯</h3>
+            <p>如果有专用左转箭头灯：</p>
+            <ul class="tip-list">
+                <li><strong>绿色箭头亮起：</strong>对向车辆已被红灯拦住，你可以安全左转</li>
+                <li><strong>这是最安全的左转时机</strong></li>
+                <li><strong>仍要注意：</strong>行人和自行车</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 不同类型路口的左转 -->
+    <div class="method-section" style="background: #FFF7ED; border-left: 4px solid #F59E0B;">
+        <h2>🚦 不同类型路口的左转</h2>
+
+        <div style="margin-top: 1rem;">
+            <h3 style="color: #C05621;">1. 有信号灯路口（最常见）</h3>
+            <ul class="tip-list">
+                <li><strong>绿灯（无箭头）：</strong>可以左转，但必须让对向直行和右转</li>
+                <li><strong>绿色左转箭头：</strong>可以安全左转，对向已停</li>
+                <li><strong>黄灯：</strong>如已进入路口，必须完成转弯；如未进入，停车等待</li>
+                <li><strong>红灯：</strong>停车等待，不能左转</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C05621;">2. 无信号灯路口（等级道路）</h3>
+            <ul class="tip-list">
+                <li><strong>你在主路左转：</strong>让对向主路直行车辆</li>
+                <li><strong>你在支路左转进入主路：</strong>让双向主路来车</li>
+                <li><strong>识别主路：</strong>路面宽度、优先权标志</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C05621;">3. 无信号灯路口（同等道路）</h3>
+            <ul class="tip-list">
+                <li><strong>右侧优先规则：</strong>让右边来车先行</li>
+                <li><strong>左转时：</strong>必须让对向直行车辆（它们来自你的"右边"）</li>
+                <li><strong>同时到达：</strong>如果你和对向车同时到达，对向直行优先</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #C05621;">4. T字路口</h3>
+            <ul class="tip-list">
+                <li><strong>从直路左转进入支路：</strong>让对向来车</li>
+                <li><strong>从支路左转进入直路：</strong>让双向直路来车</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 常见错误 -->
+    <div class="mistakes">
+        <h2>常见错误</h2>
+        <div class="mistake-grid">
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>不让对向直行车辆</h4>
+                <p>这是最危险的错误！对向直行车辆绝对有优先权。强行左转可能导致严重正面碰撞。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>等待位置错误</h4>
+                <p>没有前进到路口中央等待，或者前进过多越过中心点。正确位置是前轮接近但不越过路口中心。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>误判对向车辆距离/速度</h4>
+                <p>低估对向车辆的速度，认为"来得及"。实际上对向车辆比你想象的更快。宁可多等，不要冒险。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>忘记让自行车</h4>
+                <p>左转时会穿越左侧自行车道。必须转头检查，让自行车先行。在荷兰这是考试重点！</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>"切角"转弯</h4>
+                <p>为了快速完成而直接斜插到目标车道。正确做法是走正常弧线，不要进入对向车道。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>转弯时犹豫</h4>
+                <p>开始转弯后又犹豫减速，在危险区域停留过久。一旦决定转弯，就要果断完成。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>黄灯时进入路口</h4>
+                <p>黄灯亮起时才进入路口左转是危险的。如果灯变红，你可能困在路口中央。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>被后方车辆催促</h4>
+                <p>后方车辆按喇叭催促，导致仓促左转。永远不要因为催促而冒险，安全是第一位。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 专业建议 -->
+    <div class="tips">
+        <h2>专业建议</h2>
+        <ul class="tip-list">
+            <li><strong>提前150米打转向灯：</strong>左转比右转复杂，需要更多准备</li>
+            <li><strong>靠左定位：</strong>移动到最左侧车道或左转专用道</li>
+            <li><strong>前进到正确等待位置：</strong>前轮接近但不越过路口中心</li>
+            <li><strong>保持直行方向等待：</strong>在等待时不要提前转向</li>
+            <li><strong>耐心等待对向清空：</strong>不要冒险，宁可多等</li>
+            <li><strong>至少5-6秒间隔：</strong>确保有足够时间安全完成转弯</li>
+            <li><strong>转头检查自行车：</strong>转弯前检查左侧自行车道</li>
+            <li><strong>一旦开始，果断完成：</strong>不要在危险区域犹豫</li>
+            <li><strong>走正常弧线：</strong>不要切角进入对向车道</li>
+            <li><strong>进入右侧车道：</strong>转入新道路后进入最右侧车道</li>
+            <li><strong>不要被催促：</strong>忽略后方的喇叭，安全第一</li>
+            <li><strong>利用左转箭头灯：</strong>如果有，这是最安全的时机</li>
+        </ul>
+    </div>
+
+    <!-- 左转 vs 右转对比 -->
+    <div class="comparison">
+        <h2>左转 vs 右转对比</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>特点</th>
+                    <th>左转</th>
+                    <th>右转</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>复杂度</strong></td>
+                    <td>高</td>
+                    <td class="recommended">低</td>
+                </tr>
+                <tr>
+                    <td><strong>需要穿越对向车道</strong></td>
+                    <td style="color: #E53E3E;">是</td>
+                    <td class="recommended">否</td>
+                </tr>
+                <tr>
+                    <td><strong>需要让对向直行</strong></td>
+                    <td style="color: #E53E3E;">必须</td>
+                    <td>通常不需要</td>
+                </tr>
+                <tr>
+                    <td><strong>危险程度</strong></td>
+                    <td>较高</td>
+                    <td class="recommended">较低</td>
+                </tr>
+                <tr>
+                    <td><strong>等待时间</strong></td>
+                    <td>通常较长</td>
+                    <td class="recommended">通常较短</td>
+                </tr>
+                <tr>
+                    <td><strong>转弯半径</strong></td>
+                    <td>大弯</td>
+                    <td class="recommended">小弯</td>
+                </tr>
+                <tr>
+                    <td><strong>定位</strong></td>
+                    <td>靠左/中央</td>
+                    <td class="recommended">靠右</td>
+                </tr>
+                <tr>
+                    <td><strong>荷兰自行车让行</strong></td>
+                    <td>让左侧自行车道</td>
+                    <td>让右侧自行车道</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 考试要点 -->
+    <div class="method-section" style="background: #FEF5E7; border-left: 4px solid #D4AC0D;">
+        <h2>📝 考试要点</h2>
+
+        <div style="margin-top: 1rem;">
+            <h3 style="color: #856404;">评分标准</h3>
+            <ul class="tip-list">
+                <li><strong>✅ 提前打转向灯：</strong>距路口足够远（~150米）</li>
+                <li><strong>✅ 正确定位：</strong>移动到最左侧车道/左转专用道</li>
+                <li><strong>✅ 正确等待位置：</strong>前进到路口中央，不越线</li>
+                <li><strong>✅ 让对向交通：</strong>让对向直行和右转车辆</li>
+                <li><strong>✅ 让自行车：</strong>转头检查并让自行车</li>
+                <li><strong>✅ 让行人：</strong>让人行横道上的行人</li>
+                <li><strong>✅ 安全判断：</strong>有足够间隔才转弯</li>
+                <li><strong>✅ 果断执行：</strong>一旦开始，果断完成</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <h3 style="color: #856404;">严重错误（可能直接不及格）</h3>
+            <ul class="tip-list">
+                <li><strong>❌ 不让对向车辆：</strong>强行左转导致危险</li>
+                <li><strong>❌ 不让自行车：</strong>荷兰考试重点</li>
+                <li><strong>❌ 红灯左转：</strong>绝对禁止</li>
+                <li><strong>❌ 切角转弯：</strong>进入对向车道</li>
+                <li><strong>❌ 危险判断：</strong>间隔不够仍强行转弯</li>
+                <li><strong>❌ 造成危险：</strong>迫使其他车辆急刹</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 练习建议 -->
+    <div class="method-section" style="background: #EBF8FF; border-left: 4px solid #2B6CB0;">
+        <h2>练习建议</h2>
+        <ol style="padding-left: 1.5rem;">
+            <li><strong>从简单路口开始：</strong>先在交通少的路口练习</li>
+            <li><strong>有信号灯路口优先：</strong>利用左转箭头灯练习最安全</li>
+            <li><strong>练习等待位置：</strong>反复练习前进到正确的等待位置</li>
+            <li><strong>练习判断间隔：</strong>估算对向车辆的距离和到达时间</li>
+            <li><strong>练习观察顺序：</strong>对向-左方-自行车-行人</li>
+            <li><strong>模拟压力：</strong>在有人等待的情况下练习不被催促</li>
+            <li><strong>不同类型路口：</strong>有灯、无灯、T字路口都要练</li>
+            <li><strong>繁忙时段：</strong>在高峰期练习，提高压力下的判断力</li>
+            <li><strong>夜间练习：</strong>夜间判断距离更难，需要专门练习</li>
+            <li><strong>录像分析：</strong>让朋友录像，回看分析判断是否正确</li>
+        </ol>
+    </div>
+
+    <!-- 总结 -->
+    <div class="method-section" style="background: #E53E3E; color: #FFFFFF; border-left: 4px solid #9B1C1C;">
+        <h2 style="color: #FFFFFF;">🚨 左转安全总结</h2>
+        <div style="font-size: 1.1rem; line-height: 1.8; margin-top: 1rem;">
+            <p><strong>左转是路口操作中最危险的动作之一。</strong></p>
+            <p style="margin-top: 1rem;">记住关键原则：</p>
+            <ul style="padding-left: 2rem; margin-top: 0.5rem;">
+                <li><strong>永远让对向直行车辆</strong></li>
+                <li><strong>不要误判对向车辆的速度</strong></li>
+                <li><strong>宁可多等，不要冒险</strong></li>
+                <li><strong>不要被催促</strong></li>
+                <li><strong>一旦开始，果断完成</strong></li>
+            </ul>
+            <p style="margin-top: 1rem; font-weight: bold; font-size: 1.2rem;">
+                如果不确定是否安全，那就不安全。等待下一个机会！
+            </p>
+        </div>
+    </div>
+</div>

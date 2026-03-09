@@ -1,0 +1,278 @@
+<div class="topic-detail">
+    <h1>🔃 两点掉头技巧</h1>
+
+    <div class="intro">
+        <p><strong>什么是两点掉头：</strong>利用道路一侧的车道、入口或空地，通过倒车进入该空间，然后向前驶出完成180度掉头。比三点掉头更快捷高效。</p>
+    </div>
+
+    <!-- 步骤图示 -->
+    <div class="diagram-section">
+        <h2>两步掉头过程</h2>
+        <div class="svg-container">
+            <svg viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg">
+                <!-- 主干道 -->
+                <rect x="0" y="0" width="200" height="800" fill="#48BB78" opacity="0.3"/>
+                <rect x="200" y="0" width="250" height="800" fill="#A0AEC0"/>
+                <rect x="450" y="0" width="150" height="800" fill="#48BB78" opacity="0.3"/>
+
+                <!-- 道路标线 -->
+                <line x1="200" y1="0" x2="200" y2="800" stroke="#FFFFFF" stroke-width="3"/>
+                <line x1="450" y1="0" x2="450" y2="800" stroke="#FFFFFF" stroke-width="3"/>
+                <line x1="325" y1="0" x2="325" y2="800" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="20,15"/>
+
+                <!-- 人行道边缘 -->
+                <rect x="180" y="0" width="20" height="800" fill="#718096"/>
+                <rect x="450" y="0" width="20" height="800" fill="#718096"/>
+
+                <!-- 右侧车道/入口 -->
+                <rect x="450" y="250" width="150" height="200" fill="#8B4513" opacity="0.3"/>
+                <text x="480" y="280" font-size="18" fill="#2D3748" font-weight="bold">车道/入口</text>
+
+                <!-- 停车点标记 -->
+                <circle cx="100" cy="350" r="8" fill="#E53E3E"/>
+                <text x="50" y="380" font-size="16" fill="#E53E3E" font-weight="bold">停车点</text>
+                <line x1="200" y1="350" x2="290" y2="350" stroke="#E53E3E" stroke-width="2" stroke-dasharray="5,5"/>
+                <text x="220" y="340" font-size="14" fill="#E53E3E" font-weight="bold">≈1m</text>
+
+                <!-- 步骤1：停在左侧 -->
+                <g id="step1-2pt">
+                    <rect x="260" y="320" width="60" height="100" rx="5" fill="#4299E1"/>
+                    <rect x="270" y="330" width="40" height="30" fill="#E2E8F0"/>
+                    <circle cx="275" cy="330" r="8" fill="#2D3748"/>
+                    <circle cx="305" cy="330" r="8" fill="#2D3748"/>
+                    <circle cx="275" cy="410" r="8" fill="#2D3748"/>
+                    <circle cx="305" cy="410" r="8" fill="#2D3748"/>
+                    <text x="240" y="450" font-size="20" fill="#FFFFFF" font-weight="bold">步骤1</text>
+                </g>
+
+                <!-- 倒车箭头弧线 -->
+                <path d="M 290 300 Q 400 280, 500 350" stroke="#ED8936" stroke-width="5" fill="none" marker-end="url(#arroworange2)" stroke-dasharray="10,5"/>
+                <text x="380" y="290" font-size="18" fill="#ED8936" font-weight="bold">倒车</text>
+
+                <!-- 步骤2：倒入车道 -->
+                <g id="step2-2pt">
+                    <rect x="470" y="320" width="100" height="60" rx="5" fill="#4299E1" transform="rotate(90 520 350)"/>
+                    <rect x="480" y="330" width="30" height="40" fill="#E2E8F0" transform="rotate(90 520 350)"/>
+                    <circle cx="485" cy="335" r="8" fill="#2D3748" transform="rotate(90 520 350)"/>
+                    <circle cx="515" cy="335" r="8" fill="#2D3748" transform="rotate(90 520 350)"/>
+                    <circle cx="485" cy="365" r="8" fill="#2D3748" transform="rotate(90 520 350)"/>
+                    <circle cx="515" cy="365" r="8" fill="#2D3748" transform="rotate(90 520 350)"/>
+                    <text x="530" y="380" font-size="20" fill="#FFFFFF" font-weight="bold">步骤2</text>
+                </g>
+
+                <!-- 前进箭头 -->
+                <path d="M 520 500 L 290 600" stroke="#48BB78" stroke-width="5" marker-end="url(#arrowgreen2)"/>
+                <text x="380" y="560" font-size="18" fill="#48BB78" font-weight="bold">前进驶出</text>
+
+                <!-- 箭头标记定义 -->
+                <defs>
+                    <marker id="arroworange2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#ED8936"/>
+                    </marker>
+                    <marker id="arrowgreen2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#48BB78"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+        <div class="explanation">
+            <strong>图解说明：</strong>橙色虚线箭头=倒车进入车道，绿色箭头=前进完成掉头。红色虚线表示停车时与人行道保持约1米距离。
+        </div>
+    </div>
+
+    <!-- 详细步骤 -->
+    <div class="method-section">
+        <h2>详细操作步骤</h2>
+        <div class="steering-demo">
+            <div class="step">
+                <h3>步骤1：我可以在这里掉头吗？</h3>
+                <p><strong>检查：</strong></p>
+                <ul class="tip-list">
+                    <li>确认右侧有合适的车道、入口或空地</li>
+                    <li>确认该车道/入口足够宽（至少能容纳整车）</li>
+                    <li>确认无禁止掉头标志</li>
+                    <li>确认不会阻碍该车道/入口的正常使用</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>步骤2：停在道路左侧</h3>
+                <p><strong>操作：</strong>在车道/入口对面，停在道路左侧距离人行道约1米的位置</p>
+                <p><strong>原因：</strong>这个位置给倒车转向提供足够空间</p>
+                <p><strong>要点：</strong>观察后方交通，打右转向灯</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤3：倒车进入车道</h3>
+                <p><strong>操作：</strong>观察周围交通，挂倒挡，灵活转向，倒车进入右侧车道/入口</p>
+                <p><strong>速度：</strong>保持步行速度</p>
+                <p><strong>观察：</strong>持续观察后视镜和两侧交通</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤4：停车</h3>
+                <p><strong>操作：</strong>车辆完全进入车道/入口后停车</p>
+                <p><strong>检查：</strong>确保车辆不阻挡主干道</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤5：观察并前进</h3>
+                <p><strong>操作：</strong>观察交通，挂前进挡，打左转向灯</p>
+                <p><strong>要点：</strong>灵活转向驶入主干道</p>
+            </div>
+
+            <div class="step">
+                <h3>步骤6：调整速度融入车流</h3>
+                <p><strong>操作：</strong>观察来车，选择合适时机加速驶入</p>
+                <p><strong>要点：</strong>确保不妨碍主干道上的车辆</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 对比三点掉头 -->
+    <div class="comparison">
+        <h2>两点掉头 vs 三点掉头</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>特点</th>
+                    <th>两点掉头</th>
+                    <th>三点掉头</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>所需时间</strong></td>
+                    <td class="recommended">更快 (~10-15秒)</td>
+                    <td>较慢 (~20-30秒)</td>
+                </tr>
+                <tr>
+                    <td><strong>前进次数</strong></td>
+                    <td class="recommended">1次</td>
+                    <td>2次</td>
+                </tr>
+                <tr>
+                    <td><strong>倒车次数</strong></td>
+                    <td class="recommended">1次</td>
+                    <td>1次</td>
+                </tr>
+                <tr>
+                    <td><strong>所需道路宽度</strong></td>
+                    <td>中等（需要侧面空间）</td>
+                    <td class="recommended">较窄即可</td>
+                </tr>
+                <tr>
+                    <td><strong>难度</strong></td>
+                    <td>中等（需精确控制）</td>
+                    <td>较高（需多次操作）</td>
+                </tr>
+                <tr>
+                    <td><strong>适用场景</strong></td>
+                    <td class="recommended">有车道/入口时</td>
+                    <td>窄路、无侧面空间</td>
+                </tr>
+                <tr>
+                    <td><strong>交通影响</strong></td>
+                    <td class="recommended">较小</td>
+                    <td>较大</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 常见错误 -->
+    <div class="mistakes">
+        <h2>常见错误</h2>
+        <div class="mistake-grid">
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>停车位置太靠右</h4>
+                <p>如果停车时离人行道太近，倒车时无法有效转向进入车道。必须保持约1米距离。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>选择过窄的车道</h4>
+                <p>车道/入口必须足够宽才能完全容纳车辆。如果空间不足，车辆会突出到主干道。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>倒车速度过快</h4>
+                <p>必须保持步行速度（5-10公里/小时）。速度过快会导致转向过度或失控。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>观察不充分</h4>
+                <p>倒车时必须持续观察后方和两侧。忽略观察会导致碰撞或妨碍其他车辆。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>阻塞车道入口</h4>
+                <p>不要在正在使用的车道入口操作。选择空闲或很少使用的入口。</p>
+            </div>
+
+            <div class="mistake-card">
+                <span class="mistake-icon">❌</span>
+                <h4>驶出时未观察</h4>
+                <p>从车道驶回主干道前必须仔细观察来车。这相当于从侧路汇入主路。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 专业建议 -->
+    <div class="tips">
+        <h2>专业建议</h2>
+        <ul class="tip-list">
+            <li><strong>选择合适的车道：</strong>最好选择空置的车道或很少使用的入口</li>
+            <li><strong>保持1米距离：</strong>停车时距离人行道约1米，给转向留出空间</li>
+            <li><strong>步行速度：</strong>整个过程保持低速（5-10公里/小时）</li>
+            <li><strong>灵活转向：</strong>低速下快速转动方向盘以获得最大转向角度</li>
+            <li><strong>持续观察：</strong>倒车时主要看后方，但也要注意两侧交通</li>
+            <li><strong>完全进入：</strong>确保整车进入车道，不突出到主干道</li>
+            <li><strong>打转向灯：</strong>倒车前打右灯，驶出前打左灯</li>
+            <li><strong>让行主路车辆：</strong>驶回主干道时，主路车辆有优先权</li>
+            <li><strong>避免私人产业：</strong>不要使用私人车道，除非得到许可</li>
+        </ul>
+    </div>
+
+    <!-- 何时使用两点掉头 -->
+    <div class="method-section" style="background: #E6FFFA; border-left: 4px solid #48BB78;">
+        <h2>何时使用两点掉头？</h2>
+
+        <h3 style="color: #48BB78; margin-top: 1.5rem;">✅ 适合使用的情况：</h3>
+        <ul class="tip-list">
+            <li>道路右侧有宽敞的车道、入口或停车区域</li>
+            <li>交通流量适中，有足够时间完成操作</li>
+            <li>车道/入口处视线良好</li>
+            <li>想要快速完成掉头，减少对交通的影响</li>
+            <li>考试中要求演示两点掉头技能</li>
+        </ul>
+
+        <h3 style="color: #F56565; margin-top: 1.5rem;">❌ 不适合使用的情况：</h3>
+        <ul class="tip-list">
+            <li>没有合适的侧面空间</li>
+            <li>车道/入口正在频繁使用</li>
+            <li>交通繁忙，无法安全完成</li>
+            <li>私人车道且未获许可</li>
+            <li>视线受阻，看不清来车</li>
+            <li>道路过窄，无法保持1米停车距离</li>
+        </ul>
+    </div>
+
+    <!-- 练习建议 -->
+    <div class="method-section" style="background: #EBF8FF; border-left: 4px solid #2B6CB0;">
+        <h2>练习建议</h2>
+        <ol style="padding-left: 1.5rem;">
+            <li><strong>找到理想练习地点：</strong>寻找有宽敞空置车道的安静街道</li>
+            <li><strong>练习判断距离：</strong>反复练习停在距人行道1米的位置</li>
+            <li><strong>标记参照点：</strong>使用路锥标记理想的停车位置</li>
+            <li><strong>练习倒车角度：</strong>掌握进入不同宽度车道所需的转向角度</li>
+            <li><strong>模拟交通：</strong>让朋友观察并提醒来车，练习观察习惯</li>
+            <li><strong>记录时间：</strong>计时练习，目标是在15秒内完成</li>
+            <li><strong>对比三点掉头：</strong>在同一地点练习两种方法，体会差异</li>
+        </ol>
+    </div>
+</div>

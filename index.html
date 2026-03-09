@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Driving School Study Guide - VERJO</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🚗 Interactive Driving School Study Guide</h1>
+                <div class="header-controls">
+                    <button id="toggleSidebar" class="btn-icon" title="Menu">
+                        <span class="icon">☰</span>
+                    </button>
+                    <button id="toggleProgress" class="btn-icon" title="Progress">
+                        <span class="icon">📊</span>
+                    </button>
+                    <button id="searchBtn" class="btn-icon" title="Search">
+                        <span class="icon">🔍</span>
+                    </button>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="overallProgress"></div>
+                <span class="progress-text" id="progressText">0% completed</span>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Sidebar Navigation -->
+            <aside class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <h2>Table of Contents</h2>
+                    <input type="text" id="chapterSearch" placeholder="Search topics..." class="search-input">
+                </div>
+                <nav class="chapter-nav" id="chapterNav">
+                    <!-- Chapters will be populated by JavaScript -->
+                </nav>
+            </aside>
+
+            <!-- PDF Viewer -->
+            <main class="pdf-viewer">
+                <div class="viewer-controls">
+                    <div class="control-group">
+                        <button id="prevPage" class="btn" title="Previous page">← Previous</button>
+                        <span class="page-info">
+                            <span>Page</span>
+                            <input type="number" id="pageNum" min="1" value="1" class="page-input">
+                            <span>of <span id="pageCount">0</span></span>
+                        </span>
+                        <button id="nextPage" class="btn" title="Next page">Next →</button>
+                    </div>
+                    <div class="control-group">
+                        <button id="zoomOut" class="btn-icon" title="Zoom out">-</button>
+                        <span id="zoomLevel">100%</span>
+                        <button id="zoomIn" class="btn-icon" title="Zoom in">+</button>
+                        <button id="fitWidth" class="btn" title="Fit width">Fit Width</button>
+                    </div>
+                    <div class="control-group">
+                        <button id="markComplete" class="btn btn-success">✓ Mark as Learned</button>
+                    </div>
+                </div>
+
+                <div class="canvas-container" id="canvasContainer">
+                    <canvas id="pdfCanvas"></canvas>
+                </div>
+
+                <div class="page-notes">
+                    <h3>Notes for this page</h3>
+                    <textarea id="pageNotes" placeholder="Add your own notes..."></textarea>
+                    <button id="saveNotes" class="btn btn-primary">Save</button>
+                </div>
+            </main>
+        </div>
+
+        <!-- Quiz Modal -->
+        <div id="quizModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>📝 Traffic Signs Quiz</h2>
+                <div id="quizContent"></div>
+            </div>
+        </div>
+
+        <!-- Progress Modal -->
+        <div id="progressModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>📊 Your Progress</h2>
+                <div id="progressContent"></div>
+            </div>
+        </div>
+
+        <!-- Search Modal -->
+        <div id="searchModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>🔍 Search</h2>
+                <input type="text" id="searchInput" placeholder="Search in document..." class="search-input-large">
+                <div id="searchResults"></div>
+            </div>
+        </div>
+
+        <!-- Floating Action Button -->
+        <button id="quizFab" class="fab" title="Start Quiz">
+            📝
+        </button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
